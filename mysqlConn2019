@@ -1,0 +1,30 @@
+show databases;
+use basicjsp;
+create table ex1(
+	id varchar(20) not null primary key,
+	passwd varchar(20) not null,
+	email varchar(50) not null
+);
+
+desc ex1;
+
+insert into ex1(id,passwd,email) values('dnrgus','dnrgus123','dnrgus4659@naver.com');
+	
+select * from ex1;
+
+create table zipcode(
+	ZIPCODE varchar(100) not null,
+	SIDO varchar(100) not null,
+	GUGUN varchar(200) not null,
+	DONG varchar(200) not null,
+	RI varchar(500) null,
+	BUNJI varchar(300) null,
+	SEQ int null
+);
+
+desc zipcode;
+
+select * from zipcode;
+
+delete from zipcode;
+drop table zipcode;

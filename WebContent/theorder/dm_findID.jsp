@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<title>아이디 찾기</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -26,26 +26,26 @@
 	
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
+			<div class="wrap-login102">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 				<div class="login100-form validate-form" >
-					<form class="login100-form validate-form" method="post" action="login.jsp">
+					<form class="login100-form validate-form" method="post" action="dm_find_id.jsp">
 						<span class="login100-form-title">
-							회원 로그인
+							아이디 찾기
 						</span>
 	
-						<div class="wrap-input100 validate-input" data-validate = "아이디를 입력하세요">
-							<input class="input100" type="text" name="id" placeholder="아이디">
+						<div class="wrap-input100 validate-input" data-validate = "이름을 입력하세요">
+							<input class="input100" type="text" name="name" placeholder="이름">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 							</span>
 						</div>
 	
-						<div class="wrap-input100 validate-input" data-validate = "비밀번호를 입력하세요">
-							<input class="input100" type="password" name="passwd" placeholder="비밀번호">
+						<div class="wrap-input100 validate-input" data-validate = "휴대폰 번호를 입력하세요">
+							<input class="input100" type="text" name="phoneNum" placeholder="휴대폰 번호">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-lock" aria-hidden="true"></i>
@@ -53,7 +53,7 @@
 						</div>
 						
 						<div class="container-login100-form-btn">
-							<input type="submit" class="login100-form-btn" value="로그인">
+							<input type="submit" class="login100-form-btn" value="찾기">
 						</div>
 					</form>
 				</div>

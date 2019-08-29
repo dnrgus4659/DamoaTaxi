@@ -3,9 +3,10 @@
     
     <script>
     	function AutoInput(zip, address){
-    		zip1 = zip.substring(0, 3);
-    		zip2 = zip.substring(4, 7);
-    		opener.form.impairment_zipcode.value=zip1+zip2;
+    		zip1 = zip;
+    		/* zip2 = zip.substring(4, 7); */
+    		/* opener.form.impairment_zipcode.value=zip1+zip2; */
+    		opener.form.impairment_zipcode.value=zip1;
     		opener.form.impairment_address.value=address;
     		self.close();
     	}
@@ -23,8 +24,8 @@
 	usedb.connect();
 	String dong=request.getParameter("dong");
 	
-	/* String sql="select * from zipcode where DONG like'%"+dong+"%'"; */
-	String sql="select * from zipcode where DONG like '%"+dong+"%' union select * from dorozipcode where DORO like '%"+dong+"%'";
+	String sql="select * from zipcode where DONG like '%"+dong+"%' union select * from dorozipcode where RO like '%"+dong+"%'";
+	/* String sql="select * from zipcode where DONG like '%"+dong+"%' union select * from dorozipcode where RO like '%"+dong+"%'"; 학교에서는 RO가 아닌 DORO임*/
 	ResultSet rs=usedb.resultQuery(sql);
 	
 	if(rs.next()){

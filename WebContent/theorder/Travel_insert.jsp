@@ -12,8 +12,8 @@
 	String travel_phone_number=Travel_signup.getTravel_phone_number();    
 	String travel_email=Travel_signup.getTravel_email();           
 	String travel_point=Travel_signup.getTravel_point();     
-	String travel_zipcode=Travel_signup.getTravel_zipcode();           
-	String travel_address=Travel_signup.getTravel_address();
+	String travel_zipcode=Travel_signup.getZipcode();           
+	String travel_address=Travel_signup.getAddress();
 	String travel_category = Travel_signup.getTravel_category();
 	String str="";
 	Connection conn = null;

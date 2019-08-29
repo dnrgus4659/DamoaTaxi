@@ -6,8 +6,8 @@
     		zip1 = zip;
     		/* zip2 = zip.substring(4, 7); */
     		/* opener.form.impairment_zipcode.value=zip1+zip2; */
-    		opener.form.impairment_zipcode.value=zip1;
-    		opener.form.impairment_address.value=address;
+    		opener.form.zipcode.value=zip1;
+    		opener.form.address.value=address;
     		self.close();
     	}
     </script>
@@ -60,7 +60,7 @@
 	%>
 	</table>
 	<font size=2><center><br>찾고자하는 동이 존재하지 않습니다<br><br><br>
-	다시 검색 하시려면<a href=ZipInputForm.html>요기</a>를 누르세여</center></font>
+	다시 검색 하시려면<a href=ZipInputForm.html>여기</a>를 누르세여</center></font>
 <%
 	}
 %>

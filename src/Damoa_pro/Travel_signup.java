@@ -8,8 +8,8 @@ public class Travel_signup {
 	private String travel_phone_number;    
 	private String travel_email;            
 	private String travel_point;           
-	private String travel_zipcode;          
-	private String travel_address;
+	private String zipcode;          
+	private String address;
 	private String travel_category;
 	
 	public String getTravel_ID() {
@@ -33,11 +33,11 @@ public class Travel_signup {
 	public String getTravel_point() {
 		return travel_point;
 	}
-	public String getTravel_zipcode() {
-		return travel_zipcode;
+	public String getZipcode() {
+		return zipcode;
 	}
-	public String getTravel_address() {
-		return travel_address;
+	public String getAddress() {
+		return address;
 	}
 	public String getTravel_category() {
 		return travel_category;
@@ -63,11 +63,11 @@ public class Travel_signup {
 	public void setTravel_point(String travel_point) {
 		this.travel_point = travel_point;
 	}
-	public void setTravel_zipcode(String travel_zipcode) {
-		this.travel_zipcode = travel_zipcode;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
-	public void setTravel_address(String travel_address) {
-		this.travel_address = travel_address;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public void setTravel_category(String travel_category) {
 		this.travel_category = travel_category;

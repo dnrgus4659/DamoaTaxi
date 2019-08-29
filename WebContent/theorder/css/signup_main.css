@@ -487,6 +487,22 @@ textarea {
   position: relative;
   margin: 0;
 }
+.input--style-5,
+.textarea--style-5 {
+  background: transparent;
+  line-height: 38px;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #666;
+  font-size: 15px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  padding: 0 20px;
+}
 
 .input--style-6,
 .textarea--style-6 {

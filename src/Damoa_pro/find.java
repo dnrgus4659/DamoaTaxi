@@ -18,27 +18,28 @@ public class find {
 	private Connection getConnection() throws Exception{
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource)envCtx.lookup("jdbc/basicjsp");
+		DataSource ds = (DataSource)envCtx.lookup("jdbc/2019_2A01_DamoaTaxi");
 		return ds.getConnection();
 	}
-	public int findId(String nickname, String passwd) throws Exception{
+	public int findId(String name, String phoneNum) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String dbpasswd="";
+		String dbphoneNum="";
 		int x = -1;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select passwd from register where nickname=?");
-			pstmt.setString(1, nickname);
+			pstmt = conn.prepareStatement("select if(travel_member.travel_name=?,travel_member.travel_phone_number,if(impairment_member.impairment_name=?,impairment_member.impairment_phone_number,null)) as phoneNum from travel_member natural join impairment_member");
+			pstmt.setString(1, name);
+			pstmt.setString(2, name);
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				dbpasswd=rs.getString("passwd");
-				if(dbpasswd.equals(passwd)) 
+				dbphoneNum=rs.getString("phoneNum");
+				if(dbphoneNum.equals(phoneNum))
 					x=1;//인증성공
 				else
-					x=0;//비밀번호 틀림
+					x=0;//인증실패
 			}else
 				x=-1;
 		}catch(Exception ex) {
@@ -53,24 +54,25 @@ public class find {
 		}
 		return x;
 	}
-	public int findPw(String nickname, String id) throws Exception{
+	public int findPw(String id, String phoneNum) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String dbid="";
+		String dbphoneNum="";
 		int x = -1;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select id from register where nickname=?");
-			pstmt.setString(1, nickname);
+			pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_phone_number,if(impairment_member.impairment_ID=?,impairment_member.impairment_phone_number,null)) as phoneNum from travel_member natural join impairment_member");
+			pstmt.setString(1, id);
+			pstmt.setString(2, id);
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				dbid=rs.getString("id");
-				if(dbid.equals(id)) 
+				dbphoneNum=rs.getString("phoneNum");
+				if(dbphoneNum.equals(phoneNum))
 					x=1;//인증성공
 				else
-					x=0;//비밀번호 틀림
+					x=0;//인증실패
 			}else
 				x=-1;
 		}catch(Exception ex) {
@@ -86,7 +88,7 @@ public class find {
 		return x;
 	}
 	
-	public String selectId(String nickname) {
+	public String selectId(String phoneNum) {
 		String value="";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -94,18 +96,19 @@ public class find {
 		
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select id from register where nickname=?");
-			pstmt.setString(1, nickname);
+			pstmt = conn.prepareStatement("select if(travel_member.travel_phone_number=?,travel_member.travel_ID,if(impairment_member.impairment_phone_number=?,impairment_member.impairment_ID,null)) as ID from travel_member natural join impairment_member");
+			pstmt.setString(1, phoneNum);
+			pstmt.setString(2, phoneNum);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				value=rs.getString("id");
+				value=rs.getString("ID");
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return value;
 	}
-	public String selectPw(String nickname) {
+	public String selectPw(String phoneNum) {
 		String value="";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -113,11 +116,12 @@ public class find {
 		
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select passwd from register where nickname=?");
-			pstmt.setString(1, nickname);
+			pstmt = conn.prepareStatement("select if(travel_member.travel_phone_number=?,travel_member.travel_Password,if(impairment_member.impairment_phone_number=?,impairment_member.impairment_Password,null)) as PW from travel_member natural join impairment_member");
+			pstmt.setString(1, phoneNum);
+			pstmt.setString(2, phoneNum);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				value=rs.getString("passwd");
+				value=rs.getString("PW");
 			}
 		}catch(Exception e){
 			e.printStackTrace();

@@ -121,7 +121,7 @@
     <!-- <script src="js/Travel_validation.js"></script> -->
     <script>
   		function showPopup() {
-  			window.open("ZipInputForm.html", "주소검색", "width=400, height=300, left=100, top=50 scrollbars=yes"); 
+  			window.open("ZipInputForm.html", "주소검색", "width=500, height=300, left=100, top=50 scrollbars=yes"); 
   		}
   	</script>
 

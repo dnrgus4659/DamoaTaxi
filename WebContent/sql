@@ -23,9 +23,24 @@ create table dorozipcode(
 	ENUM int null
 );
 
+create table zipcode(
+	ZIPCODE varchar(30) not null,
+	SIDO varchar(100) not null,
+	GUGUN varchar(200) not null,
+	DONG varchar(200) not null,
+	GITA varchar(500) null,
+	DOROSIDO varchar(100) not null,
+	DOROGUGUN varchar(200) not null,
+	DORO varchar(200) not null,
+	DOROBUNHO varchar(500) null,
+	DOROGITA1 varchar(500) null,
+	DOROGITA2 varchar(500) null
+);
+
 desc zipcode;
 
 select * from zipcode;
+select * from dorozipcode;
 
 delete from zipcode;
 drop table zipcode;

@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
     <!-- Main CSS-->
-    <link href="css/signup_main.css" rel="stylesheet" media="all">
+    <link href="css/signup_main.css?ver=2" rel="stylesheet" media="all">
 </head>
 
 <body>
@@ -32,7 +32,8 @@
                         <div class="form-row">
                             <div class="name">아이디</div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="travel_ID">
+                           		<input class="input--style-7" type="text" name="travel_ID">&nbsp;&nbsp;
+                           		<input type="submit" class="btn btn--radius-2 btn--green" value="중복 확인" formaction="Travel_id_check.jsp">
                             </div>
                         </div>
                         <div class="form-row">
@@ -70,10 +71,9 @@
                             </div>
                         </div>
                         <div class="form-row" style='display:none;'>
-                            <div class="name">포인트</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="travel_point" value="0">
+                                    <input type="hidden" name="travel_point" value="0">
                                 </div>
                             </div>
                         </div>
@@ -89,17 +89,16 @@
                             <div class="name">주소</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="address">
-                                    <p>* 상세 주소는 주소 검색 후 결과 뒤에 입력 하십시오!</p>
+                                    <input class="input--style-7" type="text" name="address">&nbsp;&nbsp;
                                     <input type="button" class="btn btn--radius-2 btn--green" onClick="showPopup()" value="주소 검색">
+                                    <p>* 상세 주소는 주소 검색 후 결과 뒤에 입력 하십시오!</p>
                                 </div>
                             </div>
                         </div>
                         <div class="form-row" style='display:none;'>
-                            <div class="name">포인트</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="travel_category" value="T">
+                                    <input type="hidden" name="travel_category" value="T">
                                 </div>
                             </div>
                         </div>

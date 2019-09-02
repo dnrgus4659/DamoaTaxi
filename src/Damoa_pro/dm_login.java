@@ -17,7 +17,7 @@ public class dm_login {
 	}
 
 	private dm_login() {}
-	private Connection getConnection() throws Exception{
+	private Connection getConnection() throws Exception{//커넥션풀
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
 		DataSource ds = (DataSource)envCtx.lookup("jdbc/2019_2A01_DamoaTaxi");

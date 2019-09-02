@@ -37,6 +37,11 @@ create table zipcode(
 	DOROGITA2 varchar(500) null
 );
 
+/*우편번호 데이터베이스에 입력문*/
+GRANT ALL privileges ON 2019_2A01_DamoaTaxi.* TO 'jspid'@'localhost' IDENTIFIED BY 'jsppass';
+LOAD DATA LOCAL INFILE 'c:\\dorozipcode.txt' INTO TABLE zipcode (ZIPCODE, SIDO, GUGUN, DONG, GITA, DOROSIDO, DOROGUGUN, DORO, DOROBUNHO, DOROGITA1, DOROGITA2);
+
+
 desc zipcode;
 
 select * from zipcode;
@@ -44,6 +49,7 @@ select * from dorozipcode;
 
 delete from zipcode;
 drop table zipcode;
+drop table dorozipcode;
 
 select * from impairment_member;
 -- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.

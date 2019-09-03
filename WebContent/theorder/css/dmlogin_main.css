@@ -64,6 +64,11 @@ a:hover {
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
+	color:gold;
+	font-family:bolder;
+	font-weight:bolder;
+	text-align:center;
+	padding-bottom:80px;
 }
 
 p {
@@ -168,11 +173,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background-color:#ffffff;
 }
 
 .wrap-login100 {
@@ -185,7 +186,7 @@ iframe {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
-  display: flex;
+  display: contents;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 13.3% 9.738% 2.5% 7.12%;
@@ -200,7 +201,7 @@ iframe {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
-  display: flex;
+  display: contents;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 13.3% 9.738% 2.5% 7.12%;

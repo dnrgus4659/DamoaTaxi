@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/dmlogin_util.css">
-	<link rel="stylesheet" type="text/css" href="css/dmlogin_main.css">
+	<link rel="stylesheet" type="text/css" href="css/dmlogin_main.css?ver=1">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -27,10 +27,10 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login101">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
-				</div>
-				<div class="login100-form validate-form" >
+				<!--<div class="login100-pic js-tilt" data-tilt>
+				</div>-->
+				<div class="login100-form validate-form">
+				<h1>Damoa Taxi</h1>
 					<form class="login100-form validate-form" method="post" action="login.jsp">
 						<span class="login100-form-title">
 							회원 로그인
@@ -66,11 +66,18 @@
 							</a>
 						</div>
 	
-						<div class="text-center p-t-136">
+						<div class="text-center p-t-0">
 							<a class="txt2" href="signup_category.html">
 								회원가입 바로가기
 								<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 							</a>
+						</div>
+						<br>
+						<div style="text-align:center">sns계정으로 회원가입/로그인 <br>
+							 <img src="images/gogle.JPG">
+							 <img src="images/naver.JPG">
+							 <img src="images/hub.JPG">
+							 <img src="images/facebook.JPG">
 						</div>
 					</form>
 				</div>

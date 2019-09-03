@@ -97,7 +97,7 @@
         if (!checkExistData(travel_name, "이름을"))
             return false;
  
-        var nameRegExp = /^[가-힣]{2,4}$/;
+        var nameRegExp = /^[가-힣]{2,6}$/;
         if (!nameRegExp.test(travel_name)) {
             alert("이름이 올바르지 않습니다.");
             return false;

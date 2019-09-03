@@ -32,14 +32,14 @@
                         <div class="form-row">
                             <div class="name">아이디</div>
                             <div class="value">
-                                <input class="input--style-7" type="text" name="impairment_ID" maxlength="25">&nbsp;&nbsp;
+                                <input class="input--style-7" type="text" name="impairment_ID" maxlength="25" placeholder="영문 대소문자와 숫자 4~25자리로 입력">&nbsp;&nbsp;
                                 <input type="submit" class="btn btn--radius-2 btn--green" value="중복 확인" formaction="impairment_id_check.jsp">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="name">비밀번호</div>
                             <div class="value">
-                                <input type="password" class="input--style-6" type="text" name="impairment_Password" maxlength="25">
+                                <input type="password" class="input--style-6" type="text" name="impairment_Password" maxlength="25" placeholder="영문 대소문자와 숫자 4~25자리로 입력">
                             </div>
                         </div>
                         <div class="form-row">
@@ -51,7 +51,7 @@
                         <div class="form-row">
                             <div class="name">이름</div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="impairment_name" maxlength="13">
+                                <input class="input--style-6" type="text" name="impairment_name" maxlength="13" placeholder="최대 6글자">
                             </div>
                         </div>
                         <div class="form-row">
@@ -130,13 +130,13 @@
 
     <!-- Main JS -->
     <script src="js/global.js"></script>
-    <!-- <script src="js/impairment_validation.js"></script> -->
+    <script src="js/impairment_validation.js"></script>
 	<script>
   		function showPopup() {
   			window.open("ZipInputForm.html", "주소검색", "width=400, height=300, left=100, top=50 scrollbars=yes"); 
   		}
   	</script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>
 <!-- end document-->

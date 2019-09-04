@@ -3,7 +3,7 @@
 <html>
 <meta charset="UTF-8">
   <head>
-    <title>DamoaTaxi</title>
+    <title>다모아택시</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -107,7 +107,7 @@
 		}
 	%>
 	<!-- END nav -->
-    <section class="ftco-cover overlay" style="background-image: url(images/bg_1.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+    <section class="ftco-cover overlay" style="background-image: url(images/Main_1.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-8 text-center">

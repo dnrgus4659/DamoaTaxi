@@ -10,7 +10,10 @@
 	int check = logon.userCheck(id, passwd);
 	
 	if(check == 1){
+		dm_login logon1 = dm_login.getInstance();
+		String category = logon1.userCategory(id);
 		session.setAttribute("id",id);
+		session.setAttribute("category",category);
 		response.sendRedirect("dm_Main.jsp");
 	}else if(check == 0){%>
 	<script>

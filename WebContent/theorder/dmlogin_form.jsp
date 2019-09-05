@@ -28,7 +28,7 @@
 		<div class="container-login100">
 			<div class="wrap-login101">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
+					<img src="images/0000.PNG" alt="IMG">
 				</div>
 				<div class="login100-form validate-form" >
 					<form class="login100-form validate-form" method="post" action="login.jsp">
@@ -66,7 +66,7 @@
 							</a>
 						</div>
 	
-						<div class="text-center p-t-136">
+						<div class="text-center">
 							<a class="txt2" href="signup_category.html">
 								회원가입 바로가기
 								<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>

@@ -17,7 +17,7 @@ public class dm_login {
 	}
 
 	private dm_login() {}
-	private Connection getConnection() throws Exception{
+	private Connection getConnection() throws Exception{//커넥션풀
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
 		DataSource ds = (DataSource)envCtx.lookup("jdbc/2019_2A01_DamoaTaxi");
@@ -33,7 +33,6 @@ public class dm_login {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("select travel_member.travel_Password as PW from travel_member where travel_member.travel_ID=? union select impairment_member.impairment_Password as PW from impairment_member where impairment_member.impairment_ID=?");
-			/*pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_Password,if(impairment_member.impairment_ID=?,impairment_member.impairment_Password,null)) as PW from travel_member natural join impairment_member");*/
 			pstmt.setString(1, id);
 			pstmt.setString(2, id);
 			rs=pstmt.executeQuery();

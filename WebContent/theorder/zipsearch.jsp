@@ -4,8 +4,6 @@
     <script>
     	function AutoInput(zip, address){
     		zip1 = zip;
-    		/* zip2 = zip.substring(4, 7); */
-    		/* opener.form.impairment_zipcode.value=zip1+zip2; */
     		opener.form.zipcode.value=zip1;
     		opener.form.address.value=address;
     		self.close();
@@ -24,8 +22,7 @@
 	usedb.connect();
 	String dong=request.getParameter("dong");
 	
-	String sql="select * from zipcode where DONG like '%"+dong+"%' union select * from dorozipcode where RO like '%"+dong+"%'";
-	/* String sql="select * from zipcode where DONG like '%"+dong+"%' union select * from dorozipcode where RO like '%"+dong+"%'"; 학교에서는 RO가 아닌 DORO임*/
+	String sql="select * from zipcode where DONG like '%"+dong+"%' or DORO like '%"+dong+"%'";
 	ResultSet rs=usedb.resultQuery(sql);
 	
 	if(rs.next()){
@@ -34,20 +31,27 @@
 			String sido=rs.getString("SIDO");
 			String gugun=rs.getString("GUGUN");
 			String don = rs.getString("DONG");
-			String ri = rs.getString("RI");
-			String bunji = rs.getString("BUNJI");
-			if(ri==null) ri="";
-			if(bunji==null) bunji="";
-			String address = sido+" "+gugun+" "+don+" "+ri+" "+bunji;
+			String gita = rs.getString("GITA");
+			String dorosido=rs.getString("DOROSIDO");
+			String dorogugun=rs.getString("DOROGUGUN");
+			String doro = rs.getString("DORO");
+			String dorogita1 = rs.getString("DOROGITA1");
+			String dorogita2 = rs.getString("DOROGITA2");
+			if(gita==null) gita="";
+			if(dorogita1==null) dorogita1="";
+			if(dorogita2==null) dorogita2="";
+			
+			String doroaddress = dorosido+" "+dorogugun+" "+doro+" "+dorogita1+" "+dorogita2;
+			String guaddress = sido+" "+gugun+" "+don+" "+gita;
 					
 	%>
 	<tr>
 		<td bgcolor="#eeeeee"><center><font size=2>
-		<a href="JavaScript:AutoInput('<%=zip%>', '<%=address%>')"><%=zip%></a>
+		<a href="JavaScript:AutoInput('<%=zip%>', '<%=doroaddress%>')"><%=zip%></a>
 		</font></center></td>
 		<td bgcolor="#eeeeee">&nbsp;&nbsp;&nbsp;
-		<font size=2><a href="JavaScript:AutoInput('<%=zip %>','<%=address %>')">
-		<%=address %></a></font></td>
+		<font size=2><a style="text-decoration:none;" href="JavaScript:AutoInput('<%=zip %>','<%=doroaddress %>')">
+		<%=doroaddress %><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=guaddress %></a></font></td>
 	</tr>
 	<%
 		}while(rs.next());

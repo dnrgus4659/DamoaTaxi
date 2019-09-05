@@ -29,7 +29,8 @@ public class find {
 		int x = -1;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select if(travel_member.travel_name=?,travel_member.travel_phone_number,if(impairment_member.impairment_name=?,impairment_member.impairment_phone_number,null)) as phoneNum from travel_member natural join impairment_member");
+			/*pstmt = conn.prepareStatement("select if(travel_member.travel_name=?,travel_member.travel_phone_number,if(impairment_member.impairment_name=?,impairment_member.impairment_phone_number,null)) as phoneNum from travel_member natural join impairment_member");*/
+			pstmt = conn.prepareStatement("select travel_member.travel_phone_number as phoneNum from travel_member where travel_member.travel_name=? union select impairment_member.impairment_phone_number as phoneNum from impairment_member where impairment_member.impairment_name=?");
 			pstmt.setString(1, name);
 			pstmt.setString(2, name);
 			rs=pstmt.executeQuery();
@@ -62,7 +63,8 @@ public class find {
 		int x = -1;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_phone_number,if(impairment_member.impairment_ID=?,impairment_member.impairment_phone_number,null)) as phoneNum from travel_member natural join impairment_member");
+			/*pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_phone_number,if(impairment_member.impairment_ID=?,impairment_member.impairment_phone_number,null)) as phoneNum from travel_member natural join impairment_member");*/
+			pstmt = conn.prepareStatement("select travel_member.travel_phone_number as phoneNum from travel_member where travel_member.travel_ID=? union select impairment_member.impairment_phone_number as phoneNum from impairment_member where impairment_member.impairment_ID=?");
 			pstmt.setString(1, id);
 			pstmt.setString(2, id);
 			rs=pstmt.executeQuery();
@@ -96,7 +98,8 @@ public class find {
 		
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select if(travel_member.travel_phone_number=?,travel_member.travel_ID,if(impairment_member.impairment_phone_number=?,impairment_member.impairment_ID,null)) as ID from travel_member natural join impairment_member");
+			/*pstmt = conn.prepareStatement("select if(travel_member.travel_phone_number=?,travel_member.travel_ID,if(impairment_member.impairment_phone_number=?,impairment_member.impairment_ID,null)) as ID from travel_member natural join impairment_member");*/
+			pstmt = conn.prepareStatement("select travel_member.travel_ID as ID from travel_member where travel_member.travel_phone_number=? union select impairment_member.impairment_ID as ID from impairment_member where impairment_member.impairment_phone_number=?");
 			pstmt.setString(1, phoneNum);
 			pstmt.setString(2, phoneNum);
 			rs=pstmt.executeQuery();
@@ -116,7 +119,8 @@ public class find {
 		
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select if(travel_member.travel_phone_number=?,travel_member.travel_Password,if(impairment_member.impairment_phone_number=?,impairment_member.impairment_Password,null)) as PW from travel_member natural join impairment_member");
+			/*pstmt = conn.prepareStatement("select if(travel_member.travel_phone_number=?,travel_member.travel_Password,if(impairment_member.impairment_phone_number=?,impairment_member.impairment_Password,null)) as PW from travel_member natural join impairment_member");*/
+			pstmt = conn.prepareStatement("select travel_member.travel_Password as PW from travel_member where travel_member.travel_phone_number=? union select impairment_member.impairment_Password as PW from impairment_member where impairment_member.impairment_phone_number=?");
 			pstmt.setString(1, phoneNum);
 			pstmt.setString(2, phoneNum);
 			rs=pstmt.executeQuery();

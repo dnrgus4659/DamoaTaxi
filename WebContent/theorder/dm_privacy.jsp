@@ -154,8 +154,9 @@
     		Class.forName("com.mysql.jdbc.Driver");
     		conn=DriverManager.getConnection(jdbcUrl,dbId,dbPass);
     		if(category.equals("I")){
-    			String sql = "select * from impairment_member";
+    			String sql = "select * from impairment_member where impairment_ID=?";
     			pstmt=conn.prepareStatement(sql);
+    			pstmt.setString(1, id);
     			rs=pstmt.executeQuery();
     			String impairment_category = "장애인 택시 고객";
     			while(rs.next()){
@@ -208,8 +209,9 @@
     			<%
     			}
     		}else{
-    			String sql = "select * from travel_member";
+    			String sql = "select * from travel_member where travel_ID=?";
     			pstmt=conn.prepareStatement(sql);
+    			pstmt.setString(1, id);
     			rs=pstmt.executeQuery();
     			String travel_category = "관광 택시 고객";
     			while(rs.next()){

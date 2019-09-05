@@ -32,7 +32,8 @@ public class dm_login {
 		int x = -1;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_Password,if(impairment_member.impairment_ID=?,impairment_member.impairment_Password,null)) as PW from travel_member natural join impairment_member");
+			pstmt = conn.prepareStatement("select travel_member.travel_Password as PW from travel_member where travel_member.travel_ID=? union select impairment_member.impairment_Password as PW from impairment_member where impairment_member.impairment_ID=?");
+			/*pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_Password,if(impairment_member.impairment_ID=?,impairment_member.impairment_Password,null)) as PW from travel_member natural join impairment_member");*/
 			pstmt.setString(1, id);
 			pstmt.setString(2, id);
 			rs=pstmt.executeQuery();
@@ -66,7 +67,8 @@ public class dm_login {
 		int x = -1;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_category,if(impairment_member.impairment_ID=?,impairment_member.impairment_category,null)) as Category from travel_member natural join impairment_member");
+			pstmt = conn.prepareStatement("select travel_member.travel_category as Category from travel_member where travel_member.travel_ID=? union select impairment_member.impairment_category as Category from impairment_member where impairment_member.impairment_ID=?");
+			/*pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_category,if(impairment_member.impairment_ID=?,impairment_member.impairment_category,null)) as Category from travel_member natural join impairment_member");*/
 			pstmt.setString(1, id);
 			pstmt.setString(2, id);
 			rs=pstmt.executeQuery();

@@ -9,8 +9,8 @@ public class impairment_signup {
 	private String impairment_email;           
 	private String impairment_certificate;     
 	private String impairment_point;           
-	private String impairment_zipcode;         
-	private String impairment_address;
+	private String zipcode;         
+	private String address;
 	private String impairment_category;
 	
 	public String getImpairment_ID() {
@@ -37,11 +37,11 @@ public class impairment_signup {
 	public String getImpairment_point() {
 		return impairment_point;
 	}
-	public String getImpairment_zipcode() {
-		return impairment_zipcode;
+	public String getZipcode() {
+		return zipcode;
 	}
-	public String getImpairment_address() {
-		return impairment_address;
+	public String getAddress() {
+		return address;
 	}
 	public String getImpairment_category() {
 		return impairment_category;
@@ -70,11 +70,11 @@ public class impairment_signup {
 	public void setImpairment_point(String impairment_point) {
 		this.impairment_point = impairment_point;
 	}
-	public void setImpairment_zipcode(String impairment_zipcode) {
-		this.impairment_zipcode = impairment_zipcode;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
-	public void setImpairment_address(String impairment_address) {
-		this.impairment_address = impairment_address;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public void setImpairment_category(String impairment_category) {
 		this.impairment_category = impairment_category;

@@ -13,8 +13,8 @@
 	String impairment_email=impairment_signup.getImpairment_email();           
 	String impairment_certificate=impairment_signup.getImpairment_certificate();     
 	String impairment_point=impairment_signup.getImpairment_point();           
-	String impairment_zipcode=impairment_signup.getImpairment_zipcode();         
-	String impairment_address=impairment_signup.getImpairment_address();
+	String impairment_zipcode=impairment_signup.getZipcode();         
+	String impairment_address=impairment_signup.getAddress();
 	String impairment_category=impairment_signup.getImpairment_category();
 	String str="";
 	Connection conn = null;

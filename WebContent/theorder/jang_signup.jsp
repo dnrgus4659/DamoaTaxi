@@ -92,7 +92,7 @@
                             <div class="name">우편번호</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="impairment_zipcode" readonly>
+                                    <input class="input--style-6" type="text" name="zipcode" readonly>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                             <div class="name">주소</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="impairment_address">
+                                    <input class="input--style-6" type="text" name="address">
                                     <p>* 상세 주소는 주소 검색 후 결과 뒤에 입력 하십시오!</p>
                                     <input type="button" class="btn btn--radius-2 btn--green" onClick="showPopup()" value="주소 검색">
                                 </div>

@@ -33,7 +33,7 @@
                             <div class="name">아이디</div>
                             <div class="value">
                                 <input class="input--style-7" type="text" name="impairment_ID" maxlength="25" placeholder="영문 대소문자와 숫자 4~25자리로 입력">&nbsp;&nbsp;
-                                <input type="submit" class="btn btn--radius-2 btn--green" value="중복 확인" formaction="impairment_id_check.jsp">
+                                <button type="button" class="btn btn--radius-2 btn--green" onclick="impairment_idCheck()">중복 확인</button>
                             </div>
                         </div>
                         <div class="form-row">
@@ -131,11 +131,7 @@
     <!-- Main JS -->
     <script src="js/global.js"></script>
     <script src="js/impairment_validation.js"></script>
-	<script>
-  		function showPopup() {
-  			window.open("ZipInputForm.html", "주소검색", "width=400, height=300, left=100, top=50 scrollbars=yes"); 
-  		}
-  	</script>
+	<script src="js/signup.js"></script>
 </body>
 
 </html>

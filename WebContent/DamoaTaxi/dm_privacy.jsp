@@ -103,7 +103,9 @@
 		if(id==null || id.equals("")){
 	%>
 			<script>
+				alert("로그인이 필요합니다.");
 				document.getElementById("logout").style.display='none';
+				history.go(-1);
 			</script>
 	<%		
 		}else{
@@ -177,34 +179,33 @@
     			        <td><%=impairment_category %></td>
     			    </tr>
     			    <tr>
-    			        <th scope="row">아이디</th>
-    			        <td><%=impairment_ID %></td>
-    			    </tr>
-    			    <tr>
     			        <th scope="row">회원명</th>
     			        <td><%=impairment_name %></td>
     			    </tr>
     			    <tr>
-    			        <th scope="row" class="even">연락처</th>
-    			        <td class="even"><%=impairment_phone_number %></td>
+    			        <th scope="row">아이디</th>
+    			        <td><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			    </tr>
+    			    <tr>
+    			        <th scope="row">연락처</th>
+    			        <td><%=impairment_phone_number %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">이메일</th>
-    			        <td><%=impairment_email %></td>
-    			    </tr>
-    			    <tr>
-    			        <th scope="row">포인트</th>
-    			        <td><%=impairment_point %>dp</td>
+    			        <td><%=impairment_email %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">우편번호</th>
-    			        <td><%=impairment_zipcode %></td>
+    			        <td><%=impairment_zipcode %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">주소</th>
     			        <td><%=impairment_address %></td>
     			    </tr>
-    			    
+    			    <tr>
+    			        <th scope="row">포인트</th>
+    			        <td><%=impairment_point %>dp</td>
+    			    </tr>
     			    </tbody>
     			<%
     			}
@@ -231,34 +232,33 @@
     			        <td><%=travel_category %></td>
     			    </tr>
     			    <tr>
-    			        <th scope="row">아이디</th>
-    			        <td><%=travel_ID %></td>
-    			    </tr>
-    			    <tr>
     			        <th scope="row">회원명</th>
     			        <td><%=travel_name %></td>
     			    </tr>
     			    <tr>
-    			        <th scope="row" class="even">연락처</th>
-    			        <td class="even"><%=travel_phone_number %></td>
+    			        <th scope="row">아이디</th>
+    			        <td><%=travel_ID %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			    </tr>
+    			    <tr>
+    			        <th scope="row">연락처</th>
+    			        <td><%=travel_phone_number %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">이메일</th>
-    			        <td><%=travel_email %></td>
-    			    </tr>
-    			    <tr>
-    			        <th scope="row">포인트</th>
-    			        <td><%=travel_point %>dp</td>
+    			        <td><%=travel_email %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">우편번호</th>
-    			        <td><%=travel_zipcode %></td>
+    			        <td><%=travel_zipcode %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">주소</th>
     			        <td><%=travel_address %></td>
     			    </tr>
-    			    
+    			    <tr>
+    			        <th scope="row">포인트</th>
+    			        <td><%=travel_point %>dp</td>
+    			    </tr>
     			    </tbody>
     			<%
     			}

@@ -10,13 +10,11 @@
     <meta name="description" content="Table Responsive" />
     <meta name="keywords" content="table, responsive" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link href="css/table-responsive.css" media="screen" type="text/css" rel="stylesheet" />
-
+    
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-
+	
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -31,7 +29,7 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?ver=3">
     <link rel="stylesheet" type="text/css" href="css/dm_privacy.css">
   </head>
   <body>
@@ -184,7 +182,7 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">아이디</th>
-    			        <td><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#myModal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">연락처</th>
@@ -282,7 +280,33 @@
       </div>
     </div>
   </div>
-
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content panel-success">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">아이디 변경하기</h4>
+					</div>	
+					<div class="modal-body">
+						<input type="text" class="form-control" id="form_id" name="form_id" placeholder="현재아이디" style="display:block;">
+						<div>
+							<input type="text" class="form-control" id="New_id" name="New_id" style="width:70%;" placeholder="바꿀아이디">
+							<button type="button" class="btn btn-info" onclick="ID_check()" style="width:30%;">중복확인</button>
+						</div>
+						<div id="checkMessage"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="Modify_id()" data-dismiss="modal">변경하기</button>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -344,7 +368,6 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -359,6 +382,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
+  <script src="js/privacy.js"></script>
   </body>
 </html>

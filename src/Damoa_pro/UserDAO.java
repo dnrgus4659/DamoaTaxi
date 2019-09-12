@@ -25,8 +25,6 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		System.out.println(Current_id);
-		System.out.println(New_id);
 		int x = -1;
 		try {
 			conn = getConnection();

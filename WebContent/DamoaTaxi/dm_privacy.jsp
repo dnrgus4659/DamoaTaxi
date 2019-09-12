@@ -294,11 +294,12 @@
 					</div>	
 					<div class="modal-body">
 						<input type="text" class="form-control" id="form_id" name="form_id" placeholder="현재아이디" style="display:block;">
-						<div>
-							<input type="text" class="form-control" id="New_id" name="New_id" style="width:70%;" placeholder="바꿀아이디">
-							<button type="button" class="btn btn-info" onclick="ID_check()" style="width:30%;">중복확인</button>
+						<div class="input-group mt-2">
+						    <input type="text" class="form-control width100" id="New_id" name="New_id" placeholder="바꿀아이디">
+						    <span class="input-group-btn">
+						        <button type="button" class="btn btn-info mt-2 ml-2" onclick="ID_check()">중복확인</button>
+						    </span>
 						</div>
-						<div id="checkMessage"></div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" onclick="Modify_id()" data-dismiss="modal">변경하기</button>

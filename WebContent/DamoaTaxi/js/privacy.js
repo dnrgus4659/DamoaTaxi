@@ -3,7 +3,7 @@ function Modify_id(){
 		var form_ID=$('#form_id').val();
 		$.ajax({
 			type:'POST',
-			url: './UserModifyCheckServlet',
+			url: '../UserModifyCheckServlet',
 			data: {New_ID : New_ID, Impairment_ID : form_ID},
 			success: function(result){
 				if(result == 1){

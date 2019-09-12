@@ -25,12 +25,14 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		System.out.println(Current_id);
+		System.out.println(New_id);
 		int x = -1;
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("update impairment_member set impairment_ID = ? where impairment_ID = ?");
 			pstmt.setString(1, New_id);
-			pstmt.setString(1, Current_id);
+			pstmt.setString(2, Current_id);
 			pstmt.executeUpdate();
 			x=1;
 			return x;

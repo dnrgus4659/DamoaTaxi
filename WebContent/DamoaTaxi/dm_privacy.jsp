@@ -302,7 +302,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" onclick="Modify_id()" data-dismiss="modal">변경하기</button>
+						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_id()" data-dismiss="modal" disabled="true">변경하기</button>
 					</div>				
 				</div>
 			</div>
@@ -383,25 +383,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script type="text/javascript">
-  	function Modify_id(){
-		var New_ID=$('#New_id').val();
-		var form_ID=$('#form_id').val();
-		$.ajax({
-			type:'POST',
-			url: '../UserModifyCheckServlet',
-			data: {New_ID : New_ID, Impairment_ID : form_ID},
-			success: function(result){
-				if(result == 1){
-					alert('변경이 완료되었습니다. 다시 로그인 해주세요');
-					location.href='sessionLogout.jsp';
-				}else{
-					$('#checkMessage').html('변경이 실패되었습니다. 중복확인해주세요');
-				}
-				$('#myModal').modal('show');
-			}
-		});
-	}
-  </script>
+  <script src="js/privacy.js"></script>
   </body>
 </html>

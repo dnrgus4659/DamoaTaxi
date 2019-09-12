@@ -47,5 +47,41 @@ public class UserDAO {
 		return x;
 	}
 	
+	public int checkID(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String dbid="";
+		int x = -1;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select travel_member.travel_ID as id from travel_member where travel_member.travel_ID=? union select impairment_member.impairment_ID as id from impairment_member where impairment_member.impairment_ID=?");
+			pstmt.setString(1, id);
+			pstmt.setString(2, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dbid=rs.getString("id");
+				
+				if(dbid.equals(id))
+					x=1;//아이디중복
+				else
+					x=0;//생성가능아이디
+			}
+			
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return x;
+	}
+	
 	
 }

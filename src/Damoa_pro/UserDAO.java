@@ -21,14 +21,19 @@ public class UserDAO {
 		return ds.getConnection();
 	}
 	
-	public int ModifyImpairment_ID(String Current_id , String New_id) throws Exception{
+	public int Modify_ID(String Current_id , String New_id, String category) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String sql="";
 		int x = -1;
 		try {
+			if(category.equals("I"))
+				sql="update impairment_member set impairment_ID = ? where impairment_ID = ?";
+			else
+				sql="update travel_member set travel_ID = ? where travel_ID = ?";
 			conn = getConnection();
-			pstmt = conn.prepareStatement("update impairment_member set impairment_ID = ? where impairment_ID = ?");
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, New_id);
 			pstmt.setString(2, Current_id);
 			pstmt.executeUpdate();

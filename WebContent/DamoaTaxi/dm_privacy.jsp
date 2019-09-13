@@ -182,7 +182,7 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">아이디</th>
-    			        <td><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#myModal">변경하기</button></td>
+    			        <td><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">연락처</th>
@@ -235,7 +235,7 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">아이디</th>
-    			        <td><%=travel_ID %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=travel_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">연락처</th>
@@ -274,14 +274,13 @@
     		%>    
     
 </table>
-  <a href="Modified_privacy.jsp"><button class="btn-secondary">수정하기</button></a>
   <a href="delete_privacy.jsp"><button class="btn-light">회원탈퇴</button></a>
         </div>
       </div>
     </div>
   </div>
 	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+	<div id="ID_modi_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
 		<div class="vertical-alignment-helper">
 			<div class="modal-dialog vertical-align-center">
 				<div class="modal-content panel-success">
@@ -293,6 +292,7 @@
 						<h4 class="modal-title">아이디 변경하기</h4>
 					</div>	
 					<div class="modal-body">
+						<input type="hidden" id="category" value="<%=category %>">
 						<input type="text" class="form-control" id="form_id" name="form_id" placeholder="현재아이디" style="display:block;">
 						<div class="input-group mt-2">
 						    <input type="text" class="form-control width100" id="New_id" name="New_id" placeholder="바꿀아이디">
@@ -302,12 +302,14 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_id()" data-dismiss="modal" disabled="true">변경하기</button>
+						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_id()" data-dismiss="modal">변경하기</button>
 					</div>				
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- end Modal -->
+	
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">

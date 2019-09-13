@@ -14,10 +14,11 @@ public class UserModifyCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		String form_userID = request.getParameter("Impairment_ID");
+		String form_userID = request.getParameter("form_ID");
 		String modal_userID = request.getParameter("New_ID");
+		String category = request.getParameter("category");
 		try {
-			response.getWriter().write(new UserDAO().ModifyImpairment_ID(form_userID,modal_userID)+"");//문자열 형태로 출력하기 위해 공백문자 추가
+			response.getWriter().write(new UserDAO().Modify_ID(form_userID,modal_userID,category)+"");//문자열 형태로 출력하기 위해 공백문자 추가
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

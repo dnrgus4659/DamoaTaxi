@@ -182,7 +182,11 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">아이디</th>
-    			        <td id="id"><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
+    			        <td><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
+    			    </tr>
+    			    <tr>
+    			        <th scope="row">비밀번호</th>
+    			        <td>********<button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#password_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">연락처</th>
@@ -194,7 +198,7 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">우편번호</th>
-    			        <td><%=impairment_zipcode %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
+    			        <td><%=impairment_zipcode %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#zipcode_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">주소</th>
@@ -238,6 +242,10 @@
     			        <td><%=travel_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
+    			        <th scope="row">비밀번호</th>
+    			        <td>********<button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#password_modi_Modal">변경하기</button></td>
+    			    </tr>
+    			    <tr>
     			        <th scope="row">연락처</th>
     			        <td><%=travel_phone_number %><button type="button" class="btn btn-info" style="float:right;"  data-toggle="modal" data-target="#Phone_modi_Modal">변경하기</button></td>
     			    </tr>
@@ -247,7 +255,7 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">우편번호</th>
-    			        <td><%=travel_zipcode %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
+    			        <td><%=travel_zipcode %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#zipcode_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">주소</th>
@@ -274,7 +282,7 @@
     		%>    
     
 </table>
-  <a href="delete_privacy.jsp"><button class="btn-light">회원탈퇴</button></a>
+  <a href="delete_privacy.jsp"><button class="btn btn-primary">회원탈퇴</button></a>
         </div>
       </div>
     </div>
@@ -292,9 +300,8 @@
 						<h4 class="modal-title">아이디 변경하기</h4>
 					</div>	
 					<div class="modal-body">
-						<input type="hidden" id="category" value="<%=category %>">
-						<input type="text" class="form-control" id="form_id" name="form_id" placeholder="현재아이디" style="display:block;">
 						<div class="input-group mt-2">
+							<input type="hidden" id="category" value="<%=category %>">
 						    <input type="text" class="form-control width100" id="New_id" name="New_id" placeholder="바꿀아이디">
 						    <span class="input-group-btn">
 						        <button type="button" class="btn btn-info mt-2 ml-2" onclick="ID_check()">중복확인</button>
@@ -303,6 +310,32 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_id()">변경하기</button>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end Modal -->
+	<!-- Modal -->
+	<div id="password_modi_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content panel-success">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">비밀번호 변경하기</h4>
+					</div>	
+					<div class="modal-body">
+						<input type="hidden" id="category" value="<%=category %>">
+						<input type="password" class="form-control width100" id="current_password" name="current_password" placeholder="현재 비밀번호">
+						<input type="password" class="form-control width100 mt-2" id="new_password" name="new_password" placeholder="바꿀 비밀번호">
+						<input type="password" class="form-control width100 mt-2" id="new_password_chk" name="new_password_chk" placeholder="비밀번호 확인">
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_password()">변경하기</button>
 					</div>				
 				</div>
 			</div>
@@ -333,7 +366,60 @@
 		</div>
 	</div>
 	<!-- end Modal -->
-	
+	<!-- Modal -->
+	<div id="email_modi_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content panel-success">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">이메일 변경하기</h4>
+					</div>	
+					<div class="modal-body">
+						<input type="hidden" id="category" value="<%=category %>">
+						<input type="text" class="form-control" id="form_email" name="form_email" placeholder="바꿀 이메일" style="display:block;">
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_email()">변경하기</button>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end Modal -->
+	<!-- Modal -->
+	<div id="zipcode_modi_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content panel-success">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">주소 변경하기</h4>
+					</div>	
+					<div class="modal-body">
+						<div class="input-group mt-2">
+							<input type="hidden" id="category" value="<%=category %>">
+						    <input type="text" class="form-control width100" id="New_id" name="New_id" placeholder="우편번호" readonly>
+						    <span class="input-group-btn">
+						        <button type="button" class="btn btn-info mt-2 ml-2" onclick="search_address()">주소검색</button>
+						    </span>
+						    <input type="text" class="form-control width100" id="New_id" name="New_id" placeholder="주소검색 후 상세주소 입력">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_id()">변경하기</button>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end Modal -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">

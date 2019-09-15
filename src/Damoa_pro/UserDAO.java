@@ -52,6 +52,36 @@ public class UserDAO {
 		return x;
 	}
 	
+	public int Modify_phone(String Current_id , String New_id, String category) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="";
+		int x = -1;
+		try {
+			if(category.equals("I"))
+				sql="update impairment_member set impairment_ID = ? where impairment_ID = ?";
+			else
+				sql="update travel_member set travel_ID = ? where travel_ID = ?";
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, New_id);
+			pstmt.setString(2, Current_id);
+			pstmt.executeUpdate();
+			x=1;
+			return x;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return x;
+	}
 	public int checkID(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

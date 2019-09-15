@@ -182,19 +182,19 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">아이디</th>
-    			        <td><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
+    			        <td id="id"><%=impairment_ID %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">연락처</th>
-    			        <td><%=impairment_phone_number %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=impairment_phone_number %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#Phone_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">이메일</th>
-    			        <td><%=impairment_email %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=impairment_email %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#email_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">우편번호</th>
-    			        <td><%=impairment_zipcode %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=impairment_zipcode %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">주소</th>
@@ -239,15 +239,15 @@
     			    </tr>
     			    <tr>
     			        <th scope="row">연락처</th>
-    			        <td><%=travel_phone_number %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=travel_phone_number %><button type="button" class="btn btn-info" style="float:right;"  data-toggle="modal" data-target="#Phone_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">이메일</th>
-    			        <td><%=travel_email %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=travel_email %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#email_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">우편번호</th>
-    			        <td><%=travel_zipcode %><button type="button" class="btn btn-info" style="float:right;">변경하기</button></td>
+    			        <td><%=travel_zipcode %><button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#ID_modi_Modal">변경하기</button></td>
     			    </tr>
     			    <tr>
     			        <th scope="row">주소</th>
@@ -302,7 +302,31 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_id()" data-dismiss="modal">변경하기</button>
+						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_id()">변경하기</button>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end Modal -->
+	<!-- Modal -->
+	<div id="Phone_modi_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content panel-success">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">연락처 변경하기</h4>
+					</div>	
+					<div class="modal-body">
+						<input type="hidden" id="category" value="<%=category %>">
+						<input type="text" class="form-control" id="form_num" name="form_num" placeholder="바꿀 연락처" style="display:block;">
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="modifySubmit" class="btn btn-primary" onclick="Modify_phone()">변경하기</button>
 					</div>				
 				</div>
 			</div>
@@ -385,6 +409,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/privacy.js"></script>
+  <script src="js/privacy.js?ver=2"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*" contentType="text/html;charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -25,40 +25,40 @@
         <div class="wrapper wrapper--w900">
             <div class="card card-6">
                 <div class="card-heading">
-                    <h2 class="title">장애인 택시 회원가입</h2>
+                    <h2 class="title">관광 택시 회원가입</h2>
                 </div>
                 <div class="card-body">
-                    <form name="form" method="POST" action="impairment_insert.jsp" onsubmit="return checkAll()" >
+                    <form name="form" method="POST" action="Travel_insert.jsp" onsubmit="return checkAll()">
                         <div class="form-row">
                             <div class="name">아이디</div>
                             <div class="value">
-                                <input class="input--style-7" type="text" name="impairment_ID" maxlength="25" placeholder="영문 대소문자와 숫자 4~25자리로 입력">&nbsp;&nbsp;
-                                <input type="submit" class="btn btn--radius-2 btn--green" value="중복 확인" formaction="impairment_id_check.jsp">
+                           		<input class="input--style-7" type="text" name="travel_ID" maxlength="25" placeholder="영문 대소문자와 숫자 4~25자리로 입력">&nbsp;&nbsp;
+                           		<button type="button" class="btn btn--radius-2 btn--green" onclick="travel_idCheck()">중복 확인</button>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="name">비밀번호</div>
                             <div class="value">
-                                <input type="password" class="input--style-6" type="text" name="impairment_Password" maxlength="25" placeholder="영문 대소문자와 숫자 4~25자리로 입력">
+                                <input type="password" class="input--style-6" type="text" name="travel_Password" maxlength="25" placeholder="영문 대소문자와 숫자 4~25자리로 입력">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="name">비밀번호 확인</div>
                             <div class="value">
-                                <input type="password" class="input--style-6" type="text" name="impairment_Password_check" maxlength="25">
+                                <input type="password" class="input--style-6" type="text" name="travel_Password_check" maxlength="25">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="name">이름</div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="impairment_name" maxlength="13" placeholder="최대 6글자">
+                                <input class="input--style-6" type="text" name="travel_name" maxlength="13" placeholder="최대 6글자">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="name">휴대폰번호</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="impairment_phone_number" placeholder="-없이 그냥 입력" maxlength="13">
+                                    <input class="input--style-6" type="text" name="travel_phone_number" placeholder="00000000000">
                                 </div>
                             </div>
                         </div>
@@ -66,26 +66,14 @@
                             <div class="name">이메일</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="email" name="impairment_email" placeholder="example@email.com" maxlength="30">
+                                    <input class="input--style-6" type="email" name="travel_email" placeholder="example@email.com">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">증명서 업로드</div>
-                            <div class="value">
-                                <div class="input-group js-input-file">
-                                    <input class="input-file" type="file" name="impairment_certificate" id="file">
-                                    <label class="label--file" for="file">파일 선택</label>
-                                    <span class="input-file__info">파일을 선택 하지 않으셨습니다.</span>
-                                </div>
-                                <div class="label--desc">최대 용량 50 MB</div>
                             </div>
                         </div>
                         <div class="form-row" style='display:none;'>
-                            <div class="name">포인트</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="impairment_point" value="0">
+                                    <input type="hidden" name="travel_point" value="0">
                                 </div>
                             </div>
                         </div>
@@ -108,10 +96,9 @@
                             </div>
                         </div>
                         <div class="form-row" style='display:none;'>
-                            <div class="name">회원유형</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="impairment_category" value="I">
+                                    <input type="hidden" name="travel_category" value="T">
                                 </div>
                             </div>
                         </div>
@@ -119,24 +106,21 @@
                     		<button class="btn btn--radius-2 btn--blue-2" type="submit">회원가입</button>
                 		</div>
                     </form>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Jquery JS -->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
 
 
-    <!-- Main JS -->
+    <!-- Main JS-->
     <script src="js/global.js"></script>
-    <script src="js/impairment_validation.js"></script>
-	<script>
-  		function showPopup() {
-  			window.open("ZipInputForm.html", "주소검색", "width=400, height=300, left=100, top=50 scrollbars=yes"); 
-  		}
-  	</script>
-</body>
+    <script src="js/Travel_validation.js"></script>
+    <script src="js/signup.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
 <!-- end document-->

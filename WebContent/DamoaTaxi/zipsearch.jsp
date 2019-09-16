@@ -4,8 +4,8 @@
     <script>
     	function AutoInput(zip, address){
     		zip1 = zip;
-    		opener.form.zipcode.value=zip1;
-    		opener.form.address.value=address;
+    		opener.document.form.zipcode.value=zip1;
+    		opener.document.form.address.value=address;
     		self.close();
     	}
     </script>

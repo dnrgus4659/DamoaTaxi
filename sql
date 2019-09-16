@@ -96,7 +96,7 @@ CREATE TABLE impairment_member
 );
 
 ALTER TABLE impairment_member COMMENT '장애인택시 고객으로 회원가입후 저장되는 테이블';
-
+select travel_member.travel_ID as id, travel_member.travel_Password as pw from travel_member where travel_member.travel_ID="dnrgus4659" union select impairment_member.impairment_ID as id, impairment_member.impairment_Password as pw from impairment_member where impairment_member.impairment_ID="dnrgus4659";
 select * from travel_member;
 drop table travel_member;
 -- impairment_member Table Create SQL

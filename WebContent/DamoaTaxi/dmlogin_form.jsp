@@ -74,10 +74,10 @@
 						</div>
 						<br>
 						<div style="text-align:center">sns계정으로 회원가입/로그인 <br>
-							 <img src="images/gogle.JPG">
-							 <img src="images/naver.JPG">
-							 <img src="images/hub.JPG">
-							 <img src="images/facebook.JPG">
+							 <img src="images/gogle.jpg">
+							 <img src="images/naver.jpg">
+							 <img src="images/hub.jpg">
+							 <img src="images/facebook.jpg">
 						</div>
 					</form>
 				</div>

@@ -11,7 +11,6 @@
 <title>게시판</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">  
- <!--    
   function deleteSave(){	
 	if(!document.delForm.passwd.value){
 	   alert("비밀번호를 입력하십시요.");
@@ -19,14 +18,13 @@
 	   return false;
     }
   }    
--->
 </script>
 </head>
 <body>
 <p>글삭제</p>
 <br>
 <form method="POST" name="delForm" 
-   action="deletePro.jsp?pageNum=<%=pageNum%>" 
+   action="QnA_deletePro.jsp?pageNum=<%=pageNum%>" 
    onsubmit="return deleteSave()"> 
  <table>
   <tr height="30">

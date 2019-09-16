@@ -17,13 +17,11 @@
 
     if(check==1){
 %>
-	  <meta http-equiv="Refresh" content="0;url=list.jsp?pageNum=<%=pageNum%>" >
+	  <meta http-equiv="Refresh" content="0;url=QnA.jsp?pageNum=<%=pageNum%>" >
 <% }else{%>
-      <script type="text/javascript">      
-      <!--      
+      <script type="text/javascript">            
         alert("비밀번호가 맞지 않습니다");
         history.go(-1);
-      -->
      </script>
 <%
   }

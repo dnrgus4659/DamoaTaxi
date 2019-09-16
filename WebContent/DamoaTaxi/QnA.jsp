@@ -145,8 +145,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">Our Blog</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">A free template for Law Firm Websites by <a href="https://colorlib.com/" target="_blank">Colorlib</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">Q&A</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">질의 응답</h2>
           </div>
         </div>
       </div>
@@ -156,15 +156,15 @@
         <div class="row">
         	<% if (count == 0) { %>
 
-			<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
+			<table class="table table-bordered" style="text-align:center; border:1px solid #dddddd">
 		    	<thead>
 		    		<tr>
-		        		<th style="background-color:#eeeeee; text-align:center;">번호</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:100px;">번호</th>
 		        		<th style="background-color:#eeeeee; text-align:center;">제목</th>
-		        		<th style="background-color:#eeeeee; text-align:center;">작성자</th>
-		        		<th style="background-color:#eeeeee; text-align:center;">작성일</th>
-		        		<th style="background-color:#eeeeee; text-align:center;">조회수</th>
-		        		<th style="background-color:#eeeeee; text-align:center;">IP</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:130px;">작성자</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:200px;">작성일</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:100px;">조회수</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:150px;">IP</th>
 		    		</tr>
 		    	</thead>
 		    	<tbody>
@@ -176,15 +176,15 @@
 			
 			<% } else {%>
         	<p>글목록(전체 글:<%=count%>)</p>
-        	<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
+        	<table class="table table-hover" style="text-align:center; border:1px solid #dddddd">
         		<thead>
         			<tr>
-        				<th style="background-color:#eeeeee; text-align:center;">번호</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:100px;">번호</th>
         				<th style="background-color:#eeeeee; text-align:center;">제목</th>
-        				<th style="background-color:#eeeeee; text-align:center;">작성자</th>
-        				<th style="background-color:#eeeeee; text-align:center;">작성일</th>
-        				<th style="background-color:#eeeeee; text-align:center;">조회수</th>
-        				<th style="background-color:#eeeeee; text-align:center;">IP</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:130px;">작성자</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:200px;">작성일</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:100px;">조회수</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:150px;">IP</th>
         			</tr>
         		</thead>
         		<tbody>
@@ -209,11 +209,11 @@
 						<a href="QnA_content.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage%>"><%=article.getSubject()%></a> 
 						<% if(article.getReadcount()>=20){%>
 							<img src="images/hot.gif" border="0"  height="16"><%}%> </td>
-							<td width="100" align="left"> 
+							<td width="100" align="center"> 
 							<a href="mailto:<%=article.getEmail()%>"><%=article.getWriter()%></a></td>
-							<td width="150"><%= sdf.format(article.getReg_date())%></td>
-							<td width="50"><%=article.getReadcount()%></td>
-							<td width="100" ><%=article.getIp()%></td>
+							<td><%= sdf.format(article.getReg_date())%></td>
+							<td><%=article.getReadcount()%></td>
+							<td><%=article.getIp()%></td>
 						<%}%>
 					</tr>
         		</tbody>

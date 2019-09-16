@@ -135,8 +135,12 @@
       <div class="row block-9 justify-content-center" data-aos="fade-up">
         <div class="col-md-8 pr-md-5">
           <form method="post" name="writeform" action="QnA_writePro.jsp" onsubmit="return writeSave()">
+            <input type="hidden" name="num" value="<%=num%>">
+		    <input type="hidden" name="ref" value="<%=ref%>">
+		    <input type="hidden" name="re_step" value="<%=re_step%>">
+		    <input type="hidden" name="re_level" value="<%=re_level%>">
             <div class="form-group">
-              <input type="text" class="form-control" name="writer" placeholder="이름">
+              <input type="text" class="form-control" name="writer" placeholder="이름" style="ime-mode:active;">
             </div>
             <%
 			    if(request.getParameter("num")==null) 
@@ -148,7 +152,7 @@
               <input type="text" class="form-control" name="subject" value="<%=strV%>" placeholder="제목">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="email" placeholder="Email">
+              <input type="text" class="form-control" name="email" placeholder="Email" style="ime-mode:inactive;">
             </div>
             <div class="form-group">
               <textarea class="form-control" name="content" rows="13" cols="40" placeholder="내용" style="ime-mode:active;"></textarea>

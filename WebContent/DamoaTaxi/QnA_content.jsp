@@ -137,36 +137,36 @@
 				  int re_step=article.getRe_step();
 				  int re_level=article.getRe_level();
 			%>
-			
-			<form>
-			<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">  
-			  <tr height="30">
-			    <td align="center">글번호</td>
-			    <td align="center">
-				     <%=article.getNum()%></td>
-			    <td align="center">조회수</td>
-			    <td align="center">
-				     <%=article.getReadcount()%></td>
-			  </tr>
-			  <tr height="30">
-			    <td align="center">작성자</td>
-			    <td align="center">
-				     <%=article.getWriter()%></td>
-			    <td align="center">작성일</td>
-			    <td align="center">
-				     <%= sdf.format(article.getReg_date())%></td>
-			  </tr>
-			  <tr height="30">
-			    <td align="center">글제목</td>
-			    <td align="center" colspan="3">
-				     <%=article.getSubject()%></td>
+			<table class="table table-striped" style="text-align:center">  
+			  <thead>
+			  	<tr>
+				    <th>글번호</th>
+				    <th>조회수</th>
+				    <th>작성자</th>
+				    <th>작성일</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				  <tr>
+					  <td><%=article.getNum()%></td>
+					  <td><%=article.getReadcount()%></td>
+					  <td><%=article.getWriter()%></td>
+					  <td><%= sdf.format(article.getReg_date())%></td>
+				  </tr>
+			  </tbody>
+			  <tr>
+			    <th colspan="4" style="background-color:#ffffff; text-align:center;">글제목</th>
 			  </tr>
 			  <tr>
-			    <td align="center">글내용</td>
-			    <td align="left" colspan="3">
-			           <pre><%=article.getContent()%></pre></td>
+			  	<td colspan="4" style="background-color:#eeeeee; text-align:center;"><%=article.getSubject()%></td>
 			  </tr>
-			  <tr height="30">      
+			  <tr>
+			    <td colspan="4" style="background-color:#ffffff; text-align:center;">글내용</td>
+			  </tr>
+			  <tr>
+			  	<td align="left" colspan="4" style="background-color:#eeeeee; text-align:center;"><pre><%=article.getContent()%></pre></td>
+			  </tr>
+			  <tr>      
 			    <td colspan="4" align="right" > 
 				  <input type="button" value="글수정" class="btn btn-info"
 			       onclick="document.location.href='QnA_updateForm.jsp?num=<%=article.getNum()%>&pageNum=<%=pageNum%>'">
@@ -185,7 +185,6 @@
 			<%
 			 }catch(Exception e){} 
 			 %>
-			</form> 
         </div>
       </div>
     </div>

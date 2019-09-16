@@ -15,7 +15,25 @@ create table board(
     ip varchar(20) not null
  );
  
- 
+create table review_board(
+	userID varchar(20),
+	boardID int primary key,
+	boardTitle varchar(50),
+	boardContent varchar(2048),
+	boardDate DATETIME,
+	boardHit INT,
+	boardFile varchar(100),
+	boardRealFile varchar(100),
+	boardGroup INT,
+	boardSequence INT,
+	boardLevel INT
+);
+
+desc review_board;
+select * from review_board;
+drop table review_board;
+
+insert into review_board select "dnrgus4659", ifnull((select max(boardID) +1 from review_board), 1), "제목", "내용", now(), 0, "55.jpg", "551.jpg", ifnull((select max(boardGroup)+1 from review_board), 0), 0, 0
 
 drop table board;
 desc board;

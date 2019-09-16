@@ -1,9 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "Damoa_pro.QnA_BoardDAO" %>
+<%@ page import = "Damoa_pro.QnA_BoardDTO" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+
 <html>
-  <head>
-    <title>DamoaTaxi</title>
-    <meta charset="utf-8">
+<head>
+<title>게시판</title>
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
@@ -25,10 +29,9 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
         <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,119 +109,87 @@
 		}
 	%>
 	<!-- END nav -->
-	
 	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">Our Blog</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">A free template for Law Firm Websites by <a href="https://colorlib.com/" target="_blank">Colorlib</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">글내용 보기</h1>
           </div>
         </div>
       </div>
     </section>
-    
     <div class="ftco-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_11.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">경복궁 갔다왔는데 너무 좋네요 ~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_12.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">덕분에 즐거운 여행 하고 갑니다~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_13.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">택시 기사분 너무 친절하시구 좋네요~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_14.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">택시 깨끗하고 너무 좋네요~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_15.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">덕분에 좋은 구경 많이 하고 갑니다~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_16.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">대박사건</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-
-            </div>
-          </div>
-        </div>
-        <div class="col text-right">
-          <div class="form-group text-right">
-            <input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='writing.html'">
-          </div>
+        	<%
+			   int num = Integer.parseInt(request.getParameter("num"));
+			   String pageNum = request.getParameter("pageNum");
+			
+			   SimpleDateFormat sdf = 
+			        new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			
+			   try{
+				   QnA_BoardDAO dbPro = QnA_BoardDAO.getInstance(); 
+				   QnA_BoardDTO article =  dbPro.getArticle(num);
+			  
+				  int ref=article.getRef();
+				  int re_step=article.getRe_step();
+				  int re_level=article.getRe_level();
+			%>
+			
+			<form>
+			<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">  
+			  <tr height="30">
+			    <td align="center">글번호</td>
+			    <td align="center">
+				     <%=article.getNum()%></td>
+			    <td align="center">조회수</td>
+			    <td align="center">
+				     <%=article.getReadcount()%></td>
+			  </tr>
+			  <tr height="30">
+			    <td align="center">작성자</td>
+			    <td align="center">
+				     <%=article.getWriter()%></td>
+			    <td align="center">작성일</td>
+			    <td align="center">
+				     <%= sdf.format(article.getReg_date())%></td>
+			  </tr>
+			  <tr height="30">
+			    <td align="center">글제목</td>
+			    <td align="center" colspan="3">
+				     <%=article.getSubject()%></td>
+			  </tr>
+			  <tr>
+			    <td align="center">글내용</td>
+			    <td align="left" colspan="3">
+			           <pre><%=article.getContent()%></pre></td>
+			  </tr>
+			  <tr height="30">      
+			    <td colspan="4" align="right" > 
+				  <input type="button" value="글수정" class="btn btn-info"
+			       onclick="document.location.href='QnA_updateForm.jsp?num=<%=article.getNum()%>&pageNum=<%=pageNum%>'">
+				   &nbsp;&nbsp;&nbsp;&nbsp;
+				  <input type="button" value="글삭제" class="btn btn-info"
+			       onclick="document.location.href='QnA_deleteForm.jsp?num=<%=article.getNum()%>&pageNum=<%=pageNum%>'">
+				   &nbsp;&nbsp;&nbsp;&nbsp;
+			      <input type="button" value="답글쓰기" class="btn btn-info"
+			       onclick="document.location.href='QnA_writeForm.jsp?num=<%=num%>&ref=<%=ref%>&re_step=<%=re_step%>&re_level=<%=re_level%>'">
+				   &nbsp;&nbsp;&nbsp;&nbsp;
+			       <input type="button" value="글목록" class="btn btn-info"
+			       onclick="document.location.href='QnA.jsp?pageNum=<%=pageNum%>'">
+			    </td>
+			  </tr>
+			</table>    
+			<%
+			 }catch(Exception e){} 
+			 %>
+			</form> 
         </div>
       </div>
     </div>
-
+    
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -295,6 +266,5 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
-  </body>
+</body>
 </html>

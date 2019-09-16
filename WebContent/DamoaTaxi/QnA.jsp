@@ -1,4 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import = "Damoa_pro.QnA_BoardDAO" %>
+<%@ page import = "Damoa_pro.QnA_BoardDTO" %>
+<%@ page import = "java.util.List" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+<%!
+    int pageSize = 10;
+    SimpleDateFormat sdf = 
+        new SimpleDateFormat("yyyy-MM-dd HH:mm");
+%>
+
+<%
+    String pageNum = request.getParameter("pageNum");
+
+    if (pageNum == null) {
+        pageNum = "1";
+    }
+
+    int currentPage = Integer.parseInt(pageNum);
+    int startRow = (currentPage - 1) * pageSize + 1;
+    int endRow = currentPage * pageSize;
+    int count = 0;
+    int number = 0;
+    List<QnA_BoardDTO> articleList = null; 
+    
+    QnA_BoardDAO dbPro = QnA_BoardDAO.getInstance();
+    count = dbPro.getArticleCount();
+    
+    if (count > 0) {
+        articleList = dbPro.getArticles(startRow, pageSize);
+    }
+
+	number = count-(currentPage-1)*pageSize;
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -117,103 +150,113 @@
           </div>
         </div>
       </div>
-    </section>
-    
+    </section>    
     <div class="ftco-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_11.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">경복궁 갔다왔는데 너무 좋네요 ~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_12.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">덕분에 즐거운 여행 하고 갑니다~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_13.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">택시 기사분 너무 친절하시구 좋네요~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_14.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">택시 깨끗하고 너무 좋네요~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_15.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">덕분에 좋은 구경 많이 하고 갑니다~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_16.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">대박사건</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
+        	<% if (count == 0) { %>
+
+			<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
+		    	<thead>
+		    		<tr>
+		        		<th style="background-color:#eeeeee; text-align:center;">번호</th>
+		        		<th style="background-color:#eeeeee; text-align:center;">제목</th>
+		        		<th style="background-color:#eeeeee; text-align:center;">작성자</th>
+		        		<th style="background-color:#eeeeee; text-align:center;">작성일</th>
+		        		<th style="background-color:#eeeeee; text-align:center;">조회수</th>
+		        		<th style="background-color:#eeeeee; text-align:center;">IP</th>
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+		    		<tr>
+		    			<td colspan="6" align="center">게시판에 저장된 글이 없습니다.</td>
+		    		</tr>
+		    	</tbody>
+		    </table>
+			
+			<% } else {%>
+        	<p>글목록(전체 글:<%=count%>)</p>
+        	<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
+        		<thead>
+        			<tr>
+        				<th style="background-color:#eeeeee; text-align:center;">번호</th>
+        				<th style="background-color:#eeeeee; text-align:center;">제목</th>
+        				<th style="background-color:#eeeeee; text-align:center;">작성자</th>
+        				<th style="background-color:#eeeeee; text-align:center;">작성일</th>
+        				<th style="background-color:#eeeeee; text-align:center;">조회수</th>
+        				<th style="background-color:#eeeeee; text-align:center;">IP</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		<%  
+					for (int i = 0 ; i < articleList.size() ; i++) {
+						QnA_BoardDTO article = articleList.get(i);
+				%>
+        			<tr height="30">
+						<td  width="50" > <%=number--%></td>
+						<td  width="250" align="left">
+						<%
+							int wid=0; 
+							if(article.getRe_level()>0){
+							wid=5*(article.getRe_level());
+						%>
+							<img src="images/level.png" width="<%=wid%>" height="16">
+							<img src="images/re.png">
+						<%  }else{%>
+								<img src="images/level.png" width="<%=wid%>" height="16">
+						<%  }%>
+						           
+						<a href="QnA_content.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage%>"><%=article.getSubject()%></a> 
+						<% if(article.getReadcount()>=20){%>
+							<img src="images/hot.gif" border="0"  height="16"><%}%> </td>
+							<td width="100" align="left"> 
+							<a href="mailto:<%=article.getEmail()%>"><%=article.getWriter()%></a></td>
+							<td width="150"><%= sdf.format(article.getReg_date())%></td>
+							<td width="50"><%=article.getReadcount()%></td>
+							<td width="100" ><%=article.getIp()%></td>
+						<%}%>
+					</tr>
+        		</tbody>
+        	</table>
+        	<%}%>
         </div>
         <div class="row mt-5">
           <div class="col text-center">
             <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-
-            </div>
+        <%
+			if (count > 0) {
+				int pageCount = count / pageSize + (count % pageSize == 0 ? 0 : 1);
+				int startPage =1;
+					
+				if(currentPage % 10 != 0)
+					startPage = (int)(currentPage/10)*10 + 1;
+				else
+					startPage = ((int)(currentPage/10)-1)*10 + 1;
+			
+				int pageBlock = 10;
+				int endPage = startPage + pageBlock - 1;
+				if (endPage > pageCount) endPage = pageCount;
+			        
+				if (startPage > 10) { 
+				%>
+					<a href="QnA.jsp?pageNum=<%= startPage - 10 %>">&lt;</a>
+				<%
+				}
+				for (int i = startPage ; i <= endPage ; i++) {  %>
+				<a href="QnA.jsp?pageNum=<%= i %>">[<%= i %>]</a>
+			<%      }
+			        
+				if (endPage < pageCount) {  %>
+				<a href="QnA.jsp?pageNum=<%= startPage + 10 %>">&gt;</a>
+			<%
+				}
+			} %>
+			</div>
           </div>
         </div>
         <div class="col text-right">
           <div class="form-group text-right">
-            <input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='writing.html'">
+            <input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='QnA_writeForm.jsp'">
           </div>
         </div>
       </div>

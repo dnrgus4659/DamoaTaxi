@@ -106,119 +106,69 @@
 		}
 	%>
 	<!-- END nav -->
-	
-	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+
+    <section class="ftco-cover overlay" style="background-image: url(images/image_5.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">Our Blog</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">A free template for Law Firm Websites by <a href="https://colorlib.com/" target="_blank">Colorlib</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">글쓰기</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">솔직하게 적어주시면 많은 도움이 됩니다</a></h2>
           </div>
         </div>
       </div>
     </section>
-    
-    <div class="ftco-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_11.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">경복궁 갔다왔는데 너무 좋네요 ~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
+    <!-- END section -->
+	<% 
+	int num = 0, ref = 1, re_step = 0, re_level = 0;
+	String strV = "";
+	try{
+		if(request.getParameter("num")!=null){
+			num=Integer.parseInt(request.getParameter("num"));
+			ref=Integer.parseInt(request.getParameter("ref"));
+			re_step=Integer.parseInt(request.getParameter("re_step"));
+			re_level=Integer.parseInt(request.getParameter("re_level"));
+		}
+	%>
+    <div class="ftco-section bg-light">
+    <div class="container">
+      <div class="row block-9 justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 pr-md-5">
+          <form method="post" name="writeform" action="QnA_writePro.jsp" onsubmit="return writeSave()">
+            <div class="form-group">
+              <input type="text" class="form-control" name="writer" placeholder="이름">
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_12.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">덕분에 즐거운 여행 하고 갑니다~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
+            <%
+			    if(request.getParameter("num")==null) 
+			    	strV = "";
+			    else
+			    	strV = "[답변]";
+		    %>
+		    <div class="form-group">
+              <input type="text" class="form-control" name="subject" value="<%=strV%>" placeholder="제목">
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_13.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">택시 기사분 너무 친절하시구 좋네요~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="email" placeholder="Email">
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_14.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">택시 깨끗하고 너무 좋네요~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
+            <div class="form-group">
+              <textarea class="form-control" name="content" rows="13" cols="40" placeholder="내용" style="ime-mode:active;"></textarea>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_15.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">덕분에 좋은 구경 많이 하고 갑니다~</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
+            <div class="form-group">
+              <input type="password" size="8" maxlength="12" name="passwd" style="ime-mode:inactive;" placeholder="비밀번호" class="form-control"> 
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_16.jpg');">
-            </a>
-            <div class="text">
-              <h3 class="heading"><a href="#">대박사건</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> June 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
+            <div class="form-group text-center">
+              <input type="submit" value="등록" class="btn btn-primary">
+              <input type="reset" value="다시작성" class="btn btn-primary">
+              <input type="button" value="목록보기" OnClick="window.location='QnA.jsp'" class="btn btn-primary">
             </div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-
-            </div>
-          </div>
-        </div>
-        <div class="col text-right">
-          <div class="form-group text-right">
-            <input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='writing.html'">
-          </div>
+          </form>
         </div>
       </div>
     </div>
-
+  </div>
+	<%
+  		}catch(Exception e){}
+	%> 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -295,6 +245,34 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
+	<script type="text/javascript">
+	function writeSave(){
+		eval writeform = document.writeform;
+		
+		if(!writeform.writer.value){
+		  alert("작성자를 입력하십시요.");
+		  writeform.writer.focus();
+		  return false;
+		}
+		
+		if(!writeform.subject.value){
+		  alert("제목을 입력하십시요.");
+		  writeform.subject.focus();
+		  return false;
+		}
+		
+		if(!writeform.content.value){
+		  alert("내용을 입력하십시요.");
+		  writeform.content.focus();
+		  return false;
+		}
+	        
+		if(!writeform.passwd.value){
+		  alert(" 비밀번호를 입력하십시요.");
+		  writeform.passwd.focus();
+		  return false;
+		}
+	 };
+	</script>
   </body>
 </html>

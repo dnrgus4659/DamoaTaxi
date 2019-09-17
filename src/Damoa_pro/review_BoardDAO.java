@@ -161,6 +161,7 @@ public class review_BoardDAO {
 			if(rs.next()) {
 				return rs.getString("boardFile");
 			}
+			return "";
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -188,6 +189,7 @@ public class review_BoardDAO {
 			if(rs.next()) {
 				return rs.getString("boardRealFile");
 			}
+			return "";
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

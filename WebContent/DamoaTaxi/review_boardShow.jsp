@@ -165,8 +165,8 @@
 			  		<tbody>
 			  			<tr>
 			  				<td colspan="5" align="right">
-			  					<a href="boardUpdate.jsp?boardID=<%=board.getBoardID() %>" class="btn btn-primary">수정</a>
-			  					<a href="boardView.jsp" class="btn btn-primary">목록</a>
+			  					<a href="review_boardUpdate.jsp?boardID=<%=board.getBoardID() %>" class="btn btn-primary">수정</a>
+			  					<a href="review_boardView.jsp" class="btn btn-primary">목록</a>
 			  					<%
 			  						if(id.equals(board.getUserID())){
 			  					%>

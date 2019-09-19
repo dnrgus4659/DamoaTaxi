@@ -1,9 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "Damoa_pro.QnA_BoardDAO" %>
+<%@ page import = "Damoa_pro.QnA_BoardDTO" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+
 <html>
-  <head>
-    <title>DamoaTaxi</title>
-    <meta charset="utf-8">
+<head>
+<title>게시판</title>
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
@@ -25,10 +29,9 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
         <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,42 +109,86 @@
 		}
 	%>
 	<!-- END nav -->
-
-    <section class="ftco-cover overlay" style="background-image: url(images/bg_3.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">회사 소개</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">장애인과 관광객을 위한 맞춤 서비스를 제공합니다</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">글내용 보기</h1>
           </div>
         </div>
       </div>
     </section>
-    <!-- END section -->
-
-    <section class="ftco-section-2">
-      <div class="container-fluid">
-        <div class="section-2-blocks-wrapper row no-gutters">
-          <div class="img col-sm-12 col-md-6" style="background-image: url('images/image_4.jpg');" data-aos="fade-right">
-          </div>
-          <div class="text col-md-6">
-            <div class="text-inner align-self-start" data-aos="fade-up">
-
-              <h3>저희 다모아 택시는 특수한 목적을 가진 이용자들을 위한 회사입니다.</h3>
-              <p>관광객들을 위해 관광에 필요한 차량을 택시 형태로 지원하고 장애인 이용객들을 위한
-              픽업 및 맞춤 서비스를 운영하고 있습니다. 고객의 필요에 따른 다양한 차종, 요금제,
-              관광 안내, 시간 대절, 청각 장애인을 위한 언어서비스로 최대의 만족을 얻으리라
-              생각됩니다.</p>
-
-              <p>엄격한 기준으로 채용된 기사들로만 이루어져 있으며, 관광이나 장애인택시 이용 시
-              최대한 불편함 없이 운영할 것을 약속드립니다.</p>
-            </div>
-          </div>
+    <div class="ftco-section">
+      <div class="container">
+        <div class="row">
+        	<%
+			   int num = Integer.parseInt(request.getParameter("num"));
+			   String pageNum = request.getParameter("pageNum");
+			
+			   SimpleDateFormat sdf = 
+			        new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			
+			   try{
+				   QnA_BoardDAO dbPro = QnA_BoardDAO.getInstance(); 
+				   QnA_BoardDTO article =  dbPro.getArticle(num);
+			  
+				  int ref=article.getRef();
+				  int re_step=article.getRe_step();
+				  int re_level=article.getRe_level();
+			%>
+			<table class="table table-bordered" style="text-align:center">  
+			  <thead>
+			  	<tr>
+				    <th>글번호</th>
+				    <th>조회수</th>
+				    <th>작성자</th>
+				    <th>작성일</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				  <tr>
+					  <td style="background-color:#eeeeee; text-align:center;"><%=article.getNum()%></td>
+					  <td style="background-color:#eeeeee; text-align:center;"><%=article.getReadcount()%></td>
+					  <td style="background-color:#eeeeee; text-align:center;"><%=article.getWriter()%></td>
+					  <td style="background-color:#eeeeee; text-align:center;"><%= sdf.format(article.getReg_date())%></td>
+				  </tr>
+			  </tbody>
+			  <tr>
+			    <th colspan="4" style="background-color:#ffffff; text-align:center;">글제목</th>
+			  </tr>
+			  <tr>
+			  	<td colspan="4" style="background-color:#eeeeee; text-align:center;"><%=article.getSubject()%></td>
+			  </tr>
+			  <tr>
+			    <td colspan="4" style="background-color:#ffffff; text-align:center;">글내용</td>
+			  </tr>
+			  <tr>
+			  	<td align="left" colspan="4" style="background-color:#eeeeee; text-align:center;"><pre style="white-space: pre-wrap;" align="left"><%=article.getContent()%></pre></td>
+			  </tr>
+			  <tr>      
+			    <td colspan="4" align="right" > 
+				  <input type="button" value="글수정" class="btn btn-info"
+			       onclick="document.location.href='QnA_updateForm.jsp?num=<%=article.getNum()%>&pageNum=<%=pageNum%>'">
+				   &nbsp;&nbsp;&nbsp;&nbsp;
+				  <input type="button" value="글삭제" class="btn btn-info"
+			       onclick="document.location.href='QnA_deleteForm.jsp?num=<%=article.getNum()%>&pageNum=<%=pageNum%>'">
+				   &nbsp;&nbsp;&nbsp;&nbsp;
+			      <input type="button" value="답글쓰기" class="btn btn-info"
+			       onclick="document.location.href='QnA_writeForm.jsp?num=<%=num%>&ref=<%=ref%>&re_step=<%=re_step%>&re_level=<%=re_level%>'">
+				   &nbsp;&nbsp;&nbsp;&nbsp;
+			       <input type="button" value="글목록" class="btn btn-info"
+			       onclick="document.location.href='QnA.jsp?pageNum=<%=pageNum%>'">
+			    </td>
+			  </tr>
+			</table>    
+			<%
+			 }catch(Exception e){} 
+			 %>
         </div>
       </div>
-    </section>
-
+    </div>
+    
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -218,6 +265,5 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
-  </body>
+</body>
 </html>

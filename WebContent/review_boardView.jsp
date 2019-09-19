@@ -106,41 +106,47 @@
 		}
 	%>
 	<!-- END nav -->
-
-    <section class="ftco-cover overlay" style="background-image: url(images/bg_3.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	
+	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">회사 소개</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">장애인과 관광객을 위한 맞춤 서비스를 제공합니다</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">후기 게시판</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">후기를 남겨주세요!</h2>
           </div>
         </div>
       </div>
     </section>
-    <!-- END section -->
-
-    <section class="ftco-section-2">
-      <div class="container-fluid">
-        <div class="section-2-blocks-wrapper row no-gutters">
-          <div class="img col-sm-12 col-md-6" style="background-image: url('images/image_4.jpg');" data-aos="fade-right">
-          </div>
-          <div class="text col-md-6">
-            <div class="text-inner align-self-start" data-aos="fade-up">
-
-              <h3>저희 다모아 택시는 특수한 목적을 가진 이용자들을 위한 회사입니다.</h3>
-              <p>관광객들을 위해 관광에 필요한 차량을 택시 형태로 지원하고 장애인 이용객들을 위한
-              픽업 및 맞춤 서비스를 운영하고 있습니다. 고객의 필요에 따른 다양한 차종, 요금제,
-              관광 안내, 시간 대절, 청각 장애인을 위한 언어서비스로 최대의 만족을 얻으리라
-              생각됩니다.</p>
-
-              <p>엄격한 기준으로 채용된 기사들로만 이루어져 있으며, 관광이나 장애인택시 이용 시
-              최대한 불편함 없이 운영할 것을 약속드립니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+    			<table class="table table-bordered table-hover" style="text-align:center; border:1px solid #dddddd">
+			  		<thead>
+			  			<tr>
+			  				<th style="background-color:#fafafa; color:#000000; width:70px;"><h5>번호</h5></th>
+			  				<th style="background-color:#fafafa; color:#000000;"><h5>제목</h5></th>
+			  				<th style="background-color:#fafafa; color:#000000; width:120px;"><h5>작성자</h5></th>
+			  				<th style="background-color:#fafafa; color:#000000; width:120px;"><h5>작성날짜</h5></th>
+			  				<th style="background-color:#fafafa; color:#000000; width:90px;"><h5>조회수</h5></th>
+			  			</tr>
+			  		</thead>
+			  		<tbody>
+			  			<tr>
+			  				<td>1</td>
+			  				<td>안녕하세요</td>
+			  				<td>홍길동</td>
+			  				<td>2019-09-16</td>
+			  				<td>1</td>
+			  			</tr>
+			  			<tr>
+			  				<td colspan="5" align="right"><a href="review_boardWrite.jsp" class="btn btn-primary" type="submit">글쓰기</a></td>
+			  			</tr>
+			  		</tbody>							
+		  		</table>
+    		</div>
+    	</div>
+    </div>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

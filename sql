@@ -15,7 +15,38 @@ create table board(
     ip varchar(20) not null
  );
  
- 
+create table review_board(
+	userID varchar(20),
+	boardID int primary key,
+	boardTitle varchar(50),
+	boardContent varchar(2048),
+	boardDate DATETIME,
+	boardHit INT,
+	boardFile varchar(100),
+	boardRealFile varchar(100),
+	boardGroup INT,
+	boardSequence INT,
+	boardLevel INT
+);
+
+create table notice_board(
+	num int not null primary key auto_increment,
+    subject varchar(50) not null,
+    reg_date datetime not null,
+    content text not null,
+    hit int not null
+);
+drop table review_board;
+desc review_board;
+select * from notice_board;
+drop table review_board;
+insert into notice_board (subject, reg_date, content, hit) values ('서울관광택시는 외국인전용 택시',now(),'서울관광택시는 외국인전용 택시입니다만 탈수있는차 와 탈수없는차 가 있습니다.',0);
+insert into notice_board (subject, reg_date, content, hit) values ('다모아택시는 100% 예약제로 운영되고 있습니다.',now(),'',0);
+insert into notice_board (subject, reg_date, content, hit) values ('식대비 지불 의무는 없습니다. 손님의 제량의 달려있습니다.',now(),'',0);
+insert into notice_board (subject, reg_date, content, hit) values ('간단한 안내는 기사님이 안내 해 드립니다.',now(),'',0);
+insert into notice_board (subject, reg_date, content, hit) values ('세금계산서 발행 가능합니다.',now(),'',0);
+insert into notice_board (subject, reg_date, content, hit) values ('서울시내 명소및 기본적인 관광에서 촬영지투어 까지 고객의 다양한 요구에 대응합니다.',now(),'',0);
+insert into review_board select "dnrgus4659", ifnull((select max(boardID) +1 from review_board), 1), "제목", "내용", now(), 0, "55.jpg", "551.jpg", ifnull((select max(boardGroup)+1 from review_board), 0), 0, 0
 
 drop table board;
 desc board;

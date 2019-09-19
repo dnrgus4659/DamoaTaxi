@@ -107,41 +107,72 @@
 	%>
 	<!-- END nav -->
 
-    <section class="ftco-cover overlay" style="background-image: url(images/bg_3.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+    <section class="ftco-cover overlay" style="background-image: url(images/image_5.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">회사 소개</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">장애인과 관광객을 위한 맞춤 서비스를 제공합니다</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">글쓰기</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">솔직하게 적어주시면 많은 도움이 됩니다</a></h2>
           </div>
         </div>
       </div>
     </section>
     <!-- END section -->
-
-    <section class="ftco-section-2">
-      <div class="container-fluid">
-        <div class="section-2-blocks-wrapper row no-gutters">
-          <div class="img col-sm-12 col-md-6" style="background-image: url('images/image_4.jpg');" data-aos="fade-right">
-          </div>
-          <div class="text col-md-6">
-            <div class="text-inner align-self-start" data-aos="fade-up">
-
-              <h3>저희 다모아 택시는 특수한 목적을 가진 이용자들을 위한 회사입니다.</h3>
-              <p>관광객들을 위해 관광에 필요한 차량을 택시 형태로 지원하고 장애인 이용객들을 위한
-              픽업 및 맞춤 서비스를 운영하고 있습니다. 고객의 필요에 따른 다양한 차종, 요금제,
-              관광 안내, 시간 대절, 청각 장애인을 위한 언어서비스로 최대의 만족을 얻으리라
-              생각됩니다.</p>
-
-              <p>엄격한 기준으로 채용된 기사들로만 이루어져 있으며, 관광이나 장애인택시 이용 시
-              최대한 불편함 없이 운영할 것을 약속드립니다.</p>
+	<% 
+	int num = 0, ref = 1, re_step = 0, re_level = 0;
+	String strV = "";
+	try{
+		if(request.getParameter("num")!=null){
+			num=Integer.parseInt(request.getParameter("num"));
+			ref=Integer.parseInt(request.getParameter("ref"));
+			re_step=Integer.parseInt(request.getParameter("re_step"));
+			re_level=Integer.parseInt(request.getParameter("re_level"));
+		}
+	%>
+    <div class="ftco-section bg-light">
+    <div class="container">
+      <div class="row block-9 justify-content-center" data-aos="fade-up">
+        <div class="col-md-8 pr-md-5">
+          <form method="post" name="writeform" action="QnA_writePro.jsp" onsubmit="return writeSave()">
+            <input type="hidden" name="num" value="<%=num%>">
+		    <input type="hidden" name="ref" value="<%=ref%>">
+		    <input type="hidden" name="re_step" value="<%=re_step%>">
+		    <input type="hidden" name="re_level" value="<%=re_level%>">
+            <div class="form-group">
+              <input type="text" class="form-control" name="writer" placeholder="이름" style="ime-mode:active;">
             </div>
-          </div>
+            <%
+			    if(request.getParameter("num")==null) 
+			    	strV = "";
+			    else
+			    	strV = "[답변]";
+		    %>
+		    <div class="form-group">
+              <input type="text" class="form-control" name="subject" value="<%=strV%>" placeholder="제목">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="email" placeholder="Email" style="ime-mode:inactive;">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="content" rows="13" cols="40" placeholder="내용" style="ime-mode:active;"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="password" size="8" maxlength="12" name="passwd" style="ime-mode:inactive;" placeholder="비밀번호" class="form-control"> 
+            </div>
+            <div class="form-group text-center">
+              <input type="submit" value="등록" class="btn btn-primary">
+              <input type="reset" value="다시작성" class="btn btn-primary">
+              <input type="button" value="목록보기" OnClick="window.location='QnA.jsp'" class="btn btn-primary">
+            </div>
+          </form>
         </div>
       </div>
-    </section>
-
+    </div>
+  </div>
+	<%
+  		}catch(Exception e){}
+	%> 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -218,6 +249,34 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
+	<script type="text/javascript">
+	function writeSave(){
+		eval writeform = document.writeform;
+		
+		if(!writeform.writer.value){
+		  alert("작성자를 입력하십시요.");
+		  writeform.writer.focus();
+		  return false;
+		}
+		
+		if(!writeform.subject.value){
+		  alert("제목을 입력하십시요.");
+		  writeform.subject.focus();
+		  return false;
+		}
+		
+		if(!writeform.content.value){
+		  alert("내용을 입력하십시요.");
+		  writeform.content.focus();
+		  return false;
+		}
+	        
+		if(!writeform.passwd.value){
+		  alert(" 비밀번호를 입력하십시요.");
+		  writeform.passwd.focus();
+		  return false;
+		}
+	 };
+	</script>
   </body>
 </html>

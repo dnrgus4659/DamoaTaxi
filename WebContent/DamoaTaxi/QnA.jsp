@@ -1,4 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import = "Damoa_pro.QnA_BoardDAO" %>
+<%@ page import = "Damoa_pro.QnA_BoardDTO" %>
+<%@ page import = "java.util.List" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
+<%!
+    int pageSize = 10;
+    SimpleDateFormat sdf = 
+        new SimpleDateFormat("yyyy-MM-dd HH:mm");
+%>
+
+<%
+    String pageNum = request.getParameter("pageNum");
+
+    if (pageNum == null) {
+        pageNum = "1";
+    }
+
+    int currentPage = Integer.parseInt(pageNum);
+    int startRow = (currentPage - 1) * pageSize + 1;
+    int endRow = currentPage * pageSize;
+    int count = 0;
+    int number = 0;
+    List<QnA_BoardDTO> articleList = null; 
+    
+    QnA_BoardDAO dbPro = QnA_BoardDAO.getInstance();
+    count = dbPro.getArticleCount();
+    
+    if (count > 0) {
+        articleList = dbPro.getArticles(startRow, pageSize);
+    }
+
+	number = count-(currentPage-1)*pageSize;
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -106,41 +139,128 @@
 		}
 	%>
 	<!-- END nav -->
-
-    <section class="ftco-cover overlay" style="background-image: url(images/bg_3.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	
+	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">회사 소개</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">장애인과 관광객을 위한 맞춤 서비스를 제공합니다</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">Q&A</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">질의 응답</h2>
           </div>
         </div>
       </div>
-    </section>
-    <!-- END section -->
+    </section>    
+    <div class="ftco-section">
+      <div class="container">
+        <div class="row">
+        	<% if (count == 0) { %>
 
-    <section class="ftco-section-2">
-      <div class="container-fluid">
-        <div class="section-2-blocks-wrapper row no-gutters">
-          <div class="img col-sm-12 col-md-6" style="background-image: url('images/image_4.jpg');" data-aos="fade-right">
+			<table class="table table-bordered" style="text-align:center; border:1px solid #dddddd">
+		    	<thead>
+		    		<tr>
+		        		<th style="background-color:#eeeeee; text-align:center; width:100px;">번호</th>
+		        		<th style="background-color:#eeeeee; text-align:center;">제목</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:130px;">작성자</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:200px;">작성일</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:100px;">조회수</th>
+		        		<th style="background-color:#eeeeee; text-align:center; width:150px;">IP</th>
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+		    		<tr>
+		    			<td colspan="6" align="center">게시판에 저장된 글이 없습니다.</td>
+		    		</tr>
+		    	</tbody>
+		    </table>
+			
+			<% } else {%>
+        	<p>글목록(전체 글:<%=count%>)</p>
+        	<table class="table table-hover" style="text-align:center; border:1px solid #dddddd">
+        		<thead>
+        			<tr>
+        				<th style="background-color:#eeeeee; text-align:center; width:100px;">번호</th>
+        				<th style="background-color:#eeeeee; text-align:center;">제목</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:130px;">작성자</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:200px;">작성일</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:100px;">조회수</th>
+        				<th style="background-color:#eeeeee; text-align:center; width:150px;">IP</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		<%  
+					for (int i = 0 ; i < articleList.size() ; i++) {
+						QnA_BoardDTO article = articleList.get(i);
+				%>
+        			<tr height="30">
+						<td  width="50" > <%=number--%></td>
+						<td  width="250" align="left">
+						<%
+							int wid=0; 
+							if(article.getRe_level()>0){
+							wid=5*(article.getRe_level());
+						%>
+							<img src="images/level.png" width="<%=wid%>" height="16">
+							<img src="images/re.png">
+						<%  }else{%>
+								<img src="images/level.png" width="<%=wid%>" height="16">
+						<%  }%>
+						           
+						<a href="QnA_content.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage%>"><%=article.getSubject()%></a> 
+						<% if(article.getReadcount()>=20){%>
+							<img src="images/hot.gif" border="0"  height="16"><%}%> </td>
+							<td width="100" align="center"> 
+							<a href="mailto:<%=article.getEmail()%>"><%=article.getWriter()%></a></td>
+							<td><%= sdf.format(article.getReg_date())%></td>
+							<td><%=article.getReadcount()%></td>
+							<td><%=article.getIp()%></td>
+						<%}%>
+					</tr>
+        		</tbody>
+        	</table>
+        	<%}%>
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+        <%
+			if (count > 0) {
+				int pageCount = count / pageSize + (count % pageSize == 0 ? 0 : 1);
+				int startPage =1;
+					
+				if(currentPage % 10 != 0)
+					startPage = (int)(currentPage/10)*10 + 1;
+				else
+					startPage = ((int)(currentPage/10)-1)*10 + 1;
+			
+				int pageBlock = 10;
+				int endPage = startPage + pageBlock - 1;
+				if (endPage > pageCount) endPage = pageCount;
+			        
+				if (startPage > 10) { 
+				%>
+					<a href="QnA.jsp?pageNum=<%= startPage - 10 %>">&lt;</a>
+				<%
+				}
+				for (int i = startPage ; i <= endPage ; i++) {  %>
+				<a href="QnA.jsp?pageNum=<%= i %>">[<%= i %>]</a>
+			<%      }
+			        
+				if (endPage < pageCount) {  %>
+				<a href="QnA.jsp?pageNum=<%= startPage + 10 %>">&gt;</a>
+			<%
+				}
+			} %>
+			</div>
           </div>
-          <div class="text col-md-6">
-            <div class="text-inner align-self-start" data-aos="fade-up">
-
-              <h3>저희 다모아 택시는 특수한 목적을 가진 이용자들을 위한 회사입니다.</h3>
-              <p>관광객들을 위해 관광에 필요한 차량을 택시 형태로 지원하고 장애인 이용객들을 위한
-              픽업 및 맞춤 서비스를 운영하고 있습니다. 고객의 필요에 따른 다양한 차종, 요금제,
-              관광 안내, 시간 대절, 청각 장애인을 위한 언어서비스로 최대의 만족을 얻으리라
-              생각됩니다.</p>
-
-              <p>엄격한 기준으로 채용된 기사들로만 이루어져 있으며, 관광이나 장애인택시 이용 시
-              최대한 불편함 없이 운영할 것을 약속드립니다.</p>
-            </div>
+        </div>
+        <div class="col text-right">
+          <div class="form-group text-right">
+            <input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='QnA_writeForm.jsp'">
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

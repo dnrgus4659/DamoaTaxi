@@ -302,7 +302,7 @@ template {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
@@ -2018,6 +2018,30 @@ a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none; }
 
+.btn-file{
+	position: relative;
+	overflow: hidden;
+}
+.btn-file input[type=file]{
+	position: absolute;
+	top:0;
+	right:0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
+}
+.file{
+	visibility: hidden;
+	position: absolute;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #fb5660;
@@ -2774,6 +2798,60 @@ input[type="button"].btn-block {
     position: absolute;
     clip: rect(0, 0, 0, 0);
     pointer-events: none; }
+
+.label--desc {
+  font-size: 13px;
+  color: #999;
+  margin-top: 2px;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .label--desc {
+    margin-top: 14px;
+  }
+}
+
+.input-file {
+  display: none;
+}
+
+.input-file + label {
+  font-size: 15px;
+  color: #fff;
+  color: white;
+  line-height: 40px;
+  background-color: #666666;
+  padding: 0 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 15px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+  background: #1b1b1b;
+}
+
+.input-file__info {
+  font-size: 15px;
+  color: #666;
+  margin-top: 7px;
+}
+
+@media (max-width: 767px) {
+  .input-file__info {
+    display: block;
+    margin-top: 6px;
+  }
+}
 
 .input-group {
   position: relative;

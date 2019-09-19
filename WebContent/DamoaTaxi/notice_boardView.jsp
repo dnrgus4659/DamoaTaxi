@@ -140,7 +140,7 @@
 			  		%>
 			  			<tr>
 			  				<td><%=board.getNum() %></td>
-			  				<td style="text-align: left;"><a href="notice_boardShow.jsp?Num=<%=board.getNum() %>"><%=board.getSubject() %></a></td>
+			  				<td style="text-align: left;"><a href="notice_boardShow.jsp?num=<%=board.getNum() %>"><%=board.getSubject() %></a></td>
 			  				<td><%=board.getReg_date() %></td>
 			  				<td><%=board.getHit() %></td>
 			  			</tr>

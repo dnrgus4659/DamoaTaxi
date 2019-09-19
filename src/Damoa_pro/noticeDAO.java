@@ -25,7 +25,7 @@ public class noticeDAO {
         return ds.getConnection();
     }
     
-    public noticeDTO getBoard(int Num) {
+    public noticeDTO getBoard(String Num) {
     	noticeDTO board = new noticeDTO();
     	Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -34,7 +34,7 @@ public class noticeDAO {
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, Num);
+			pstmt.setString(1, Num);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -62,7 +62,7 @@ public class noticeDAO {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from notice_board";
+		String sql = "select * from notice_board order by num desc";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);

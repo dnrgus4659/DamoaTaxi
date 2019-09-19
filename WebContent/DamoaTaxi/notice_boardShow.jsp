@@ -2,13 +2,13 @@
 <%@ page import="Damoa_pro.noticeDAO" %>
 <%@ page import="Damoa_pro.noticeDTO" %>
 <%
-	String boardID=null;
-	if(request.getParameter("boardID") != null){
-		boardID = (String) request.getParameter("boardID");
+	String num=null;
+	if(request.getParameter("num") != null){
+		num = (String) request.getParameter("num");
 	}
 	noticeDAO boardDAO = new noticeDAO();
-	noticeDTO board = boardDAO.getBoard(boardID);
-	boardDAO.hit(boardID);
+	noticeDTO board = boardDAO.getBoard(num);
+	boardDAO.hit(num);
 %>
 <!DOCTYPE html>
 <html>

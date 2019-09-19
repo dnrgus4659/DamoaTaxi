@@ -3,11 +3,11 @@ package Damoa_pro;
 import java.sql.Timestamp;
 
 public class noticeDTO {
-	private int num;
-	private String subject;
-	private String content;
-	private String reg_date;
-	private int hit;
+	int num;
+	String subject;
+	String content;
+	String reg_date;
+	int hit;
 	public int getNum() {
 		return num;
 	}

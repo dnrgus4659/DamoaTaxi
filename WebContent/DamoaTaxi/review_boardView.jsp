@@ -32,7 +32,10 @@
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script> <!-- jquery가 먼저 로드 된 후에 부트스트랩이 로드 되야함 -->
+  	
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -136,7 +139,7 @@
 	%>
 	<!-- END nav -->
 	
-	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	<section class="ftco-cover overlay" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
@@ -161,9 +164,9 @@
             <div class="text">
               <h3 class="heading"><a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardTitle() %></a></h3>
               <div class="meta">
-                <div><span class="icon-calendar"></span><%=board.getBoardDate() %></div>
-                <div><span class="icon-person"></span><%=board.getUserID() %></div>
-                <div><span class="icon-chat"></span><%=board.getBoardHit() %></div>
+                <div><span class="icon-calendar"></span> <%=board.getBoardDate() %></div>
+                <div><span class="icon-person"></span> <%=board.getUserID() %></div>
+                <div><span class="icon-eye"></span> <%=board.getBoardHit() %></div>
               </div>
             </div>
           </div>
@@ -174,43 +177,43 @@
         <div class="row mt-5">
           <div class="col text-center">
             <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
 			 <%
 				if (count > 0) {
 					int pageCount = count / pageSize + (count % pageSize == 0 ? 0 : 1);
 					int startPage =1;
 						
-					if(currentPage % 10 != 0)
-						startPage = (int)(currentPage/10)*10 + 1;
+					if(currentPage % 5 != 0)
+						startPage = (int)(currentPage/5)*5 + 1;
 					else
-						startPage = ((int)(currentPage/10)-1)*10 + 1;
+						startPage = ((int)(currentPage/5)-1)*5 + 1;
 				
-					int pageBlock = 10;
+					int pageBlock = 5;
 					int endPage = startPage + pageBlock - 1;
 					if (endPage > pageCount) endPage = pageCount;
-				        
-					if (startPage > 10) { 
+				    %>
+				    <ul>
+				    <%    
+					if (startPage > 5) { 
 					%>
-						<a href="review_boardView.jsp?pageNum=<%= startPage - 10 %>">&lt;</a>
+                		<li><a href="review_boardView.jsp?pageNum=<%= startPage - 5 %>">&lt;</a></li>
+                			
 					<%
-					}
-					for (int i = startPage ; i <= endPage ; i++) {  %>
-					<a href="review_boardView.jsp?pageNum=<%= i %>">[<%= i %>]</a>
-				<%      }
+					} 
+					for (int i = startPage ; i <= endPage ; i++) {  
+					%>
+						<li><a href="review_boardView.jsp?pageNum=<%= i %>"><%= i %></a></li>
+					<%  }
 				        
 					if (endPage < pageCount) {  %>
-					<a href="review_boardView.jsp?pageNum=<%= startPage + 10 %>">&gt;</a>
+						<li><a href="review_boardView.jsp?pageNum=<%= startPage + 5 %>">&gt;</a></li>
+              			
 				<%
 					}
-				} %>
+				%>
+			    	</ul>
+			    <%
+				} 
+				%>
             </div>
           </div>
         </div>
@@ -324,11 +327,8 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
-  <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.stellar.min.js"></script>

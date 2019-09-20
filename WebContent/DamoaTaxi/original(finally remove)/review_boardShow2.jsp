@@ -1,11 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="Damoa_pro.review_BoardDAO" %>
+<%@ page import="Damoa_pro.review_BoardDTO" %>
+<%
+	String boardID=null;
+	if(request.getParameter("boardID") != null){
+		boardID = (String) request.getParameter("boardID");
+	}
+	review_BoardDAO boardDAO = new review_BoardDAO();
+	review_BoardDTO board = boardDAO.getBoard(boardID);
+	boardDAO.hit(boardID);
+%>
 <!DOCTYPE html>
 <html>
   <head>
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+	<script src="js/jquery.min.js?ver=2"></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -24,7 +35,7 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css?ver=4">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
 
@@ -109,13 +120,13 @@
 	%>
 	<!-- END nav -->
 	
-	<section class="ftco-cover overlay" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
             <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">후기 게시판</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">후기 작성</h2>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">후기를 남겨주세요!</h2>
           </div>
         </div>
       </div>
@@ -123,44 +134,50 @@
     <div class="ftco-section">
     	<div class="container">
     		<div class="row">
-    			<form action="../review_boardWrite" method="post" enctype="multipart/form-data" style="width:100%;">
-    				<table class="table table-bordered table-hover" style="text-align:center; border:1px solid #dddddd">
-    					<thead>
+    			<table class="table table-bordered table-hover" style="text-align:center; border:1px solid #dddddd">
+			  		<thead>
+				  		<tr>
+				  			<th colspan="4"><h4>게시물 보기</h4></th>
+				  		</tr>
 			  			<tr>
-			  				<th colspan="3"><h4>게시물 작성 양식</h4></th>
+			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>제목</h5></td>
+			  				<td colspan="3"><h5><%=board.getBoardTitle() %></h5></td>
+			  			</tr>
+			  			<tr>
+			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>작성자</h5></td>
+			  				<td colspan="3"><h5><%=board.getUserID() %></h5></td>
+			  			</tr>
+			  			<tr>
+			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>작성날짜</h5></td>
+			  				<td><h5><%=board.getBoardDate() %></h5></td>
+			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>조회수</h5></td>
+			  				<td><h5><%=board.getBoardHit() %></h5></td>
+			  			</tr>
+			  			<tr>
+			  				<td style="background-color: #fafafa; color: #000000; width: 120px; vertical-align: middle; min-height: 150px;"><h5>글내용</h5></td>
+			  				<td colspan="3"><h5><%=board.getBoardContent() %></h5></td>
+			  			</tr>
+			  			<tr>
+			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>첨부파일</h5></td>
+			  				<td colspan="3"><h5><a href="review_boardDownload.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardFile() %></a></h5></td>
 			  			</tr>
 			  		</thead>
 			  		<tbody>
 			  			<tr>
-			  				<td style="width:150px;"><h5>아이디</h5></td>
-			  				<td><%= id %>
-			  				<input type="hidden" name="userID" value="<%= id %>"></td>
-			  			</tr>
-			  			<tr>
-			  				<td style="width:150px;"><h5>글 제목</h5></td>
-			  				<td><input type="text" class="form-control" maxlength="50" id="boardTitle" name="boardTitle" placeholder="글 제목을 입력하세요."></td>
-			  			</tr>
-			  			<tr>
-			  				<td style="width:150px;"><h5>글 내용</h5></td>
-			  				<td><textarea class="form-control" rows="10" id="boardContent" name="boardContent" maxlength="2048" placeholder="글 내용을 입력하세요"></textarea></td>
-			  			</tr>
-			  			<tr>
-			  				<td style="width:150px;" align="center"><h5>파일 업로드</h5></td>
-			  				<td colspan="2">					  
-						        <div class="input-group js-input-file">
-                                    <input class="input-file" type="file" name="file" id="file">
-                                    <label class="label--file" for="file">파일 선택</label>
-                                    <span class="input-file__info">파일을 선택 하지 않으셨습니다.</span>
-                                </div>
-                                <div class="label--desc">최대 용량 10 MB</div>
+			  				<td colspan="5" align="right">
+			  					<a href="review_boardUpdate.jsp?boardID=<%=board.getBoardID() %>" class="btn btn-primary">수정</a>
+			  					<a href="review_boardView.jsp" class="btn btn-primary">목록</a>
+			  					<%
+			  						if(id.equals(board.getUserID())){
+			  					%>
+			  							<a href="review_boardDelete.jsp?boardID=<%=board.getBoardID() %>" class="btn btn-primary">삭제</a>
+			  					<%
+			  						}
+			  					%>
 			  				</td>
 			  			</tr>
-			  			<tr>
-			  				<td colspan="3" align="right"><h5 style="color:red;"></h5><input class="btn btn-primary" type="submit" value="등록"></td>
-			  			</tr>
-			  		</tbody>
-    				</table>
-    			</form>
+			  		</tbody>							
+		  		</table>
     		</div>
     	</div>
     </div>
@@ -266,7 +283,7 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-  <script src="js/jquery.min.js"></script>
+
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -278,35 +295,6 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/main.js"></script>
-  <script type="text/javascript">
-  (function ($) {
-	    'use strict';	    
-	    try {
-	        var file_input_container = $('.js-input-file');
-	        if (file_input_container[0]) {
-	            file_input_container.each(function () {
-	                var that = $(this);
-	                var fileInput = that.find(".input-file");
-	                var info = that.find(".input-file__info");
-	                fileInput.on("change", function () {
-	                    var fileName;
-	                    fileName = $(this).val();
-	                    if (fileName.substring(3,11) == 'fakepath') {
-	                        fileName = fileName.substring(12);
-	                    }
-	                    if(fileName == "") {
-	                        info.text("No file chosen");
-	                    } else {
-	                        info.text(fileName);
-	                    }
-	                })
-	            });
-	        }
-	    }
-	    catch (e) {
-	        console.log(e);
-	    }
-	})(jQuery);
-  </script>
+
   </body>
 </html>

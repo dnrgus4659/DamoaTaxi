@@ -16,11 +16,11 @@
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src="js/jquery.min.js?ver=2"></script>
+    <script src="js/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-
+    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -32,13 +32,13 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-
+    
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-
+    
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
         <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo.png"></a>
@@ -119,69 +119,72 @@
 		}
 	%>
 	<!-- END nav -->
-	
-	<section class="ftco-cover overlay" style="background-image: url(images/image_8.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+
+    <section class="ftco-cover overlay" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-9 text-center">
             <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">후기 게시판</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">후기를 남겨주세요!</h2>
           </div>
         </div>
       </div>
     </section>
+    <!-- END section -->
+
     <div class="ftco-section">
-    	<div class="container">
-    		<div class="row">
-    			<table class="table table-bordered table-hover" style="text-align:center; border:1px solid #dddddd">
-			  		<thead>
-				  		<tr>
-				  			<th colspan="4"><h4>게시물 보기</h4></th>
-				  		</tr>
-			  			<tr>
-			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>제목</h5></td>
-			  				<td colspan="3"><h5><%=board.getBoardTitle() %></h5></td>
-			  			</tr>
-			  			<tr>
-			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>작성자</h5></td>
-			  				<td colspan="3"><h5><%=board.getUserID() %></h5></td>
-			  			</tr>
-			  			<tr>
-			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>작성날짜</h5></td>
-			  				<td><h5><%=board.getBoardDate() %></h5></td>
-			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>조회수</h5></td>
-			  				<td><h5><%=board.getBoardHit() %></h5></td>
-			  			</tr>
-			  			<tr>
-			  				<td style="background-color: #fafafa; color: #000000; width: 120px; vertical-align: middle; min-height: 150px;"><h5>글내용</h5></td>
-			  				<td colspan="3"><h5><%=board.getBoardContent() %></h5></td>
-			  			</tr>
-			  			<tr>
-			  				<td style="background-color: #fafafa; color: #000000; width: 120px;"><h5>첨부파일</h5></td>
-			  				<td colspan="3"><h5><a href="review_boardDownload.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardFile() %></a></h5></td>
-			  			</tr>
-			  		</thead>
-			  		<tbody>
-			  			<tr>
-			  				<td colspan="5" align="right">
-			  					<a href="review_boardUpdate.jsp?boardID=<%=board.getBoardID() %>" class="btn btn-primary">수정</a>
-			  					<a href="review_boardView.jsp" class="btn btn-primary">목록</a>
-			  					<%
-			  						if(id.equals(board.getUserID())){
-			  					%>
-			  							<a href="review_boardDelete.jsp?boardID=<%=board.getBoardID() %>" class="btn btn-primary">삭제</a>
-			  					<%
-			  						}
-			  					%>
-			  				</td>
-			  			</tr>
-			  		</tbody>							
-		  		</table>
-    		</div>
-    	</div>
-    </div>
-	<%
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 class="mb-3"><%=board.getBoardTitle() %></h2>
+            <hr>
+			<pre style="white-space: pre-wrap;" align="left"><%=board.getBoardContent() %></pre>
+            
+            <div class="tag-widget post-tag-container mb-5 mt-5" align="right">
+              <div class="tagcloud">
+                <a href="review_boardUpdate.jsp?boardID=<%=board.getBoardID() %>" class="tag-cloud-link">수정</a>
+                <a href="review_boardView.jsp" class="tag-cloud-link">목록</a>
+                <%
+			  		if(id.equals(board.getUserID())){
+			  	%>
+			  			<a href="review_boardDelete.jsp?boardID=<%=board.getBoardID() %>" class="tag-cloud-link">삭제</a>
+			  	<%
+			  		}
+			  	%>
+              </div>
+            </div>
+            
+            <div class="about-author d-flex pt-5">
+              <div class="bio align-self-md-center mr-4">
+                
+              </div>
+              <div class="desc align-self-md-center">
+                <h3>작성자</h3>
+                <p><%=board.getUserID() %></p>
+              </div>
+            </div>
+            
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar">
+            <div class="sidebar-box">
+              <h3>작성날짜</h3>
+              <p><%=board.getBoardDate() %></p>
+            </div>
+
+            <div class="sidebar-box">
+              <h3>조회수</h3>
+              <p><%=board.getBoardHit() %></p>
+            </div>
+
+            <div class="sidebar-box">
+              <h3>첨부파일</h3>
+              <p><a href="review_boardDownload.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardFile() %></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .section -->
+  	<%
 		String messageContent=null;
 		if(session.getAttribute("messageContent") != null){
 			messageContent = (String) session.getAttribute("messageContent");
@@ -294,7 +297,9 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
+    
   </body>
 </html>

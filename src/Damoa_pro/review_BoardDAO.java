@@ -87,17 +87,46 @@ public class review_BoardDAO {
     	return board;
     }
     
-    public ArrayList<review_BoardDTO> getList() {
+    public int getArticleCount()
+            throws Exception {
+       Connection conn = null;
+       PreparedStatement pstmt = null;
+       ResultSet rs = null;
+
+       int x=0;
+
+       try {
+           conn = getConnection();
+           
+           pstmt = conn.prepareStatement("select count(*) from review_board");
+           rs = pstmt.executeQuery();
+
+           if (rs.next()) {
+              x= rs.getInt(1);
+			}
+       } catch(Exception ex) {
+           ex.printStackTrace();
+       } finally {
+           if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+           if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+           if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+       }
+		return x;
+   }
+    
+    public ArrayList<review_BoardDTO> getList(int start, int end) {
     	ArrayList<review_BoardDTO> boardList = null;
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from review_board order by boardGroup desc, boardSequence asc";
+		String sql = "select * from review_board order by boardGroup desc, boardSequence asc limit ?,?";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, start-1);
+			pstmt.setInt(2, end);
 			rs = pstmt.executeQuery();
-			boardList = new ArrayList<review_BoardDTO>();
+			boardList = new ArrayList<review_BoardDTO>(end);
 			
 			while(rs.next()) {
 				review_BoardDTO board = new review_BoardDTO();

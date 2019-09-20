@@ -2,30 +2,56 @@
 <%@ page import="Damoa_pro.review_BoardDAO" %>
 <%@ page import="Damoa_pro.review_BoardDTO" %>
 <%@ page import="java.util.ArrayList" %>
+<%!
+    int pageSize = 6;
+%>
+
+<%
+    String pageNum = request.getParameter("pageNum");
+
+    if (pageNum == null) {
+        pageNum = "1";
+    }
+
+    int currentPage = Integer.parseInt(pageNum);
+    int startRow = (currentPage - 1) * pageSize + 1;
+    int endRow = currentPage * pageSize;
+    int count = 0;
+    int number = 0;
+
+    review_BoardDAO dbPro = review_BoardDAO.getInstance();
+    count = dbPro.getArticleCount();
+
+    ArrayList<review_BoardDTO> boardList = new review_BoardDAO().getList(startRow, pageSize);
+
+	number = count-(currentPage-1)*pageSize;
+%>
 <!DOCTYPE html>
 <html>
   <head>
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
+
     <link rel="stylesheet" href="css/aos.css">
+
     <link rel="stylesheet" href="css/ionicons.min.css">
+
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    
-    <script src="js/jquery.min.js"></script>
-  	<script src="js/bootstrap.min.js"></script>
-  	
   </head>
   <body>
 
@@ -91,7 +117,6 @@
     </nav>
     
 	<% 		
-		ArrayList<review_BoardDTO> boardList = new review_BoardDAO().getList();
 		String id = (String) session.getAttribute("id");
 		if(id==null || id.equals("")){
 	%>
@@ -122,41 +147,79 @@
         </div>
       </div>
     </section>
+    
     <div class="ftco-section">
-    	<div class="container">
-    		<div class="row">
-    			<table class="table table-bordered table-hover" style="text-align:center; border:1px solid #dddddd">
-			  		<thead>
-			  			<tr>
-			  				<th style="background-color:#fafafa; color:#000000; width:70px;"><h5>번호</h5></th>
-			  				<th style="background-color:#fafafa; color:#000000;"><h5>제목</h5></th>
-			  				<th style="background-color:#fafafa; color:#000000; width:120px;"><h5>작성자</h5></th>
-			  				<th style="background-color:#fafafa; color:#000000; width:120px;"><h5>작성날짜</h5></th>
-			  				<th style="background-color:#fafafa; color:#000000; width:90px;"><h5>조회수</h5></th>
-			  			</tr>
-			  		</thead>
-			  		<tbody>
-			  		<%
-			  			for(int i = 0; i<boardList.size(); i++){
+      <div class="container">
+        <div class="row">
+        <%
+			for(int i = 0; i<boardList.size(); i++){
 			  				review_BoardDTO board = boardList.get(i);
-			  		%>
-			  			<tr>
-			  				<td><%=board.getBoardID() %></td>
-			  				<td style="text-align: left;"><a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardTitle() %></a></td>
-			  				<td><%=board.getUserID() %></td>
-			  				<td><%=board.getBoardDate() %></td>
-			  				<td><%=board.getBoardHit() %></td>
-			  			</tr>
-			  		<%
-			  			}
-			  		%>
-			  			<tr>
-			  				<td colspan="5" align="right"><a href="review_boardWrite.jsp" class="btn btn-primary" type="submit">글쓰기</a></td>
-			  			</tr>
-			  		</tbody>							
-		  		</table>
-    		</div>
-    	</div>
+		%>
+          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
+            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_11.jpg');">
+            </a>
+            <div class="text">
+              <h3 class="heading"><a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardTitle() %></a></h3>
+              <div class="meta">
+                <div><span class="icon-calendar"></span><%=board.getBoardDate() %></div>
+                <div><span class="icon-person"></span><%=board.getUserID() %></div>
+                <div><span class="icon-chat"></span><%=board.getBoardHit() %></div>
+              </div>
+            </div>
+          </div>
+         <%
+			}
+		 %> 
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+			 <%
+				if (count > 0) {
+					int pageCount = count / pageSize + (count % pageSize == 0 ? 0 : 1);
+					int startPage =1;
+						
+					if(currentPage % 10 != 0)
+						startPage = (int)(currentPage/10)*10 + 1;
+					else
+						startPage = ((int)(currentPage/10)-1)*10 + 1;
+				
+					int pageBlock = 10;
+					int endPage = startPage + pageBlock - 1;
+					if (endPage > pageCount) endPage = pageCount;
+				        
+					if (startPage > 10) { 
+					%>
+						<a href="review_boardView.jsp?pageNum=<%= startPage - 10 %>">&lt;</a>
+					<%
+					}
+					for (int i = startPage ; i <= endPage ; i++) {  %>
+					<a href="review_boardView.jsp?pageNum=<%= i %>">[<%= i %>]</a>
+				<%      }
+				        
+					if (endPage < pageCount) {  %>
+					<a href="review_boardView.jsp?pageNum=<%= startPage + 10 %>">&gt;</a>
+				<%
+					}
+				} %>
+            </div>
+          </div>
+        </div>
+        <div class="col text-right">
+          <div class="form-group text-right">
+            <a href="review_boardWrite.jsp" class="btn btn-primary" type="submit">글쓰기</a>
+          </div>
+        </div>
+      </div>
     </div>
 	<%
 		String messageContent=null;
@@ -261,16 +324,21 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-  	<script src="js/jquery.easing.1.3.js"></script>
-  	<script src="js/jquery.waypoints.min.js"></script>
-  	<script src="js/jquery.stellar.min.js"></script>
-  	<script src="js/owl.carousel.min.js"></script>
-  	<script src="js/jquery.magnific-popup.min.js"></script>
-  	<script src="js/aos.js"></script>
-  	<script src="js/jquery.animateNumber.min.js"></script>
-  	<script src="js/main.js"></script>
-  	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-  	<script src="js/popper.min.js"></script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
 
   </body>
 </html>

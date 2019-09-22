@@ -94,7 +94,7 @@ public class noticeDAO {
     public int hit(String num) {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql="update notice set hit = hit + 1 where num=?";
+		String sql="update notice_board set hit = hit + 1 where num=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

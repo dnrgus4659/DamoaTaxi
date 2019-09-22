@@ -44,42 +44,41 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto" style="height: 60px;">
-            <li class="nav-item active"><a href="index.html" class="nav-link">홈</a></li>
+            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="Company.html">회사소개</a>
-                <a class="dropdown-item" href="Service.html">서비스 소개</a>
-                <a class="dropdown-item" href="Course.html">관광코스 소개</a>
-                <a class="dropdown-item" href="Service_Guide.html">서비스 이용방법</a>
+              	<a class="dropdown-item" href="Company.jsp">회사소개</a>
+                <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
+                <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
+                <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="jang_reservation.html">장애인 택시 예약</a>
-                <a class="dropdown-item" href="gwan_reservation.html">관광 택시 예약</a>
+                <a class="dropdown-item" href="jang_reservation.jsp">장애인 택시 예약</a>
+                <a class="dropdown-item" href="gwan_reservation.jsp">관광 택시 예약</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="introduce.html">기사 소개</a>
+              	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="board.html">게시판</a>
+              	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="shop.html">공지사항</a>
-                <a class="dropdown-item" href="product-single.html">Q&A</a>
-                <a class="dropdown-item" href="cart.html">FAQ</a>
-                <a class="dropdown-item" href="checkout.html">건의사항</a>
+              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
+                <a class="dropdown-item" href="QnA.jsp">Q&A</a>
+                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -87,7 +86,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
               	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="product-single.html">예약현황</a>
+                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
                 <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
               </div>
             </li>

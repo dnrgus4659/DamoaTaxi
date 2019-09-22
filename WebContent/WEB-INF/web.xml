@@ -23,4 +23,20 @@
   	<servlet-name>review_boardWriteServlet</servlet-name>
   	<url-pattern>/review_boardWrite</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>review_boardUpdateServlet</servlet-name>
+  	<servlet-class>Damoa_pro.review_boardUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>review_boardUpdateServlet</servlet-name>
+  	<url-pattern>/review_boardUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>review_boardDeleteServlet</servlet-name>
+  	<servlet-class>Damoa_pro.review_boardDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>review_boardDeleteServlet</servlet-name>
+  	<url-pattern>/review_boardDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

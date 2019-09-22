@@ -5,7 +5,7 @@
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -142,10 +142,12 @@
 			  			</tr>
 			  			<tr>
 			  				<td style="width:150px;"><h5>글 내용</h5></td>
-			  				<td><textarea class="form-control" rows="10" id="boardContent" name="boardContent" maxlength="2048" placeholder="글 내용을 입력하세요"></textarea></td>
+			  				<td>
+			  					<textarea class="form-control" rows="10" id="boardContent" name="boardContent" maxlength="2048" placeholder="글 내용을 입력하세요"></textarea>
+							</td>
 			  			</tr>
 			  			<tr>
-			  				<td style="width:150px;" align="center"><h5>파일 업로드</h5></td>
+			  				<td style="width:150px;" align="center"><h5>후기 사진</h5><h5>업로드</h5></td>
 			  				<td colspan="2">					  
 						        <div class="input-group js-input-file">
                                     <input class="input-file" type="file" name="file" id="file">

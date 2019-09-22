@@ -49,6 +49,50 @@ public class review_BoardDAO {
 		return -1;
     }
     
+    public int update(String boardID, String boardTitle, String boardContent, String boardFile, String boardRealFile) {
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql="update review_board set boardTitle = ?, boardContent = ?, boardFile = ?, boardRealFile=? where boardID=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle);
+			pstmt.setString(2, boardContent);
+			pstmt.setString(3, boardFile);
+			pstmt.setString(4, boardRealFile);
+			pstmt.setInt(5, Integer.parseInt(boardID));
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return -1;
+    }
+    
+    public int delete(String boardID) {
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql="delete from review_board where boardID=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(boardID));
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return -1;
+    }
+    
     public review_BoardDTO getBoard(String boardID) {
     	review_BoardDTO board = new review_BoardDTO();
     	Connection conn = null;
@@ -133,7 +177,8 @@ public class review_BoardDAO {
 				board.setUserID(rs.getString("userID"));
 				board.setBoardID(rs.getInt("boardID"));
 				board.setBoardTitle(rs.getString("boardTitle").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("\n", "<br>"));
-				board.setBoardContent(rs.getString("boardContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("\n", "<br>"));
+				/*board.setBoardContent(rs.getString("boardContent").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("\n", "<br>"));*/
+				board.setBoardContent(rs.getString("boardContent"));
 				board.setBoardDate(rs.getString("boardDate"));
 				board.setBoardHit(rs.getInt("boardHit"));
 				board.setBoardFile(rs.getString("boardFile"));

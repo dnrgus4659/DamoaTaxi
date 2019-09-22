@@ -154,12 +154,21 @@
     <div class="ftco-section">
       <div class="container">
         <div class="row">
-        <%
+        <% if (count == 0) { %>
+		<div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
+		    <div class="text">
+				<div class="meta">
+					<h3>게시글이 없습니다!</h3>
+		        </div>
+	        </div>
+        </div>
+			
+		<% } else {
 			for(int i = 0; i<boardList.size(); i++){
 			  				review_BoardDTO board = boardList.get(i);
 		%>
           <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_11.jpg');">
+            <a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>" class="block-20"><img alt="이미지가 없습니다." src="../upload/<%=board.getBoardFile() %>">
             </a>
             <div class="text">
               <h3 class="heading"><a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardTitle() %></a></h3>
@@ -172,6 +181,7 @@
           </div>
          <%
 			}
+		}
 		 %> 
         </div>
         <div class="row mt-5">

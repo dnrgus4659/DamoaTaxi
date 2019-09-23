@@ -25,10 +25,14 @@ public class review_BoardDAO {
         return ds.getConnection();
     }
     
-    public int write(String userID, String boardTitle, String boardContent, String boardFile, String boardRealFile) {
+    public int write(String userID, String boardTitle, 
+    		String boardContent, String boardFile, String boardRealFile) {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql="insert into review_board select ?, ifnull((select max(boardID) +1 from review_board), 1), ?, ?, now(), 0, ?, ?, ifnull((select max(boardGroup)+1 from review_board), 0), 0, 0";
+		String sql="insert into review_board select ?, "
+				+ "ifnull((select max(boardID) +1 from review_board), 1), "
+				+ "?, ?, now(), 0, ?, ?, ifnull((select max(boardGroup)+1 "
+				+ "from review_board), 0), 0, 0";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -49,10 +53,12 @@ public class review_BoardDAO {
 		return -1;
     }
     
-    public int update(String boardID, String boardTitle, String boardContent, String boardFile, String boardRealFile) {
+    public int update(String boardID, String boardTitle, 
+    		String boardContent, String boardFile, String boardRealFile) {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql="update review_board set boardTitle = ?, boardContent = ?, boardFile = ?, boardRealFile=? where boardID=?";
+		String sql="update review_board set boardTitle = ?, boardContent = ?, "
+				+ "boardFile = ?, boardRealFile=? where boardID=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

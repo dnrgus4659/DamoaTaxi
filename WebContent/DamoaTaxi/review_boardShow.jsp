@@ -146,7 +146,10 @@
                 <%
 			  		if(id.equals(board.getUserID())){
 			  	%>
-			  			<a href="../review_boardDelete?boardID=<%=board.getBoardID() %>&userID=<%=id %>" class="tag-cloud-link" onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</a>
+			  			<a href="../review_boardDelete?boardID=<%=board.getBoardID() %>
+			  				&userID=<%=id %>" class="tag-cloud-link" 
+			  				onclick="return confirm('정말로 삭제하시겠습니까?')">삭제
+			  			</a>
 			  	<%
 			  		}
 			  	%>

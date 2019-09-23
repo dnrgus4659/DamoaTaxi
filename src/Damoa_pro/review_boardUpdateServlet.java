@@ -30,7 +30,6 @@ public class review_boardUpdateServlet extends HttpServlet {
 			return;
 		}
 		String userID = multi.getParameter("userID");
-		HttpSession session = request.getSession();
 		String boardID = multi.getParameter("boardID");
 		if(boardID == null || boardID.equals("")) {
 			request.getSession().setAttribute("messageType", "오류 메세지");

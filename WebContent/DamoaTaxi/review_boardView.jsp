@@ -123,8 +123,6 @@
 		if(id==null || id.equals("")){
 	%>
 			<script>
-				alert("로그인 후 이용하실 수 있습니다.");
-				location.href = 'dmlogin_form.jsp';
 				document.getElementById("logout").style.display='none';
 			</script>
 	<%		

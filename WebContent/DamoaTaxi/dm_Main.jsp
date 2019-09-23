@@ -6,8 +6,10 @@
 	int count = 0;
 	review_BoardDAO dbPro = review_BoardDAO.getInstance();
 	count = dbPro.getArticleCount();
-    ArrayList<review_BoardDTO> boardList = new review_BoardDAO().getList(1, 5);
-
+	ArrayList<review_BoardDTO> boardList =null;
+	if(count >= 4){
+		boardList = new review_BoardDAO().getList(1, 5);
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -197,7 +199,7 @@
       </div>
     </div>
     <div class="container-fluid">
-     <% if (count == 0) { %>
+     <% if (count <= 4) { %>
       <div class="row d-flex no-gutters" align="center">
 		<h2 style="color:white;" align="center">후기가 없습니다!</h2>        
       </div>

@@ -1,4 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="Damoa_pro.review_BoardDAO" %>
+<%@ page import="Damoa_pro.review_BoardDTO" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+	int count = 0;
+	review_BoardDAO dbPro = review_BoardDAO.getInstance();
+	count = dbPro.getArticleCount();
+	ArrayList<review_BoardDTO> boardList =null;
+	if(count >= 4){
+		boardList = new review_BoardDAO().getList(1, 5);
+	}
+%>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -72,8 +84,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
                 <a class="dropdown-item" href="QnA.jsp">Q&A</a>
-                <a class="dropdown-item" href="cart.jsp">FAQ</a>
-                <a class="dropdown-item" href="checkout.jsp">건의사항</a>
+                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -188,73 +199,32 @@
       </div>
     </div>
     <div class="container-fluid">
-      <div class="row d-flex no-gutters">
-        <div class="col-lg align-self-sm-end" data-aos="fade-up">
-          <div class="testimony">
-             <blockquote>
-                <p>&ldquo; 장애인 택시이용 했는데 택시기사분 정말 친절하시구 좋았습니다 다음에 또 이용하고 싶네요 !!&rdquo;</p>
-              </blockquote>
-              <div class="author d-flex mt-4">
-                <div class="image mr-3 align-self-center">
-                  <img src="images/person_1.jpg" alt="">
-                </div>
-                <div class="name align-self-center">이준 <span class="position">장애인 택시 고객</span></div>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg align-self-sm-end" data-aos="fade-up">
-          <div class="testimony overlay">
-             <blockquote>
-                <p>&ldquo;정말이지 너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무너무좋네요&rdquo;</p>
-              </blockquote>
-              <div class="author d-flex mt-4">
-                <div class="image mr-3 align-self-center">
-                  <img src="images/person_2.jpg" alt="">
-                </div>
-                <div class="name align-self-center">권욱현 <span class="position">관광 택시 고객</span></div>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg align-self-sm-end" data-aos="fade-up">
-          <div class="testimony">
-             <blockquote>
-                <p>&ldquo;관광 택시이용 했는데 택시기사분 정말 친절하시구 좋았습니다 다음에 또 이용하고 싶네요 !! 짐도 많이 실을 수 있어서 좋았습니다. &rdquo;</p>
-              </blockquote>
-              <div class="author d-flex mt-4">
-                <div class="image mr-3 align-self-center">
-                  <img src="images/person_3.jpg" alt="">
-                </div>
-                <div class="name align-self-center">장찬모 <span class="position">관광 택시 사용자</span></div>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg align-self-sm-end" data-aos="fade-up">
-          <div class="testimony overlay">
-             <blockquote>
-                <p>&ldquo;장애인 택시이용 했는데 택시기사분 정말 친절하시구 좋았습니다 다음에 또 이용하고 싶네요 !!&rdquo;</p>
-              </blockquote>
-              <div class="author d-flex mt-4">
-                <div class="image mr-3 align-self-center">
-                  <img src="images/person_2.jpg" alt="">
-                </div>
-                <div class="name align-self-center">한선미 <span class="position">블로그 담당</span></div>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg align-self-sm-end" data-aos="fade-up">
-          <div class="testimony">
-            <blockquote>
-              <p>&ldquo;장애인 택시이용 했는데 택시기사분 정말 친절하시구 너무너무너무너무너무너무너무너무너무너무너무너무 좋았습니다 다음에 또 이용하고 싶네요 !! &rdquo;</p>
-            </blockquote>
-            <div class="author d-flex mt-4">
-              <div class="image mr-3 align-self-center">
-                <img src="images/person_3.jpg" alt="">
-              </div>
-              <div class="name align-self-center">권욱현 <span class="position">팀장</span></div>
-            </div>
-          </div>
-        </div>
+     <% if (count <= 4) { %>
+      <div class="row d-flex no-gutters" align="center">
+		<h2 style="color:white;" align="center">후기가 없습니다!</h2>        
       </div>
+      <%} else {%>
+      <div class="row d-flex no-gutters">
+   	  <%
+    	  for(int i = 0; i<5; i++){
+				review_BoardDTO board = boardList.get(i);  
+      %>
+        <div class="col-lg align-self-sm-end" data-aos="fade-up">
+          <div class="testimony">
+             <blockquote>
+                <a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>"><p style="color:white;">&ldquo;<%=board.getBoardTitle() %>&rdquo;</p></a>
+              </blockquote>
+              <div class="author d-flex mt-4">
+                <div class="image mr-3 align-self-center">
+                  <img src="../upload/<%=board.getBoardFile() %>" alt="이미지가 없습니다.">
+                </div>
+                <div class="name align-self-center"><%=board.getUserID() %> <span class="position">조회수 : <%=board.getBoardHit() %></span></div>
+              </div>
+          </div>
+        </div>
+	      <%}%>
+	 </div>
+   	  <%}%>
     </div>
   </div>
 

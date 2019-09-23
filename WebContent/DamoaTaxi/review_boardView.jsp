@@ -99,10 +99,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="shop.jsp">공지사항</a>
+              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
                 <a class="dropdown-item" href="QnA.jsp">Q&A</a>
-                <a class="dropdown-item" href="cart.jsp">FAQ</a>
-                <a class="dropdown-item" href="checkout.jsp">건의사항</a>
+                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -124,8 +123,6 @@
 		if(id==null || id.equals("")){
 	%>
 			<script>
-				alert("로그인 후 이용하실 수 있습니다.");
-				location.href = 'dmlogin_form.jsp';
 				document.getElementById("logout").style.display='none';
 			</script>
 	<%		
@@ -154,12 +151,21 @@
     <div class="ftco-section">
       <div class="container">
         <div class="row">
-        <%
+        <% if (count == 0) { %>
+		<div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
+		    <div class="text">
+				<div class="meta">
+					<h3>게시글이 없습니다!</h3>
+		        </div>
+	        </div>
+        </div>
+			
+		<% } else {
 			for(int i = 0; i<boardList.size(); i++){
 			  				review_BoardDTO board = boardList.get(i);
 		%>
           <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_11.jpg');">
+            <a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>" class="block-20"><img alt="이미지가 없습니다." src="../upload/<%=board.getBoardFile() %>">
             </a>
             <div class="text">
               <h3 class="heading"><a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardTitle() %></a></h3>
@@ -172,6 +178,7 @@
           </div>
          <%
 			}
+		}
 		 %> 
         </div>
         <div class="row mt-5">

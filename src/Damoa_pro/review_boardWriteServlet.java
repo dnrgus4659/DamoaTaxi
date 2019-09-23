@@ -31,7 +31,6 @@ public class review_boardWriteServlet extends HttpServlet {
 			return;
 		}
 		String userID = multi.getParameter("userID");
-		HttpSession session = request.getSession();
 		String boardTitle = multi.getParameter("boardTitle");
 		String boardContent = multi.getParameter("boardContent");
 		if(boardTitle == null || boardTitle.equals("") || boardContent == null || boardContent.equals("")) {

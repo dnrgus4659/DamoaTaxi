@@ -5,7 +5,7 @@
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -69,10 +69,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="shop.jsp">공지사항</a>
+              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
                 <a class="dropdown-item" href="QnA.jsp">Q&A</a>
-                <a class="dropdown-item" href="cart.jsp">FAQ</a>
-                <a class="dropdown-item" href="checkout.jsp">건의사항</a>
+                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -95,7 +94,7 @@
 	%>
 			<script>
 				alert("로그인 후 이용하실 수 있습니다.");
-				location.href('dmlogin_form.jsp');
+				history.go(-1);
 				document.getElementById("logout").style.display='none';
 			</script>
 	<%		
@@ -142,10 +141,12 @@
 			  			</tr>
 			  			<tr>
 			  				<td style="width:150px;"><h5>글 내용</h5></td>
-			  				<td><textarea class="form-control" rows="10" id="boardContent" name="boardContent" maxlength="2048" placeholder="글 내용을 입력하세요"></textarea></td>
+			  				<td>
+			  					<textarea class="form-control" rows="10" id="boardContent" name="boardContent" maxlength="2048" placeholder="글 내용을 입력하세요"></textarea>
+							</td>
 			  			</tr>
 			  			<tr>
-			  				<td style="width:150px;" align="center"><h5>파일 업로드</h5></td>
+			  				<td style="width:150px;" align="center"><h5>후기 사진</h5><h5>업로드</h5></td>
 			  				<td colspan="2">					  
 						        <div class="input-group js-input-file">
                                     <input class="input-file" type="file" name="file" id="file">

@@ -2,6 +2,7 @@ package Damoa_pro;
 
 public class review_BoardDTO {
 	String userID;
+	String userCategory;
 	int boardID;
 	String boardTitle;
 	String boardContent;
@@ -12,9 +13,11 @@ public class review_BoardDTO {
 	int boardGroup;
 	int boardSequence;
 	int boardLevel;
-	
 	public String getUserID() {
 		return userID;
+	}
+	public String getUserCategory() {
+		return userCategory;
 	}
 	public int getBoardID() {
 		return boardID;
@@ -49,6 +52,9 @@ public class review_BoardDTO {
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
+	public void setUserCategory(String userCategory) {
+		this.userCategory = userCategory;
+	}
 	public void setBoardID(int boardID) {
 		this.boardID = boardID;
 	}
@@ -79,6 +85,8 @@ public class review_BoardDTO {
 	public void setBoardLevel(int boardLevel) {
 		this.boardLevel = boardLevel;
 	}
+	
+	
 	
 	
 }

@@ -80,10 +80,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="shop.jsp">공지사항</a>
+              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
                 <a class="dropdown-item" href="QnA.jsp">Q&A</a>
-                <a class="dropdown-item" href="cart.jsp">FAQ</a>
-                <a class="dropdown-item" href="checkout.jsp">건의사항</a>
+                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -147,7 +146,10 @@
                 <%
 			  		if(id.equals(board.getUserID())){
 			  	%>
-			  			<a href="review_boardDelete.jsp?boardID=<%=board.getBoardID() %>" class="tag-cloud-link">삭제</a>
+			  			<a href="../review_boardDelete?boardID=<%=board.getBoardID() %>
+			  				&userID=<%=id %>" class="tag-cloud-link" 
+			  				onclick="return confirm('정말로 삭제하시겠습니까?')">삭제
+			  			</a>
 			  	<%
 			  		}
 			  	%>

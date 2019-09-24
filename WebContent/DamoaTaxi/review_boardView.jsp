@@ -54,7 +54,7 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?ver=1">
   </head>
   <body>
 
@@ -136,10 +136,10 @@
 	%>
 	<!-- END nav -->
 	
-	<section class="ftco-cover overlay" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	<section class="ftco-cover overlay custom_height" style="background-image:url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row align-items-center justify-content-center ftco-vh-100">
+        <div class="row align-items-center justify-content-center ftco-vh-75">
           <div class="col-md-9 text-center">
             <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">후기 게시판</h1>
             <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">후기를 남겨주세요!</h2>
@@ -150,9 +150,9 @@
     
     <div class="ftco-section">
       <div class="container">
-        <div class="row">
+        <div class="row custom_height">
         <% if (count == 0) { %>
-		<div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
+		<div class="col-md-6 col-lg-4 blog-entry">
 		    <div class="text">
 				<div class="meta">
 					<h3>게시글이 없습니다!</h3>
@@ -164,7 +164,7 @@
 			for(int i = 0; i<boardList.size(); i++){
 			  				review_BoardDTO board = boardList.get(i);
 		%>
-          <div class="col-md-6 col-lg-4 blog-entry" data-aos="fade-up">
+          <div class="col-md-6 col-lg-4 blog-entry">
             <a href="review_boardShow.jsp?boardID=<%=board.getBoardID() %>" class="block-20"><img alt="이미지가 없습니다." src="../upload/<%=board.getBoardFile() %>">
             </a>
             <div class="text">

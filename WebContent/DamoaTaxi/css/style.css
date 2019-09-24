@@ -489,6 +489,10 @@ pre {
   margin-right: -15px;
   margin-left: -15px; }
 
+.custom_height{
+	height:576px;
+}
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0; }
@@ -2534,7 +2538,7 @@ input[type="button"].btn-block {
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 70px;
   left: 0;
   z-index: 1000;
   display: none;

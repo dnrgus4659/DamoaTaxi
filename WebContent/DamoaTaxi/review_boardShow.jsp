@@ -104,8 +104,6 @@
 		if(id==null || id.equals("")){
 	%>
 			<script>
-				alert("로그인 후 이용하실 수 있습니다.");
-				location.href('dmlogin_form.jsp');
 				document.getElementById("logout").style.display='none';
 			</script>
 	<%		
@@ -119,10 +117,10 @@
 	%>
 	<!-- END nav -->
 
-    <section class="ftco-cover overlay" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+    <section class="ftco-cover overlay custom_height" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row align-items-center justify-content-center ftco-vh-100">
+        <div class="row align-items-center justify-content-center ftco-vh-75">
           <div class="col-md-9 text-center">
             <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">후기 게시판</h1>
           </div>
@@ -144,14 +142,16 @@
                 <a href="review_boardUpdate.jsp?boardID=<%=board.getBoardID() %>" class="tag-cloud-link">수정</a>
                 <a href="review_boardView.jsp" class="tag-cloud-link">목록</a>
                 <%
-			  		if(id.equals(board.getUserID())){
+			  		if(id != null){
+                		if(id.equals(board.getUserID())){
 			  	%>
 			  			<a href="../review_boardDelete?boardID=<%=board.getBoardID() %>
 			  				&userID=<%=id %>" class="tag-cloud-link" 
 			  				onclick="return confirm('정말로 삭제하시겠습니까?')">삭제
 			  			</a>
 			  	<%
-			  		}
+                		}
+                	}
 			  	%>
               </div>
             </div>

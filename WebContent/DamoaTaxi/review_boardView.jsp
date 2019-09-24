@@ -136,7 +136,7 @@
 	%>
 	<!-- END nav -->
 	
-	<section class="ftco-cover overlay custom_height" style="background-image:url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	<section class="ftco-cover overlay custom_height" style="background-image:url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5" data-stellar-horizontal-offset="5" data-stellar-vertical-offset="5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-75">
@@ -150,7 +150,7 @@
     
     <div class="ftco-section">
       <div class="container">
-        <div class="row custom_height">
+        <div class="row">
         <% if (count == 0) { %>
 		<div class="col-md-6 col-lg-4 blog-entry">
 		    <div class="text">
@@ -343,7 +343,6 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
 

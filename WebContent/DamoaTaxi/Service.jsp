@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>theOrder - Free Bootstrap 4 Template by Colorlib</title>
+    <title>다모아 택시</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -36,50 +37,50 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto" style="height: 60px;">
-            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
+            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">í</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ìê°</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="Company.jsp">회사소개</a>
-                <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
-                <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
-                <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
+              	<a class="dropdown-item" href="Company.jsp">íì¬ìê°</a>
+                <a class="dropdown-item" href="Service.jsp">ìë¹ì¤ ìê°</a>
+                <a class="dropdown-item" href="Course.jsp">ê´ê´ì½ì¤ ìê°</a>
+                <a class="dropdown-item" href="Service_Guide.jsp">ìë¹ì¤ ì´ì©ë°©ë²</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ìì½</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="jang_reservation.jsp">장애인 택시 예약</a>
-                <a class="dropdown-item" href="gwan_reservation.jsp">관광 택시 예약</a>
+                <a class="dropdown-item" href="jang_reservation.jsp">ì¥ì ì¸ íì ìì½</a>
+                <a class="dropdown-item" href="gwan_reservation.jsp">ê´ê´ íì ìì½</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ê¸°ì¬</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
+              	<a class="dropdown-item" href="introduce.jsp">ê¸°ì¬ ìê°</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">íê¸°</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
+              	<a class="dropdown-item" href="review_boardView.jsp">ê²ìí</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ê³ ê°ì¼í°</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
+              	<a class="dropdown-item" href="notice_boardView.jsp">ê³µì§ì¬í­</a>
                 <a class="dropdown-item" href="QnA.jsp">Q&A</a>
                 <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ë§ì´ë©ë´</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
-              	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
-                <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
+              	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">ë¡ê·¸ì¸/íìê°ì</a>
+              	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">ë¡ê·¸ìì</a>
+                <a class="dropdown-item" href="product-single.jsp">ìì½íí©</a>
+                <a class="dropdown-item" href="dm_privacy.jsp">ê°ì¸ì ë³´</a>
               </div>
             </li>
           </ul>
@@ -88,13 +89,13 @@
     </nav>
     <!-- END nav -->
 
-    <section class="ftco-cover overlay" style="background-image: url(images/bg_3.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+    <section class="ftco-cover overlay custom_height" style="background-image: url(images/bg_3.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row align-items-center justify-content-center ftco-vh-100">
+        <div class="row align-items-center justify-content-center ftco-vh-75">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">서비스 소개</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">목적에 맞는 알맞은 서비스를 제공합니다</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">ìë¹ì¤ ìê°</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">ëª©ì ì ë§ë ìë§ì ìë¹ì¤ë¥¼ ì ê³µí©ëë¤</a></h2>
           </div>
         </div>
       </div>
@@ -109,17 +110,17 @@
           <div class="text col-md-6">
             <div class="text-inner align-self-start" data-aos="fade-up">
 
-              <h3>관광 택시</h3>
-              <p>관광 택시는 서울을 방문하는 관광객들의 편의를 위해 여러가지 서비스를 제공하는 서비스 입니다.</p>
+              <h3>ê´ê´ íì</h3>
+              <p>ê´ê´ íìë ìì¸ì ë°©ë¬¸íë ê´ê´ê°ë¤ì í¸ìë¥¼ ìí´ ì¬ë¬ê°ì§ ìë¹ì¤ë¥¼ ì ê³µíë ìë¹ì¤ ìëë¤.</p>
 
-              <h3>장애인 택시</h3>
-              <p>장애인 택시는 거동이 불편하시거나 도움이 필요한 이용객들 위해 여러가지 서비스를 제공하는 서비스 입니다.</p>
+              <h3>ì¥ì ì¸ íì</h3>
+              <p>ì¥ì ì¸ íìë ê±°ëì´ ë¶í¸íìê±°ë ëìì´ íìí ì´ì©ê°ë¤ ìí´ ì¬ë¬ê°ì§ ìë¹ì¤ë¥¼ ì ê³µíë ìë¹ì¤ ìëë¤.</p>
 
-              <h3>예약제 운영</h3>
-              <p>100% 예약제로 운영되며, 픽업여부 및 관광코스, 다양한 요구사항들을 추가하여 예약을 받고 있습니다.</p>
+              <h3>ìì½ì  ì´ì</h3>
+              <p>100% ìì½ì ë¡ ì´ìëë©°, í½ìì¬ë¶ ë° ê´ê´ì½ì¤, ë¤ìí ìêµ¬ì¬í­ë¤ì ì¶ê°íì¬ ìì½ì ë°ê³  ììµëë¤.</p>
 
-              <h3>요금결제방법</h3>
-              <p>결제는 현장결제, 신용카드, 계좌이체로 결제하실 수 있습니다.</p>
+              <h3>ìê¸ê²°ì ë°©ë²</h3>
+              <p>ê²°ì ë íì¥ê²°ì , ì ì©ì¹´ë, ê³ì¢ì´ì²´ë¡ ê²°ì íì¤ ì ììµëë¤.</p>
             </div>
           </div>
         </div>

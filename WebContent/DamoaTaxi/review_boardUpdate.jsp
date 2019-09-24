@@ -128,10 +128,10 @@
 			return;
 		}
 	%>
-	<section class="ftco-cover overlay" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
+	<section class="ftco-cover overlay custom_height" style="background-image: url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row align-items-center justify-content-center ftco-vh-100">
+        <div class="row align-items-center justify-content-center ftco-vh-75">
           <div class="col-md-9 text-center">
             <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">후기 게시판</h1>
             <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">후기 작성</h2>

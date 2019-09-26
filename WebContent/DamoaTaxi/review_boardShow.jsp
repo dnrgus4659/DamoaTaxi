@@ -16,7 +16,10 @@
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -165,7 +168,6 @@
                 <p><%=board.getUserID() %></p>
               </div>
             </div>
-            
           </div> <!-- .col-md-8 -->
           <div class="col-md-4 sidebar">
             <div class="sidebar-box">
@@ -182,6 +184,54 @@
               <h3>첨부파일</h3>
               <p><a href="review_boardDownload.jsp?boardID=<%=board.getBoardID() %>"><%=board.getBoardFile() %></a></p>
             </div>
+          </div>
+          
+          <div class="col">
+          	<% 
+				int num = 0, ref = 1, re_step = 0, re_level = 0;
+				String strV = "";
+				try{
+					if(request.getParameter("num")!=null){
+						num=Integer.parseInt(request.getParameter("num"));
+						ref=Integer.parseInt(request.getParameter("ref"));
+						re_step=Integer.parseInt(request.getParameter("re_step"));
+						re_level=Integer.parseInt(request.getParameter("re_level"));
+					}
+			%>
+			<div class="tag-widget post-tag-container mb-5 mt-5" align="left">
+              <div class="tagcloud">
+            	<a onclick="commetShow()" class="tag-cloud-link">댓글 보기</a>
+              </div>
+            </div>
+
+            <form method="post" name="CommentWriteform" action="../CommentWrite">
+            <input type="hidden" name="num" value="<%=num%>">
+		    <input type="hidden" name="ref" value="<%=ref%>">
+		    <input type="hidden" name="re_step" value="<%=re_step%>">
+		    <input type="hidden" name="re_level" value="<%=re_level%>">
+		    <input type="hidden" name="boardID" value="<%=boardID%>">
+            
+              <%if(id != null){ %>
+              	<input type="hidden" class="form-control" name="writer" value="<%=id%>">
+              <%}else if(id == null){ 
+            	  strV = "로그인 후 이용하실 수 있습니다.";
+                }else if(request.getParameter("num")==null) {
+                	strV = "";
+                }else{
+                	strV = "[답변]";
+                }
+		    %>
+            <div class="form-group">
+              <textarea class="form-control" name="content" rows="5" cols="40" placeholder="<%=strV %>" style="ime-mode:active;"></textarea>
+            </div>
+            <div class="form-group text-right">
+              <input type="submit" value="등록" class="btn btn-primary">
+              <input type="reset" value="다시작성" class="btn btn-primary">
+            </div>
+          </form>
+            <%
+		  		}catch(Exception e){}
+			%>
           </div>
         </div>
       </div>
@@ -203,7 +253,7 @@
 				<div class="modal-content <% if(messageType.equals("오류 메세지")) out.println("panel-warning"); else out.println("panel-success");%>">
 					<div class="modal-header panel-heading">
 						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="ture">&</span>
+							<span aria-hidden="ture">X</span>
 							<span class="sr-only">Close</span>
 						</button>
 						<h4 class="modal-title">
@@ -291,7 +341,6 @@
 
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.stellar.min.js"></script>
@@ -299,9 +348,12 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+  <script type="text/javascript">
+    function commentShow(p1, p2) {
+	  return p1 * p2;   // The function returns the product of p1 and p2
+	}
+  </script>
   </body>
 </html>

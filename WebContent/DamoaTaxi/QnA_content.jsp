@@ -136,7 +136,7 @@
 				  int re_step=article.getRe_step();
 				  int re_level=article.getRe_level();
 			%>
-			<table class="table table-bordered" style="text-align:center">  
+			<table class="table table-bordered" style="text-align:center;">  
 			  <thead>
 			  	<tr>
 				    <th>글번호</th>
@@ -163,7 +163,7 @@
 			    <td colspan="4" style="background-color:#ffffff; text-align:center;">글내용</td>
 			  </tr>
 			  <tr>
-			  	<td align="left" colspan="4" style="background-color:#eeeeee; text-align:center;"><pre style="white-space: pre-wrap;" align="left"><%=article.getContent()%></pre></td>
+			  	<td align="left" colspan="4" style="background-color:#eeeeee; text-align:center;"><pre style="white-space: pre-wrap;word-break:break-all;" align="left"><%=article.getContent()%></pre></td>
 			  </tr>
 			  <tr>      
 			    <td colspan="4" align="right" > 

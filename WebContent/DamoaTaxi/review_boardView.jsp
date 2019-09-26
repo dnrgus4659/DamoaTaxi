@@ -136,7 +136,7 @@
 	%>
 	<!-- END nav -->
 	
-	<section class="ftco-cover overlay custom_height" style="background-image:url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5" data-stellar-horizontal-offset="5" data-stellar-vertical-offset="5">
+	<section class="ftco-cover overlay custom_height" style="background-position: 50% 630px;background-image:url(images/review_boardMain.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-75">

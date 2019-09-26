@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <title>다모아 택시</title>
     <meta charset="utf-8">
@@ -129,7 +129,6 @@
 
               <h3>관광 택시</h3>
               <p>관광 택시는 서울을 방문하는 관광객들의 편의를 위해 여러가지 서비스를 제공합니다.</p>
-              
             </div>
           </div>
         </div>

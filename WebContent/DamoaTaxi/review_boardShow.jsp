@@ -1,6 +1,14 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="Damoa_pro.review_BoardDAO" %>
 <%@ page import="Damoa_pro.review_BoardDTO" %>
+<%@ page import="Damoa_pro.CommentDAO"%>
+<%@ page import="Damoa_pro.CommentDTO"%>
+<%@ page import="java.util.ArrayList" %>
+<%!
+    SimpleDateFormat sdf = 
+        new SimpleDateFormat("yyyy-MM-dd HH:mm");
+%>
 <%
 	String boardID=null;
 	if(request.getParameter("boardID") != null){
@@ -9,6 +17,7 @@
 	review_BoardDAO boardDAO = new review_BoardDAO();
 	review_BoardDTO board = boardDAO.getBoard(boardID);
 	boardDAO.hit(boardID);
+	ArrayList<CommentDTO> CommentList = new CommentDAO().getList(boardID);
 %>
 <!DOCTYPE html>
 <html>
@@ -186,6 +195,7 @@
             </div>
           </div>
           
+          <!-- comment -->
           <div class="col">
           	<% 
 				int num = 0, ref = 1, re_step = 0, re_level = 0;
@@ -203,7 +213,84 @@
             	<a onclick="commetShow()" class="tag-cloud-link">댓글 보기</a>
               </div>
             </div>
-
+			<table id="comment" class="table table-borderless" style="text-align:center;display:none;">
+        		<%  
+					for (int i = 0 ; i < CommentList.size() ; i++) {
+						CommentDTO comment = CommentList.get(i);
+				%>
+        			<tr>
+        				<th style="text-align:left;"><%=comment.getId() %></th>
+        				<th style="text-align:right;"><%= sdf.format(comment.getReg_date())%></th>
+        			</tr>
+        			<tr height="30">
+						<td align="left" colspan="2">
+						<%
+							int wid=0; 
+							if(comment.getRe_level()>0){
+							wid=5*(comment.getRe_level());
+						%>
+							<img src="images/level.png" width="<%=wid%>" height="16">
+							<img src="images/re.png">
+						<%  }else{%>
+							<img src="images/level.png" width="<%=wid%>" height="16">
+						<%  }%>
+						           
+						<%=comment.getContent()%>
+						</td>
+					</tr>
+					<tr id="cocoment<%=comment.getNum()%>" style="display: none;">
+						<td style="width: 80%;">
+							<textarea class="form-control" name="content" rows="2" cols="40" style="ime-mode:active;"></textarea>
+						</td>
+						<td style="width: 20%; vertical-align: middle;" >
+							<%-- <input type="button" value="답글쓰기" class="btn btn-info" onclick="document.location.href='../CommentWrite?num=<%=comment.getNum()%>&ref=<%=comment.getNum()%>&re_step=<%=re_step%>&re_level=<%=re_level%>'"> --%>
+							<input type="button" value="답글쓰기" class="btn btn-info" onclick="reply()">
+						</td>
+					<tr>
+					<tr>
+						<td align="right" colspan="2">
+							<a class="btn btn-link" onclick="document.location.href='CommentUpdate?num=<%=comment.getNum()%>'">수정</a>
+							   &nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="button" value="글삭제" class="btn btn-link"
+						       onclick="document.location.href='../CommentDelete?num=<%=comment.getNum()%>'">
+							   &nbsp;&nbsp;&nbsp;&nbsp;
+						    <input type="button" value="답글쓰기" class="btn btn-link"
+						       onclick="JavaScript:cocomentShow('<%=comment.getNum()%>')">
+						</td>
+						<!-- 댓글 답글쓰기 할때 ref값 넘겨 줄때 댓글 입력을 위한 ref기본값이 들어 가므로 num값을 ref의 값으로 넘겨줌 -->
+					</tr>
+					<%}%>
+        	</table>
+        	<script type="text/javascript">
+		    	function cocomentShow(num){
+		        	//$('#cocoment').attr('style', 'display:contents');
+		        	$('#cocoment'+num).toggle();
+		    	}
+		        function commetShow(){
+		        	$('#comment').toggle();
+		        }
+		        
+		        var num=$('#num').val();
+		        var boardID=$('#boardID').val();
+		        var ref=$('#ref').val();
+		        var re_step=$('#re_step').val();
+		        var re_level=$('#re_level').val();
+		        var writer=$('#writer').val();
+		        var content=$('#content').val();
+		        $.ajax({
+		    		type:'POST',
+		    		url: '../CommentWrite',
+		    		data: {num : num, boardID : boardID, ref : ref, re_step : re_step, re_level : re_level, writer : writer, content : content},
+		    		success: function(result){
+		    			if(result == 1){
+		    				alert('변경이 완료되었습니다.');
+		    			}else{
+		    				alert('변경이 실패되었습니다.');
+		    			}
+		    		}
+		    	});
+		        
+		    </script>
             <form method="post" name="CommentWriteform" action="../CommentWrite">
             <input type="hidden" name="num" value="<%=num%>">
 		    <input type="hidden" name="ref" value="<%=ref%>">
@@ -225,17 +312,22 @@
               <textarea class="form-control" name="content" rows="5" cols="40" placeholder="<%=strV %>" style="ime-mode:active;"></textarea>
             </div>
             <div class="form-group text-right">
+            <% if(id != null){ %>
               <input type="submit" value="등록" class="btn btn-primary">
               <input type="reset" value="다시작성" class="btn btn-primary">
+            <%} %>
             </div>
           </form>
             <%
 		  		}catch(Exception e){}
 			%>
           </div>
+          <!-- end comment -->
+          
         </div>
       </div>
-    </div> <!-- .section -->
+    </div> 
+    <!-- .section -->
   	<%
 		String messageContent=null;
 		if(session.getAttribute("messageContent") != null){

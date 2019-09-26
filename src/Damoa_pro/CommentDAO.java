@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -52,7 +53,7 @@ public class CommentDAO {
 		      number=1; 
 		   
 		    if (Cnum!=0) {  
-		      sql="update board set re_step=re_step+1 ";
+		      sql="update comment set re_step=re_step+1 ";
 		      sql += "where ref= ? and re_step> ?";
               pstmt = conn.prepareStatement(sql);
               pstmt.setInt(1, ref_1);
@@ -65,7 +66,7 @@ public class CommentDAO {
 			  re_step_1=0;
 			  re_level_1=0;
 		     }	 
-
+		    
             sql = "insert into comment(num,boardID,id,content,reg_date,"
             		+ "ref,re_step,re_level) values(?,?,?,?,now(),?,?,?)";
 
@@ -86,4 +87,44 @@ public class CommentDAO {
             if (conn != null) try { conn.close(); } catch(SQLException ex) {}
         }
     }
+    
+    public ArrayList<CommentDTO> getList(String boardID) {
+    	ArrayList<CommentDTO> CommentList = null;
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int boardID_1 = Integer.parseInt(boardID); 
+		String sql = "select * from comment where boardID = ? order by ref asc, re_step asc";
+		try {
+			conn=getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, boardID_1);
+			rs = pstmt.executeQuery();
+			CommentList = new ArrayList<CommentDTO>();
+			
+			while(rs.next()) {
+				CommentDTO comment = new CommentDTO();
+				comment.setNum(rs.getInt("num"));
+				comment.setBoardID(rs.getInt("boardID"));
+				comment.setId(rs.getString("id"));
+				comment.setContent(rs.getString("content"));
+				comment.setReg_date(rs.getTimestamp("reg_date"));
+				comment.setRef(rs.getInt("ref"));
+				comment.setRe_step(rs.getInt("re_step"));
+				comment.setRe_level(rs.getInt("re_level"));
+				CommentList.add(comment);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+    	return CommentList;
+    }
+    
 }

@@ -139,7 +139,7 @@
 		    <input type="hidden" name="re_step" value="<%=re_step%>">
 		    <input type="hidden" name="re_level" value="<%=re_level%>">
             <div class="form-group">
-              <input type="text" class="form-control" name="writer" placeholder="이름" style="ime-mode:active;">
+              <input type="text" class="form-control" name="writer" placeholder="이름" style="ime-mode:active;" maxlength="10">
             </div>
             <%
 			    if(request.getParameter("num")==null) 
@@ -148,10 +148,10 @@
 			    	strV = "[답변]";
 		    %>
 		    <div class="form-group">
-              <input type="text" class="form-control" name="subject" value="<%=strV%>" placeholder="제목">
+              <input type="text" class="form-control" name="subject" value="<%=strV%>" placeholder="제목" maxlength="50">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="email" placeholder="Email" style="ime-mode:inactive;">
+              <input type="email" class="form-control" name="email" placeholder="Email" style="ime-mode:inactive;" maxlength="30">
             </div>
             <div class="form-group">
               <textarea class="form-control" name="content" rows="13" cols="40" placeholder="내용" style="ime-mode:active;"></textarea>

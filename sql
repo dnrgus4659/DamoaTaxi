@@ -52,6 +52,7 @@ create table comment(
 drop table comment;
 desc comment;
 select * from comment;
+select * from board;
 select * from review_board;
 drop table review_board;
 

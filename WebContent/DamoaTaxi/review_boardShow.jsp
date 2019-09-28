@@ -238,13 +238,12 @@
 						<%=comment.getContent()%>
 						</td>
 					</tr>
-					<tr id="cocoment<%=comment.getNum()%>" style="display: none;">
+					<tr id="reply<%=comment.getNum()%>" style="display: none;">
 						<td style="width: 80%;">
-							<textarea class="form-control" name="content" rows="2" cols="40" style="ime-mode:active;"></textarea>
+							<textarea class="form-control" id="reContent" rows="2" cols="40" style="ime-mode:active;"></textarea>
 						</td>
-						<td style="width: 20%; vertical-align: middle;" >
-							<%-- <input type="button" value="답글쓰기" class="btn btn-info" onclick="document.location.href='../CommentWrite?num=<%=comment.getNum()%>&ref=<%=comment.getNum()%>&re_step=<%=re_step%>&re_level=<%=re_level%>'"> --%>
-							<input type="button" value="답글쓰기" class="btn btn-info" onclick="reply()">
+						<td style="width: 20%; vertical-align: middle;">
+							<input type="button" value="답글쓰기" class="btn btn-info" onclick="replyinsert('<%=comment.getNum()%>','<%=boardID%>','<%=comment.getNum()%>','<%=re_step%>','<%=re_level%>','<%=id%>')">
 						</td>
 					<tr>
 					<tr>
@@ -255,42 +254,13 @@
 						       onclick="document.location.href='../CommentDelete?num=<%=comment.getNum()%>'">
 							   &nbsp;&nbsp;&nbsp;&nbsp;
 						    <input type="button" value="답글쓰기" class="btn btn-link"
-						       onclick="JavaScript:cocomentShow('<%=comment.getNum()%>')">
+						       onclick="JavaScript:replyShow('<%=comment.getNum()%>')">
 						</td>
 						<!-- 댓글 답글쓰기 할때 ref값 넘겨 줄때 댓글 입력을 위한 ref기본값이 들어 가므로 num값을 ref의 값으로 넘겨줌 -->
 					</tr>
 					<%}%>
         	</table>
-        	<script type="text/javascript">
-		    	function cocomentShow(num){
-		        	//$('#cocoment').attr('style', 'display:contents');
-		        	$('#cocoment'+num).toggle();
-		    	}
-		        function commetShow(){
-		        	$('#comment').toggle();
-		        }
-		        
-		        var num=$('#num').val();
-		        var boardID=$('#boardID').val();
-		        var ref=$('#ref').val();
-		        var re_step=$('#re_step').val();
-		        var re_level=$('#re_level').val();
-		        var writer=$('#writer').val();
-		        var content=$('#content').val();
-		        $.ajax({
-		    		type:'POST',
-		    		url: '../CommentWrite',
-		    		data: {num : num, boardID : boardID, ref : ref, re_step : re_step, re_level : re_level, writer : writer, content : content},
-		    		success: function(result){
-		    			if(result == 1){
-		    				alert('변경이 완료되었습니다.');
-		    			}else{
-		    				alert('변경이 실패되었습니다.');
-		    			}
-		    		}
-		    	});
-		        
-		    </script>
+        
             <form method="post" name="CommentWriteform" action="../CommentWrite">
             <input type="hidden" name="num" value="<%=num%>">
 		    <input type="hidden" name="ref" value="<%=ref%>">
@@ -443,9 +413,30 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script type="text/javascript">
-    function commentShow(p1, p2) {
-	  return p1 * p2;   // The function returns the product of p1 and p2
-	}
-  </script>
+      	function replyShow(num){
+	       	//$('#cocoment').attr('style', 'display:contents');
+	       	$('#reply'+num).toggle();
+	   	}
+	    function commetShow(){
+	       	$('#comment').toggle();
+	    }
+	        
+		function replyinsert(num,boardID,ref,re_step,re_level,writer){
+			var content = $('#reContent').val();
+		    $.ajax({
+		  		type:'POST',
+		   		url: '../CommentWrite',
+		   		data: {num : num, boardID : boardID, ref : ref, re_step : re_step, re_level : re_level, writer : writer, content : content},
+		   		success: function(result){
+		   			if(result == 1){
+		   				location.reload();
+		   			}else{
+		   				alert('변경이 실패되었습니다.');
+		   				location.reload();
+		   			}
+		   		}
+		   	});	
+		}
+	</script>
   </body>
 </html>

@@ -26,7 +26,7 @@ public class CommentDAO {
         return ds.getConnection();
     }
     
-    public void insertComment(String num, String boardID, String ref,String re_step,String re_level,String id,String content) 
+    public int insertComment(String num, String boardID, String ref,String re_step,String re_level,String id,String content) 
             throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -37,7 +37,7 @@ public class CommentDAO {
 		int ref_1 = Integer.parseInt(ref);
 		int re_step_1 = Integer.parseInt(re_step);
 		int re_level_1 = Integer.parseInt(re_level);
-		
+		int x = 0;
 		int number=0;
         String sql="";
 
@@ -59,28 +59,30 @@ public class CommentDAO {
               pstmt.setInt(1, ref_1);
 			  pstmt.setInt(2, re_step_1);
 			  pstmt.executeUpdate();
-			  re_step=re_step+1;
-			  re_level=re_level+1;
+			  re_step_1=re_step_1+1;
+			  re_level_1=re_level_1+1;
 		     }else{
 		  	  ref_1=number;
 			  re_step_1=0;
 			  re_level_1=0;
 		     }	 
 		    
-            sql = "insert into comment(num,boardID,id,content,reg_date,"
-            		+ "ref,re_step,re_level) values(?,?,?,?,now(),?,?,?)";
+            sql = "insert into comment(boardID,id,content,reg_date,"
+            		+ "ref,re_step,re_level) values(?,?,?,now(),?,?,?)";
 
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, Cnum);
-            pstmt.setInt(2, boardID_1);
-            pstmt.setString(3, id);
-            pstmt.setString(4, content);
-            pstmt.setInt(5, ref_1);
-            pstmt.setInt(6, re_step_1);
-            pstmt.setInt(7, re_level_1);			
+            pstmt = conn.prepareStatement(sql);         
+            pstmt.setInt(1, boardID_1);
+            pstmt.setString(2, id);
+            pstmt.setString(3, content);
+            pstmt.setInt(4, ref_1);
+            pstmt.setInt(5, re_step_1);
+            pstmt.setInt(6, re_level_1);			
             pstmt.executeUpdate();
+            x=1;
+            return x;
         } catch(Exception ex) {
             ex.printStackTrace();
+            return x;
         } finally {
 			if (rs != null) try { rs.close(); } catch(SQLException ex) {}
             if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}

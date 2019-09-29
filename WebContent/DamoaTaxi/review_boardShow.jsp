@@ -155,8 +155,7 @@
             <div class="tag-widget post-tag-container mb-5 mt-5" align="right">
               <div class="tagcloud">
                 <%
-			  		if(id != null){
-                		if(id.equals(board.getUserID())){
+			  		if(id != null && id.equals(board.getUserID())){
 			  	%>
 			  			<a href="review_boardUpdate.jsp?boardID=<%=boardID %>" class="tag-cloud-link">수정</a>
 			  			<a href="../review_boardDelete?boardID=<%=boardID %>
@@ -164,7 +163,6 @@
 			  				onclick="return confirm('정말로 삭제하시겠습니까?')">삭제
 			  			</a>
 			  	<%
-                		}
                 	}
 			  	%>
 			  	<a href="review_boardView.jsp" class="tag-cloud-link">목록</a>
@@ -236,7 +234,7 @@
         				<th style="text-align:right;"><%= sdf.format(comment.getReg_date())%></th>
         			</tr>
         			<tr height="30">
-						<td align="left" colspan="2">
+						<td align="left" colspan="2" id="commentContent<%=comment.getNum()%>">
 						<%
 							if(comment.getRe_level()>0){
 							wid=20*(comment.getRe_level());
@@ -262,18 +260,31 @@
 							<textarea class="form-control" name="content" rows="2" cols="40" style="ime-mode:active;"></textarea>
 						</td>
 						<td style="width: 20%; vertical-align: middle;">
-							<%-- <input type="button" value="답글쓰기" class="btn btn-info" onclick="replyinsert('<%=comment.getNum()%>','<%=boardID%>','<%=comment.getNum()%>','<%=re_step%>','<%=re_level%>','<%=id%>')"> --%>
 							<input type="submit" value="답글쓰기" class="btn btn-info">
 						</td>
 					<tr>
 					</form>
+					<tr id="replyUpdate<%=comment.getNum()%>" style="display: none;">
+						<td style="width: 80%;">
+							<textarea class="form-control" name="content" rows="2" cols="40" style="ime-mode:active;"></textarea>
+						</td>
+						<td style="width: 20%; vertical-align: middle;">
+							<input type="button" value="수정" class="btn btn-info" onclick="replyUpdateinsert('<%=comment.getNum()%>','<%=boardID%>','<%=comment.getNum()%>','<%=re_step%>','<%=re_level%>','<%=id%>')">
+						</td>
+					<tr>
 					<tr>
 						<td align="right" colspan="2">
-							<a class="btn btn-link" onclick="document.location.href='CommentUpdate?num=<%=comment.getNum()%>'">수정</a>
+							<%
+						  		if(id != null && id.equals(board.getUserID())){
+						  	%>
+							<a class="btn btn-link" onclick="replyUpdateShow('<%=comment.getNum()%>')">수정</a>
 							   &nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="button" value="댓글삭제" class="btn btn-link"
 						       onclick="document.location.href='../CommentDelete?num=<%=comment.getNum()%>'">
 							   &nbsp;&nbsp;&nbsp;&nbsp;
+							<%
+						  		}
+							%>
 						    <input type="button" value="답글쓰기" class="btn btn-link"
 						       onclick="JavaScript:replyShow('<%=comment.getNum()%>')">
 						</td>
@@ -436,12 +447,15 @@
   <script src="js/main.js"></script>
   <script type="text/javascript">
       	function replyShow(num){
-	       	//$('#cocoment').attr('style', 'display:contents');
 	       	$('#reply'+num).toggle();
 	   	}
 	    function commetShow(){
 	       	$('#comment').toggle();
 	    }
+	    function replyUpdateShow(num){
+	    	$('#replyUpdate'+num).toggle();
+	       	$('#commentContent'+num).toggle();
+	   	}
 	</script>
   </body>
 </html>

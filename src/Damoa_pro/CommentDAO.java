@@ -26,7 +26,7 @@ public class CommentDAO {
         return ds.getConnection();
     }
     
-    public int insertComment(String num, String boardID, String ref,String re_step,String re_level,String id,String content) 
+    public int insertComment(String num, String boardID, String ref, String re_step, String re_level, String id, String content) 
             throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -89,6 +89,34 @@ public class CommentDAO {
             if (conn != null) try { conn.close(); } catch(SQLException ex) {}
         }
     }
+    
+    public int getCommentCount(String boardID)
+            throws Exception {
+       Connection conn = null;
+       PreparedStatement pstmt = null;
+       ResultSet rs = null;
+
+       int x=0;
+       int boardID_1 = Integer.parseInt(boardID);
+       try {
+           conn = getConnection();
+           
+           pstmt = conn.prepareStatement("select count(*) from comment where boardID=?");
+           pstmt.setInt(1, boardID_1);
+           rs = pstmt.executeQuery();
+
+           if (rs.next()) {
+              x= rs.getInt(1);
+			}
+       } catch(Exception ex) {
+           ex.printStackTrace();
+       } finally {
+           if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+           if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+           if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+       }
+		return x;
+   }
     
     public ArrayList<CommentDTO> getList(String boardID) {
     	ArrayList<CommentDTO> CommentList = null;

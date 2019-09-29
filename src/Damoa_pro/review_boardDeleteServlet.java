@@ -52,7 +52,7 @@ public class review_boardDeleteServlet extends HttpServlet {
 			if(prevFile.exists()) {
 				prevFile.delete();
 			}
-			request.getSession().setAttribute("messageType", "오류 메세지");
+			request.getSession().setAttribute("messageType", "성공메세지");
 			request.getSession().setAttribute("messageContent", "삭제에 성공했습니다.");
 			response.sendRedirect("./DamoaTaxi/review_boardView.jsp");
 			return;

@@ -264,12 +264,12 @@
 						</td>
 					<tr>
 					</form>
-					<tr id="replyUpdate<%=comment.getNum()%>" style="display: none;">
+					<tr id="commentUpdate<%=comment.getNum()%>" style="display: none;">
 						<td style="width: 80%;">
-							<textarea class="form-control" name="content" rows="2" cols="40" style="ime-mode:active;"></textarea>
+							<textarea class="form-control" name="upContent" rows="2" cols="40" style="ime-mode:active;"></textarea>
 						</td>
 						<td style="width: 20%; vertical-align: middle;">
-							<input type="button" value="수정" class="btn btn-info" onclick="replyUpdateinsert('<%=comment.getNum()%>','<%=boardID%>','<%=comment.getNum()%>','<%=re_step%>','<%=re_level%>','<%=id%>')">
+							<input type="button" value="수정" class="btn btn-info" onclick="commentUpdateInsert('<%=comment.getNum()%>')">
 						</td>
 					<tr>
 					<tr>
@@ -445,17 +445,6 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script type="text/javascript">
-      	function replyShow(num){
-	       	$('#reply'+num).toggle();
-	   	}
-	    function commetShow(){
-	       	$('#comment').toggle();
-	    }
-	    function replyUpdateShow(num){
-	    	$('#replyUpdate'+num).toggle();
-	       	$('#commentContent'+num).toggle();
-	   	}
-	</script>
+  <script src="js/reviewboard.js"></script>
   </body>
 </html>

@@ -18,6 +18,9 @@
 	review_BoardDTO board = boardDAO.getBoard(boardID);
 	boardDAO.hit(boardID);
 	ArrayList<CommentDTO> CommentList = new CommentDAO().getList(boardID);
+	CommentDAO commentDAO = new CommentDAO();
+	int count = 0;
+	count = commentDAO.getCommentCount(boardID);
 %>
 <!DOCTYPE html>
 <html>
@@ -151,20 +154,18 @@
             
             <div class="tag-widget post-tag-container mb-5 mt-5" align="right">
               <div class="tagcloud">
-                <a href="review_boardUpdate.jsp?boardID=<%=board.getBoardID() %>" class="tag-cloud-link">수정</a>
-                <a href="review_boardView.jsp" class="tag-cloud-link">목록</a>
                 <%
-			  		if(id != null){
-                		if(id.equals(board.getUserID())){
+			  		if(id != null && id.equals(board.getUserID())){
 			  	%>
-			  			<a href="../review_boardDelete?boardID=<%=board.getBoardID() %>
+			  			<a href="review_boardUpdate.jsp?boardID=<%=boardID %>" class="tag-cloud-link">수정</a>
+			  			<a href="../review_boardDelete?boardID=<%=boardID %>
 			  				&userID=<%=id %>" class="tag-cloud-link" 
 			  				onclick="return confirm('정말로 삭제하시겠습니까?')">삭제
 			  			</a>
 			  	<%
-                		}
                 	}
 			  	%>
+			  	<a href="review_boardView.jsp" class="tag-cloud-link">목록</a>
               </div>
             </div>
             
@@ -210,27 +211,36 @@
 			%>
 			<div class="tag-widget post-tag-container mb-5 mt-5" align="left">
               <div class="tagcloud">
-            	<a onclick="commetShow()" class="tag-cloud-link">댓글 보기</a>
+            	<h5 style="display:inline; margin-right: 20px;">댓글(<%=count %>)</h5><a onclick="commetShow()" class="tag-cloud-link">댓글 보기</a> 
               </div>
             </div>
+            
 			<table id="comment" class="table table-borderless" style="text-align:center;display:none;">
         		<%  
 					for (int i = 0 ; i < CommentList.size() ; i++) {
 						CommentDTO comment = CommentList.get(i);
 				%>
         			<tr>
-        				<th style="text-align:left;"><%=comment.getId() %></th>
+        				<th style="text-align:left;">
+	        				<%
+								int wid=0; 
+								if(comment.getRe_level()>0){
+								wid=20*(comment.getRe_level());
+							%>
+								<img src="images/level.png" width="<%=wid%>" height="16">
+							<%  }%>
+	        				<%=comment.getId() %>
+        				</th>
         				<th style="text-align:right;"><%= sdf.format(comment.getReg_date())%></th>
         			</tr>
         			<tr height="30">
-						<td align="left" colspan="2">
+						<td align="left" colspan="2" id="commentContent<%=comment.getNum()%>">
 						<%
-							int wid=0; 
 							if(comment.getRe_level()>0){
-							wid=5*(comment.getRe_level());
+							wid=20*(comment.getRe_level());
 						%>
 							<img src="images/level.png" width="<%=wid%>" height="16">
-							<img src="images/re.png">
+							<span class="icon-arrow-right"></span>
 						<%  }else{%>
 							<img src="images/level.png" width="<%=wid%>" height="16">
 						<%  }%>
@@ -238,59 +248,55 @@
 						<%=comment.getContent()%>
 						</td>
 					</tr>
-					<tr id="cocoment<%=comment.getNum()%>" style="display: none;">
+					<form action="../CommentWrite" method="post" name="ReplyWriteform">
+					<input type="hidden" name="num" value="<%=comment.getNum()%>">
+				    <input type="hidden" name="ref" value="<%=comment.getRef()%>">
+				    <input type="hidden" name="re_step" value="<%=comment.getRe_step()%>">
+				    <input type="hidden" name="re_level" value="<%=comment.getRe_level()%>">
+				    <input type="hidden" name="boardID" value="<%=boardID%>">
+				    <input type="hidden" name="writer" value="<%=id%>">
+					<tr id="reply<%=comment.getNum()%>" style="display: none;">
 						<td style="width: 80%;">
 							<textarea class="form-control" name="content" rows="2" cols="40" style="ime-mode:active;"></textarea>
 						</td>
-						<td style="width: 20%; vertical-align: middle;" >
-							<%-- <input type="button" value="답글쓰기" class="btn btn-info" onclick="document.location.href='../CommentWrite?num=<%=comment.getNum()%>&ref=<%=comment.getNum()%>&re_step=<%=re_step%>&re_level=<%=re_level%>'"> --%>
-							<input type="button" value="답글쓰기" class="btn btn-info" onclick="reply()">
+						<td style="width: 20%; vertical-align: middle;">
+							<input type="submit" value="답글쓰기" class="btn btn-info">
 						</td>
 					<tr>
+					</form>
+					<form action="../CommentUpdate" method="post" name="ReplyUpdateform">
+					<input type="hidden" name="num" value="<%=comment.getNum()%>">
+					<input type="hidden" name="boardID" value="<%=boardID%>">
+					<tr id="commentUpdate<%=comment.getNum()%>" style="display: none;">
+						<td style="width: 80%;">
+							<textarea class="form-control" name="upContent" rows="2" cols="40" style="ime-mode:active;"></textarea>
+						</td>
+						<td style="width: 20%; vertical-align: middle;">
+							<input type="submit" value="수정" class="btn btn-info">
+						</td>
+					<tr>
+					</form>
 					<tr>
 						<td align="right" colspan="2">
-							<a class="btn btn-link" onclick="document.location.href='CommentUpdate?num=<%=comment.getNum()%>'">수정</a>
+							<%
+						  		if(id != null && id.equals(board.getUserID())){
+						  	%>
+							<a class="btn btn-link" onclick="replyUpdateShow('<%=comment.getNum()%>')">수정</a>
 							   &nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="button" value="글삭제" class="btn btn-link"
-						       onclick="document.location.href='../CommentDelete?num=<%=comment.getNum()%>'">
+							<input type="button" value="댓글삭제" class="btn btn-link"
+						       onclick="document.location.href='../CommentDelete?num=<%=comment.getNum()%>&boardID=<%=comment.getBoardID()%>'">
 							   &nbsp;&nbsp;&nbsp;&nbsp;
+							<%
+						  		}
+							%>
 						    <input type="button" value="답글쓰기" class="btn btn-link"
-						       onclick="JavaScript:cocomentShow('<%=comment.getNum()%>')">
+						       onclick="JavaScript:replyShow('<%=comment.getNum()%>')">
 						</td>
 						<!-- 댓글 답글쓰기 할때 ref값 넘겨 줄때 댓글 입력을 위한 ref기본값이 들어 가므로 num값을 ref의 값으로 넘겨줌 -->
 					</tr>
 					<%}%>
         	</table>
-        	<script type="text/javascript">
-		    	function cocomentShow(num){
-		        	//$('#cocoment').attr('style', 'display:contents');
-		        	$('#cocoment'+num).toggle();
-		    	}
-		        function commetShow(){
-		        	$('#comment').toggle();
-		        }
-		        
-		        var num=$('#num').val();
-		        var boardID=$('#boardID').val();
-		        var ref=$('#ref').val();
-		        var re_step=$('#re_step').val();
-		        var re_level=$('#re_level').val();
-		        var writer=$('#writer').val();
-		        var content=$('#content').val();
-		        $.ajax({
-		    		type:'POST',
-		    		url: '../CommentWrite',
-		    		data: {num : num, boardID : boardID, ref : ref, re_step : re_step, re_level : re_level, writer : writer, content : content},
-		    		success: function(result){
-		    			if(result == 1){
-		    				alert('변경이 완료되었습니다.');
-		    			}else{
-		    				alert('변경이 실패되었습니다.');
-		    			}
-		    		}
-		    	});
-		        
-		    </script>
+        
             <form method="post" name="CommentWriteform" action="../CommentWrite">
             <input type="hidden" name="num" value="<%=num%>">
 		    <input type="hidden" name="ref" value="<%=ref%>">
@@ -308,6 +314,7 @@
                 	strV = "[답변]";
                 }
 		    %>
+		    <!-- 수정 필요 -->
             <div class="form-group">
               <textarea class="form-control" name="content" rows="5" cols="40" placeholder="<%=strV %>" style="ime-mode:active;"></textarea>
             </div>
@@ -442,10 +449,6 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script type="text/javascript">
-    function commentShow(p1, p2) {
-	  return p1 * p2;   // The function returns the product of p1 and p2
-	}
-  </script>
+  <script src="js/reviewboard.js?ver=1"></script>
   </body>
 </html>

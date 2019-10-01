@@ -276,3 +276,4 @@ ALTER TABLE Total_board COMMENT '통합게시판';
 
 
 
+

@@ -47,4 +47,20 @@
     <servlet-name>CommentServlet</servlet-name>
     <url-pattern>/CommentWrite</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CommentUpdateServlet</servlet-name>
+    <servlet-class>Damoa_pro.CommentUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentUpdateServlet</servlet-name>
+    <url-pattern>/CommentUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CommentDeleteServlet</servlet-name>
+    <servlet-class>Damoa_pro.CommentDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentDeleteServlet</servlet-name>
+    <url-pattern>/CommentDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

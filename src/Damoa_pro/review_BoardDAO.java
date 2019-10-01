@@ -83,9 +83,14 @@ public class review_BoardDAO {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql="delete from review_board where boardID=?";
+		boardID = boardID.trim();
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(boardID));
+			pstmt.executeUpdate();
+			
+			pstmt = conn.prepareStatement("delete from comment where boardID=?");
 			pstmt.setInt(1, Integer.parseInt(boardID));
 			return pstmt.executeUpdate();
 		}catch(Exception e) {

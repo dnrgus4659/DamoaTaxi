@@ -37,7 +37,7 @@
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-menu-right" href="#" id="navbarDropdown">
-                로그아웃
+                	로그아웃
               </a>
             </li>
           </ul>

@@ -90,6 +90,49 @@ public class CommentDAO {
         }
     }
     
+    public int update(String num, String upContent) {
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql="update comment set content = ? where num = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, upContent);
+			pstmt.setInt(2, Integer.parseInt(num));
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return -1;
+    }
+    
+    public int delete(String num) {
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql="delete from comment where num=?";
+		/*num = num.trim();*/
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(num));
+			pstmt.executeUpdate();
+			return 1;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return -1;
+    }
+    
     public int getCommentCount(String boardID)
             throws Exception {
        Connection conn = null;

@@ -273,24 +273,7 @@ CREATE TABLE Total_board
 ALTER TABLE Total_board COMMENT '통합게시판';
 
 
-create table member(
-	id varchar(50) not null primary key,
-	passwd varchar(16) not null,
-	name varchar(10) not null,
-	reg_date datetime not null,
-	address varchar(100) not null,
-	tel varchar(20) not null
-);
 
-create table book(
-	book_id int not null primary key auto_increment,
-	book_kind varchar(3) not null,
-	book_title varchar(3) not null,
-	book_price varchar(3) not null,
-	book_count varchar(3) not null,
-	author varchar(3) not null,
-	publishing varchar(3) not null
-)
 
 
 

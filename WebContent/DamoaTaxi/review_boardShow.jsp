@@ -264,14 +264,18 @@
 						</td>
 					<tr>
 					</form>
+					<form action="../CommentUpdate" method="post" name="ReplyUpdateform">
+					<input type="hidden" name="num" value="<%=comment.getNum()%>">
+					<input type="hidden" name="boardID" value="<%=boardID%>">
 					<tr id="commentUpdate<%=comment.getNum()%>" style="display: none;">
 						<td style="width: 80%;">
 							<textarea class="form-control" name="upContent" rows="2" cols="40" style="ime-mode:active;"></textarea>
 						</td>
 						<td style="width: 20%; vertical-align: middle;">
-							<input type="button" value="수정" class="btn btn-info" onclick="commentUpdateInsert('<%=comment.getNum()%>')">
+							<input type="submit" value="수정" class="btn btn-info">
 						</td>
 					<tr>
+					</form>
 					<tr>
 						<td align="right" colspan="2">
 							<%
@@ -280,7 +284,7 @@
 							<a class="btn btn-link" onclick="replyUpdateShow('<%=comment.getNum()%>')">수정</a>
 							   &nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="button" value="댓글삭제" class="btn btn-link"
-						       onclick="document.location.href='../CommentDelete?num=<%=comment.getNum()%>'">
+						       onclick="document.location.href='../CommentDelete?num=<%=comment.getNum()%>&boardID=<%=comment.getBoardID()%>'">
 							   &nbsp;&nbsp;&nbsp;&nbsp;
 							<%
 						  		}
@@ -445,6 +449,6 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/reviewboard.js"></script>
+  <script src="js/reviewboard.js?ver=1"></script>
   </body>
 </html>

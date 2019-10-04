@@ -273,12 +273,13 @@ CREATE TABLE Total_board
 ALTER TABLE Total_board COMMENT '통합게시판';
 
 create table driver(
+	num int not null primary key auto_increment,
 	name varchar(20) not null,
 	age int not null,
 	sex varchar(8) not null,
 	career int,
 	category char(5),
-	phone_num varchar(20) not null primary key,
+	phone_num varchar(20) not null,
 	rating float default 0.0,
 	File varchar(100),
 	RealFile varchar(100)

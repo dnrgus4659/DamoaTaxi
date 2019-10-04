@@ -43,11 +43,11 @@
 					<div class="modal-header">
 						<h4 class="modal-title">기사 등록하기</h4>
 						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span>
 							<span class="sr-only">Close</span>
+							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>	
-					<form action="../driverInsert" method="post" enctype="multipart/form-data" name="driverForm">
+					<form action="../../driverInsert" method="post" enctype="multipart/form-data" name="driverForm">
 					<div class="modal-body">
 						<div class="input-group mt-2">
 						<table class="table table-borderless" style="vertical-align: middle;">
@@ -203,7 +203,7 @@
 
   </div>
   <!-- /#wrapper -->
-
+  
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

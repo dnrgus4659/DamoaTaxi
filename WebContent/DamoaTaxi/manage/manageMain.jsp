@@ -47,7 +47,48 @@
 
   </div>
   <!-- /#wrapper -->
-
+  <%
+		String messageContent=null;
+		if(session.getAttribute("messageContent") != null){
+			messageContent = (String) session.getAttribute("messageContent");
+		}
+		String messageType = null;
+		if(session.getAttribute("messageType") != null){
+			messageType = (String) session.getAttribute("messageType");
+		}
+		if(messageContent != null){
+	%>
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-hidden="ture">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content <% if(messageType.equals("오류 메세지")) out.println("panel-warning"); else out.println("panel-success");%>">
+					<div class="modal-header panel-heading">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="ture">X</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">
+							<%= messageType %>
+						</h4>
+					</div>
+					<div class="modal-body">
+						<%=messageContent %>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$('#messageModal').modal('show');
+	</script>
+	<%
+		session.removeAttribute("messageContent");
+		session.removeAttribute("messageType");
+		}
+	%>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

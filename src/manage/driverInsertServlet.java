@@ -29,29 +29,36 @@ public class driverInsertServlet extends HttpServlet {
 		}catch(Exception e) {
 			request.getSession().setAttribute("messageType", "오류 메세지");
 			request.getSession().setAttribute("messageContent", "파일 크기는 10MB를 넘을 수 없습니다.");
-			response.sendRedirect("./DamoaTaxi/review_boardWrite.jsp");
+			response.sendRedirect("./DamoaTaxi/manage/manageMain.jsp?content=manageDriver");
 			return;
 		}
-		String userID = multi.getParameter("userID");
-		String boardTitle = multi.getParameter("boardTitle");
-		String boardContent = multi.getParameter("boardContent");
-		if(boardTitle == null || boardTitle.equals("") || boardContent == null || boardContent.equals("")) {
+		String name = multi.getParameter("name");
+		String age = multi.getParameter("age");
+		String sex = multi.getParameter("sex");
+		String career = multi.getParameter("career");
+		String category = multi.getParameter("category");
+		String phone_num = multi.getParameter("phone_num");
+		if(name == null || name.equals("") || age == null || age.equals("")
+				 || sex == null || sex.equals("")
+				 || career == null || career.equals("")
+				 || category == null || category.equals("")
+				 || phone_num == null || phone_num.equals("")) {
 			request.getSession().setAttribute("messageType", "오류 메세지");
 			request.getSession().setAttribute("messageContent", "내용을 모두 채워주세요");
-			response.sendRedirect("./DamoaTaxi/review_boardWrite.jsp");
+			response.sendRedirect("./DamoaTaxi/manage/manageMain.jsp?content=manageDriver");
 		}
-		String boardFile="";
-		String boardRealFile = "";
+		String File="";
+		String RealFile = "";
 		File file = multi.getFile("file");
 		if(file != null) {
-			boardFile = multi.getOriginalFileName("file");
-			boardRealFile = file.getName();
+			File = multi.getOriginalFileName("file");
+			RealFile = file.getName();
 		}
-		review_BoardDAO review_boardDAO = new review_BoardDAO();
-		review_boardDAO.write(userID, boardTitle, boardContent, boardFile, boardRealFile);
+		driverDAO driverDAO = new driverDAO();
+		driverDAO.insertDriver(name, age, sex, career, category, phone_num, File, RealFile);
 		request.getSession().setAttribute("messageType", "성공 메세지");
-		request.getSession().setAttribute("messageContent", "성공적으로 게시물이 작성되었습니다.");
-		response.sendRedirect("./DamoaTaxi/review_boardView.jsp");
+		request.getSession().setAttribute("messageContent", "성공적으로 등록되었습니다.");
+		response.sendRedirect("./DamoaTaxi/manage/manageMain.jsp?content=manageDriver");
 		return;
 	}
 

@@ -63,4 +63,12 @@
     <servlet-name>CommentDeleteServlet</servlet-name>
     <url-pattern>/CommentDelete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>driverInsertServlet</servlet-name>
+    <servlet-class>manage.driverInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>driverInsertServlet</servlet-name>
+    <url-pattern>/driverInsert</url-pattern>
+  </servlet-mapping>
 </web-app>

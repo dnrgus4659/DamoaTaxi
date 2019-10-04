@@ -25,21 +25,22 @@ public class driverDAO {
         return ds.getConnection();
     }
     
-    public int write(String userID, String boardTitle, String boardContent, String boardFile, String boardRealFile) {
+    public int insertDriver(String name, String age, String sex, String career, String category, 
+    		String phone_num, String File, String RealFile) {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql="insert into review_board select ?, "
-				+ "ifnull((select max(boardID) +1 from review_board), 1), "
-				+ "?, ?, now(), 0, ?, ?, ifnull((select max(boardGroup)+1 "
-				+ "from review_board), 0), 0, 0";
+		String sql="insert into driver(name,age,sex,career,category,phone_num,File,RealFile) values (?,?,?,?,?,?,?,?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userID);
-			pstmt.setString(2, boardTitle);
-			pstmt.setString(3, boardContent);
-			pstmt.setString(4, boardFile);
-			pstmt.setString(5, boardRealFile);
+			pstmt.setString(1, name);
+			pstmt.setString(2, age);
+			pstmt.setString(3, sex);
+			pstmt.setString(4, career);
+			pstmt.setString(5, category);
+			pstmt.setString(6, phone_num);
+			pstmt.setString(7, File);
+			pstmt.setString(8, RealFile);
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

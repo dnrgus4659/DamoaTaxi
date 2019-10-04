@@ -9,10 +9,58 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-	<resource-ref> 
-     <description>basicjsp DB</description> 
-     <res-ref-name>jdbc/basicjsp</res-ref-name> 
-     <res-type>javax.sql.DataSource</res-type> 
-     <res-auth>Container</res-auth> 
+  <resource-ref>
+    <description>2019_2A01_DamoaTaxi DB</description>
+    <res-ref-name>jdbc/2019_2A01_DamoaTaxi</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
   </resource-ref>
+  <servlet>
+    <servlet-name>review_boardWriteServlet</servlet-name>
+    <servlet-class>Damoa_pro.review_boardWriteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>review_boardWriteServlet</servlet-name>
+    <url-pattern>/review_boardWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>review_boardUpdateServlet</servlet-name>
+    <servlet-class>Damoa_pro.review_boardUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>review_boardUpdateServlet</servlet-name>
+    <url-pattern>/review_boardUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>review_boardDeleteServlet</servlet-name>
+    <servlet-class>Damoa_pro.review_boardDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>review_boardDeleteServlet</servlet-name>
+    <url-pattern>/review_boardDelete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CommentServlet</servlet-name>
+    <servlet-class>Damoa_pro.CommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentServlet</servlet-name>
+    <url-pattern>/CommentWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CommentUpdateServlet</servlet-name>
+    <servlet-class>Damoa_pro.CommentUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentUpdateServlet</servlet-name>
+    <url-pattern>/CommentUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CommentDeleteServlet</servlet-name>
+    <servlet-class>Damoa_pro.CommentDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentDeleteServlet</servlet-name>
+    <url-pattern>/CommentDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

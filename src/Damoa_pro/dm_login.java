@@ -17,10 +17,10 @@ public class dm_login {
 	}
 
 	private dm_login() {}
-	private Connection getConnection() throws Exception{
+	private Connection getConnection() throws Exception{//커넥션풀
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource)envCtx.lookup("jdbc/basicjsp");
+		DataSource ds = (DataSource)envCtx.lookup("jdbc/2019_2A01_DamoaTaxi");
 		return ds.getConnection();
 	}
 	
@@ -32,12 +32,13 @@ public class dm_login {
 		int x = -1;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select passwd from ex1 where id=?");
+			pstmt = conn.prepareStatement("select travel_member.travel_Password as PW from travel_member where travel_member.travel_ID=? union select impairment_member.impairment_Password as PW from impairment_member where impairment_member.impairment_ID=?");
 			pstmt.setString(1, id);
+			pstmt.setString(2, id);
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				dbpasswd=rs.getString("passwd");
+				dbpasswd=rs.getString("PW");
 				if(dbpasswd.equals(passwd)) 
 					x=1;//인증성공
 				else
@@ -57,6 +58,35 @@ public class dm_login {
 		return x;
 	}
 	
+	public String userCategory(String id) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String value="";
+		int x = -1;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select travel_member.travel_category as Category from travel_member where travel_member.travel_ID=? union select impairment_member.impairment_category as Category from impairment_member where impairment_member.impairment_ID=?");
+			/*pstmt = conn.prepareStatement("select if(travel_member.travel_ID=?,travel_member.travel_category,if(impairment_member.impairment_ID=?,impairment_member.impairment_category,null)) as Category from travel_member natural join impairment_member");*/
+			pstmt.setString(1, id);
+			pstmt.setString(2, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				value=rs.getString("Category");
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return value;
+	}
 	
 }
 

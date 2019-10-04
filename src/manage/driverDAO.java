@@ -2,18 +2,19 @@ package manage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import Damoa_pro.review_BoardDAO;
 
 public class driverDAO {
-	private static review_BoardDAO instance = new review_BoardDAO();
+	private static driverDAO instance = new driverDAO();
     //.jsp페이지에서 DB연동빈인 QnA_BoardDAO클래스의 메소드에 접근시 필요
-    public static review_BoardDAO getInstance() {
+    public static driverDAO getInstance() {
         return instance;
     }
     
@@ -51,5 +52,132 @@ public class driverDAO {
 				try{conn.close();}catch(SQLException ex){}
 		}
 		return -1;
+    }
+    
+    public int delete(String num) {
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql="delete from driver where num=?";
+		num = num.trim();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(num));
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return -1;
+    }
+    
+    public String getRealFile(String num) {
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select RealFile from driver where num = ?";
+		try {
+			conn=getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(num));
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getString("RealFile");
+			}
+			return "";
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+    	return "";
+    }
+    
+    public ArrayList<driverDTO> getIList() {
+    	ArrayList<driverDTO> driverIList = null;
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from driver where category = 'I'";
+		try {
+			conn=getConnection();
+			pstmt=conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			driverIList = new ArrayList<driverDTO>();
+			
+			while(rs.next()) {
+				driverDTO driver = new driverDTO();
+				driver.setNum(rs.getInt("num"));
+				driver.setName(rs.getString("name"));
+				driver.setAge(rs.getInt("age"));
+				driver.setSex(rs.getString("sex"));
+				driver.setCareer(rs.getInt("career"));
+				driver.setCategory(rs.getString("category"));
+				driver.setPhone_num(rs.getString("phone_num"));
+				driver.setRating(rs.getFloat("rating"));
+				driver.setFile(rs.getString("File"));
+				driver.setRealFile(rs.getString("RealFile"));
+				driverIList.add(driver);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+    	return driverIList;
+    }
+    
+    public ArrayList<driverDTO> getTList() {
+    	ArrayList<driverDTO> driverTList = null;
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from driver where category = 'T'";
+		try {
+			conn=getConnection();
+			pstmt=conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			driverTList = new ArrayList<driverDTO>();
+			
+			while(rs.next()) {
+				driverDTO driver = new driverDTO();
+				driver.setNum(rs.getInt("num"));
+				driver.setName(rs.getString("name"));
+				driver.setAge(rs.getInt("age"));
+				driver.setSex(rs.getString("sex"));
+				driver.setCareer(rs.getInt("career"));
+				driver.setCategory(rs.getString("category"));
+				driver.setPhone_num(rs.getString("phone_num"));
+				driver.setRating(rs.getFloat("rating"));
+				driver.setFile(rs.getString("File"));
+				driver.setRealFile(rs.getString("RealFile"));
+				driverTList.add(driver);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+    	return driverTList;
     }
 }

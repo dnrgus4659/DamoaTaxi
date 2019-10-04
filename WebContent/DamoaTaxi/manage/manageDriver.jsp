@@ -1,4 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="manage.driverDAO" %>
+<%@ page import="manage.driverDTO" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+	driverDAO dbPro = driverDAO.getInstance();
+
+    ArrayList<driverDTO> driverIList = new driverDAO().getIList();
+    ArrayList<driverDTO> driverTList = new driverDAO().getTList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +41,11 @@
       </div>
     </div>
     <div class="sidenav">
-	  <a href="#about" data-toggle="modal" data-target="#ID_modi_Modal">기사등록</a>
-	  <a href="#services">기사삭제</a>
+	  <a href="#" data-toggle="modal" data-target="#driverInsert_Modal">기사등록</a>
+	  <a href="#services" data-toggle="modal" data-target="#driverDelete_Modal">기사삭제</a>
 	</div>
 	<!-- Modal -->
-	<div id="ID_modi_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+	<div id="driverInsert_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
 		<div class="vertical-alignment-helper">
 			<div class="modal-dialog vertical-align-center">
 				<div class="modal-content panel-success">
@@ -97,6 +106,36 @@
 			</div>
 		</div>
 	</div>
+	<div id="driverDelete_Modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content panel-success">
+					<div class="modal-header">
+						<h4 class="modal-title">기사 삭제</h4>
+						<button type="button" class="close" data-dismiss="modal">
+							<span class="sr-only">Close</span>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>	
+					<form action="../../driverDelete" method="post" name="driverDeleteForm">
+					<div class="modal-body">
+						<div class="input-group mt-2">
+						<table class="table table-borderless" style="vertical-align: middle;">
+							<tr>
+								<td style="vertical-align: middle; width:104px;">등록번호</td>
+								<td><input type="text" class="form-control" name="num" placeholder="번호"></td>
+							</tr>
+						</table>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-primary" value="삭제" onclick="return confirm('정말로 삭제하시겠습니까?')">
+					</div>
+					</form>		
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- end Modal -->
     <section id="tabs" class="project-tab">
             <div class="container">
@@ -106,91 +145,78 @@
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">장애인 택시 기사</a>
                                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">관광 택시 기사</a>
-                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Project Tab 3</a>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <table class="table table-hover" cellspacing="0">
+                                <table class="table table-hover" cellspacing="0" style="text-align: center;">
                                     <thead>
                                         <tr>
-                                            <th>Project Name</th>
-                                            <th>Employer</th>
-                                            <th>Awards</th>
+                                            <th>등록번호</th>
+                                            <th>이름</th>
+                                            <th>나이</th>
+                                            <th>성별</th>
+                                            <th>경력</th>
+                                            <th>전화번호</th>
+                                            <th>평점</th>
+                                            <th>프로필사진</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <%
+										for(int i = 0; i<driverIList.size(); i++){
+										  				driverDTO Idriver = driverIList.get(i);
+									%>
+                                    
                                         <tr>
-                                            <td><a href="#">Work 1</a></td>
-                                            <td>Doe</td>
-                                            <td>john@example.com</td>
+                                            <td><%=Idriver.getNum() %></td>
+                                            <td><%=Idriver.getName() %></td>
+                                            <td><%=Idriver.getAge() %>세</td>
+                                            <td><%=Idriver.getSex() %></td>
+                                            <td><%=Idriver.getCareer() %>년차</td>
+                                            <td><%=Idriver.getPhone_num() %></td>
+                                            <td><%=Idriver.getRating() %></td>
+                                            <td><%=Idriver.getFile() %></td>
                                         </tr>
-                                        <tr>
-                                            <td><a href="#">Work 2</a></td>
-                                            <td>Moe</td>
-                                            <td>mary@example.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">Work 3</a></td>
-                                            <td>Dooley</td>
-                                            <td>july@example.com</td>
-                                        </tr>
+                                    <%
+										}
+                                    %>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                <table class="table" cellspacing="0">
+                                <table class="table" cellspacing="0" style="text-align: center;">
                                     <thead>
                                         <tr>
-                                            <th>Project Name</th>
-                                            <th>Employer</th>
-                                            <th>Time</th>
+                                            <th>등록번호</th>
+                                            <th>이름</th>
+                                            <th>나이</th>
+                                            <th>성별</th>
+                                            <th>경력</th>
+                                            <th>전화번호</th>
+                                            <th>평점</th>
+                                            <th>프로필사진</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><a href="#">Work 1</a></td>
-                                            <td>Doe</td>
-                                            <td>john@example.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">Work 2</a></td>
-                                            <td>Moe</td>
-                                            <td>mary@example.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">Work 3</a></td>
-                                            <td>Dooley</td>
-                                            <td>july@example.com</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                <table class="table" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Contest Name</th>
-                                            <th>Date</th>
-                                            <th>Award Position</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><a href="#">Work 1</a></td>
-                                            <td>Doe</td>
-                                            <td>john@example.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">Work 2</a></td>
-                                            <td>Moe</td>
-                                            <td>mary@example.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">Work 3</a></td>
-                                            <td>Dooley</td>
-                                            <td>july@example.com</td>
-                                        </tr>
+                                        <%
+											for(int i = 0; i<driverTList.size(); i++){
+										  				driverDTO Tdriver = driverTList.get(i);
+										%>
+	                                    
+	                                        <tr>
+	                                            <td><%=Tdriver.getNum() %></td>
+	                                            <td><%=Tdriver.getName() %></td>
+	                                            <td><%=Tdriver.getAge() %>세</td>
+	                                            <td><%=Tdriver.getSex() %></td>
+	                                            <td><%=Tdriver.getCareer() %>년차</td>
+	                                            <td><%=Tdriver.getPhone_num() %></td>
+	                                            <td><%=Tdriver.getRating() %></td>
+	                                            <td><%=Tdriver.getFile() %></td>
+	                                        </tr>
+	                                    <%
+											}
+	                                    %>
                                     </tbody>
                                 </table>
                             </div>

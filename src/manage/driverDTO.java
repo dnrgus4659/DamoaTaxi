@@ -1,6 +1,7 @@
 package manage;
 
 public class driverDTO {
+	int num;
 	String name;
 	int age;
 	String sex;
@@ -8,6 +9,11 @@ public class driverDTO {
 	String category;
 	String phone_num;
 	float rating;
+	String File;
+	String RealFile;
+	public int getNum() {
+		return num;
+	}
 	public String getName() {
 		return name;
 	}
@@ -28,6 +34,15 @@ public class driverDTO {
 	}
 	public float getRating() {
 		return rating;
+	}
+	public String getFile() {
+		return File;
+	}
+	public String getRealFile() {
+		return RealFile;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -50,5 +65,10 @@ public class driverDTO {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
-	
+	public void setFile(String file) {
+		File = file;
+	}
+	public void setRealFile(String realFile) {
+		RealFile = realFile;
+	}
 }

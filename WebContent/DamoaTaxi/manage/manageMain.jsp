@@ -63,13 +63,13 @@
 			<div class="modal-dialog vertical-align-center">
 				<div class="modal-content <% if(messageType.equals("오류 메세지")) out.println("panel-warning"); else out.println("panel-success");%>">
 					<div class="modal-header panel-heading">
+						<h4 class="modal-title">
+							<%= messageType %>
+						</h4>
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="ture">X</span>
 							<span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title">
-							<%= messageType %>
-						</h4>
 					</div>
 					<div class="modal-body">
 						<%=messageContent %>

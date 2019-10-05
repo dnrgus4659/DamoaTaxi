@@ -133,9 +133,14 @@
           				<path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
         			</svg>
         			<div class="slide__text">
-          				<h2 class="slide__text-heading">Project name 1</h2>
-          				<p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
-          				<a class="slide__text-link">Project link</a>
+          				<h2 class="slide__text-heading">A Course<br>랜드 마크 투어</h2>
+          				<p class="slide__text-desc">숭례문에서 사진촬영<br>
+          				 문화역 서울 284에서 박물관 전시관람<br>
+								덕수궁 고궁관람 및 한복 체험<br> 
+								광화문 광장 사진 촬영<br>
+								경복궁 고궁관람 및 한복체험<br>
+								서울광장 문화행사</p>
+						<a class="slide__text-link">Project link</a>
         			</div>
       			</div>
     		</div>
@@ -146,8 +151,12 @@
           				<path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
         			</svg>
         		<div class="slide__text">
-          			<h2 class="slide__text-heading">Project name 2</h2>
-          			<p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+          			<h1 class="slide__text-heading">B Course<br>먹거리투어</h1>
+          			<p class="slide__text-desc">
+          			 광장시장에서마약김밥시식<br>
+          			  남산에서 돈까스 시식<br>
+          			  종로 5가에서 곱창시식<br>
+          			  신당동에서 신당동 떡볶이 시식 을지로 노가리 시식</p>
           		<a class="slide__text-link">Project link</a>
         		</div>
      	 		</div>
@@ -159,8 +168,12 @@
         	  			<path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
         			</svg>
         	<div class="slide__text">
-          		<h2 class="slide__text-heading">Project name 3</h2>
-          			<p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+          		<h2 class="slide__text-heading">C Course<br>문화투어</h2>
+          			<p class="slide__text-desc">
+          			경복궁 옆 국립 현대 미술관<br>
+          			서울 시립미술관<br>
+					국립현대 미술관<br>
+					우정아트센터</p>
           			<a class="slide__text-link">Project link</a>
         	</div>
       		</div>

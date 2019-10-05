@@ -147,7 +147,7 @@ svg {
 }
 .slide:nth-child(1) .slide__bg {
   left: 0;
-  background-image: url("../images/Gyeonghoeru.jpg");
+  background-image: url("../images/gyengholu.jpg");
 	
 }
 .slide:nth-child(1) .slide__overlay-path {
@@ -163,7 +163,7 @@ svg {
 }
 .slide:nth-child(2) .slide__bg {
   left: -50%;
-  background-image: url("../images/Namsan_Night.jpg");
+  background-image: url("../images/namsan.jpg");
   
 }
 .slide:nth-child(2) .slide__overlay-path {

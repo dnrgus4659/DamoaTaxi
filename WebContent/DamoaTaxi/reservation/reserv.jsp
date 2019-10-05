@@ -27,11 +27,11 @@
 	
 	<link rel="stylesheet" href="../css/aos.css">
 	<link rel="stylesheet" href="../css/ionicons.min.css">
-	<!-- <link rel="stylesheet" href="../css/bootstrap-datepicker.css">변화x -->
+	<link rel="stylesheet" href="../css/bootstrap-datepicker.css">
 	<!-- <link rel="stylesheet" href="../css/jquery.timepicker.css">변화x -->
 	<!-- <link rel="stylesheet" href="../css/flaticon.css">변화 x -->
 	<link rel="stylesheet" href="../css/icomoon.css">
-	<link rel="stylesheet" href="../css/style.css?ver=2">
+	<link rel="stylesheet" href="../css/style.css?ver=3">
 </head>
 
 <body>
@@ -117,7 +117,7 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-center ftco-vh-75">
 				<div class="col-md-9 text-center">
-			    	<h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">장애인 택시 예약</h1>
+			    	<h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">예약</h1>
 				</div>	
 			</div>
 		</div>
@@ -130,19 +130,19 @@
 	            <!--      Wizard container        -->
 	            <div class="wizard-container">
 	                <div class="card wizard-card" data-color="red" id="wizard">
-	                    <form action="" method="">
+	                    <form action="../reservationInsert" method="post">
 	                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 	                    	<div class="wizard-header">
 	                        	<h3 class="wizard-title">
-	                        		Book a Room
+	                        		장애인 택시 예약
 	                        	</h3>
-								<h5>This information will let us know more about you.</h5>
+								<h5>항상 최선을 다해 모시겠습니다</h5>
 	                    	</div>
 							<div class="wizard-navigation">
 								<ul>
-		                            <li><a href="#details" data-toggle="tab">Account</a></li>
-		                            <li><a href="#captain" data-toggle="tab">Room Type</a></li>
-		                            <li><a href="#description" data-toggle="tab">Extra Details</a></li>
+		                            <li><a href="#details" data-toggle="tab">예약 정보</a></li>
+		                            <li><a href="#captain" data-toggle="tab">차종 선택</a></li>
+		                            <li><a href="#description" data-toggle="tab">세부사항</a></li>
 		                        </ul>
 							</div>
 	                        <div class="tab-content">
@@ -154,81 +154,124 @@
 	                                	<div class="col-sm-6">
 											<div class="input-group">
 												<span class="input-group-addon">
-													<i class="material-icons">email</i>
+													<i class="material-icons">portrait</i>
 												</span>
 												<div class="form-group label-floating">
-		                                          	<label class="control-label">예약자 명</label>
+		                                          	<label class="control-label">예약자명</label>
 		                                          	<input name="name" type="text" class="form-control">
 		                                        </div>
 											</div>
 											<div class="input-group">
 												<span class="input-group-addon">
-													<i class="material-icons">lock_outline</i>
+													<i class="material-icons">date_range</i>
 												</span>
 												<div class="form-group label-floating">
-		                                          	<label class="control-label">흠뭐하지</label>
-		                                          	<input name="name2" type="password" class="form-control">
+		                                          	<label class="control-label">이용날짜</label>
+		                                          	<div class="controls">
+											            <input class="datepicker form-control" name="date" type="text"/>
+													</div>
 		                                        </div>
 											</div>
 	                                	</div>
 	                                	<div class="col-sm-6">
-	                                    	<div class="form-group label-floating">
-	                                        	<label class="control-label">Country</label>
-                                        		<select class="form-control">
-													<option disabled="" selected=""></option>
-                                                	<option value="Afghanistan"> Afghanistan </option>
-                                                	<option value="Albania"> Albania </option>
-                                                	<option value="Algeria"> Algeria </option>
-                                                	<option value="American Samoa"> American Samoa </option>
-                                                	<option value="Andorra"> Andorra </option>
-                                                	<option value="Angola"> Angola </option>
-                                                	<option value="Anguilla"> Anguilla </option>
-                                                	<option value="Antarctica"> Antarctica </option>
-                                                	<option value="...">...</option>
-	                                        	</select>
-	                                    	</div>
-											<div class="form-group label-floating">
-	                                        	<label class="control-label">Daily Budget</label>
-                                        		<select class="form-control">
-													<option disabled="" selected=""></option>
-                                                	<option value="Afghanistan"> < $100 </option>
-                                                	<option value="Albania"> $100 - $499 </option>
-                                                	<option value="Algeria"> $499 - $999 </option>
-                                                	<option value="American Samoa"> $999+ </option>
-	                                        	</select>
-	                                    	</div>
-		                                	</div>
-		                            	</div>
+	                                    	<div class="input-group">
+												<span class="input-group-addon">
+													<i class="material-icons">flight_takeoff</i>
+												</span>
+												<div class="form-group label-floating">
+		                                          	<label class="control-label">승차장소</label>
+		                                          	<input name="getIn" type="text" class="form-control">
+		                                        </div>
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="material-icons">flight_land</i>
+												</span>
+												<div class="form-group label-floating">
+		                                          	<label class="control-label">하차장소</label>
+		                                          	<input name="getOut" type="text" class="form-control">
+		                                        </div>
+											</div>
+		                                </div>
+		                                <div class="col-sm-6">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="material-icons">departure_board</i>
+												</span>
+												<div class="form-group label-floating">
+		                                          	<label class="control-label">이용시간(ex.15:00)</label>
+		                                          	<input name="time" type="text" class="form-control">
+		                                        </div>
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="material-icons">phone</i>
+												</span>
+												<div class="form-group label-floating">
+		                                          	<label class="control-label">휴대폰번호('-'없이 입력)</label>
+		                                          	<input name="phone" type="text" class="form-control">
+		                                        </div>
+											</div>
+	                                	</div>
+	                                	<div class="col-sm-6">
+											<div class="input-group">
+												<span class="input-group-addon" style="width: 100px;">
+													<i class="material-icons">person_add</i>
+												</span>
+												<div class="form-group label-floating">
+		                                          	<label class="control-label">탑승인원</label>
+		                                          	<select name="person" class="form-control">
+														<option disabled="" selected=""></option>
+	                                                	<option value="1"> 1 </option>
+	                                                	<option value="2"> 2 </option>
+	                                                	<option value="3"> 3 </option>
+	                                                	<option value="4"> 4 </option>
+	                                                	<option value="5"> 5 </option>
+	                                                	<option value="6"> 6 </option>
+		                                        	</select>
+		                                        </div>
+											</div>
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="material-icons">how_to_reg</i>
+												</span>
+												<div class="form-group label-floating">
+		                                          	<label class="control-label">기사지정</label>
+		                                          	<input name="driver" type="text" class="form-control">
+		                                        </div>
+											</div>
+	                                	</div>
 		                            </div>
+		                        </div>
 	                            <div class="tab-pane" id="captain">
-	                                <h4 class="info-text">What type of room would you want? </h4>
+	                                <h4 class="info-text">이용하실 차종을 선택해주세요 </h4>
 	                                <div class="row">
 	                                    <div class="col-sm-10 offset-1">
 	                                        <div class="col-sm-4 float-left">
 	                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="This is good if you travel alone.">
 	                                                <input type="radio" name="job" value="Design">
 	                                                <div class="icon">
-	                                                    <i class="material-icons">weekend</i>
+	                                                    <i class="material-icons">local_taxi</i>
 	                                                </div>
-	                                                <h6>Single</h6>
+	                                                <h6>스타렉스(최대 2인)</h6>
 	                                            </div>
 	                                        </div>
 	                                        <div class="col-sm-4 float-left">
 	                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this room if you're traveling with your family.">
 	                                                <input type="radio" name="job" value="Code">
 	                                                <div class="icon">
-	                                                    <i class="material-icons">home</i>
+	                                                    <i class="material-icons">drive_eta</i>
 	                                                </div>
-	                                                <h6>Family</h6>
+	                                                <h6>소나타(최대 4인)</h6>
 	                                            </div>
 	                                        </div>
 											<div class="col-sm-4 float-left">
 	                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you are coming with your team.">
 	                                                <input type="radio" name="job" value="Code">
 	                                                <div class="icon">
-	                                                    <i class="material-icons">business</i>
+	                                                    <i class="material-icons">airport_shuttle</i>
 	                                                </div>
-	                                                <h6>Business</h6>
+	                                                <h6>카니발(최대 6인)</h6>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -237,12 +280,12 @@
 	                            <div class="tab-pane" id="description">
 	                                <div class="row">
 	                                	<div class="col-sm-12">
-		                                	<h4 class="info-text">Drop us a small description.</h4>
+		                                	<h4 class="info-text">요청사항</h4>
 		                            	</div>
 	                                    <div class="col-sm-6 offset-1">
                                     		<div class="form-group">
-	                                            <label>Room description</label>
-	                                            <textarea class="form-control" placeholder="" rows="6" style="border-bottom: 1px solid #d2d2d2;"></textarea>
+	                                            <label>휠체어유무등 요청사항을 작성해주세요</label>
+	                                            <textarea class="form-control" name="requestContent" placeholder="" rows="6" style="border-bottom: 1px solid #d2d2d2;"></textarea>
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-sm-4">
@@ -360,6 +403,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="../js/aos.js"></script>
 	<script src="../js/jquery.animateNumber.min.js"></script>
 	<script src="../js/main.js"></script>
-	
+	<script src="../js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+	 $('.datepicker').datepicker({
+    	 weekStart:1,
+    	 color: 'red'
+	 });
+	</script>
 	</body>
 </html>

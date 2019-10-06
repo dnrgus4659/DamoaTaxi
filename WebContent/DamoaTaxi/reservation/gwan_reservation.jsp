@@ -284,14 +284,14 @@
 		                            	</div>
 	                                    <div class="col-sm-6 offset-1">
                                     		<div class="form-group">
-	                                            <label>휠체어유무등 요청사항을 작성해주세요</label>
+	                                            <label>개인 코스 등 요청사항을 작성해주세요</label>
 	                                            <textarea class="form-control" name="requestContent" placeholder="" rows="6" style="border-bottom: 1px solid #d2d2d2;"></textarea>
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-sm-4">
 	                                    	<div class="form-group">
-	                                            <label class="control-label">Example</label>
-	                                            <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
+	                                            <label class="control-label">예시</label>
+	                                            <p class="description">"인원은 3명이고 캐리어도 3개입니다."</p>
 	                                        </div>
 	                                    </div>
 	                                </div>

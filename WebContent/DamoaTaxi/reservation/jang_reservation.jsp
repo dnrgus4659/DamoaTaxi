@@ -285,8 +285,8 @@
 	                                    </div>
 	                                    <div class="col-sm-4">
 	                                    	<div class="form-group">
-	                                            <label class="control-label">Example</label>
-	                                            <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
+	                                            <label class="control-label">예시</label>
+	                                            <p class="description">"인원은 2명이고 휠체어 1대 있습니다."</p>
 	                                        </div>
 	                                    </div>
 	                                </div>

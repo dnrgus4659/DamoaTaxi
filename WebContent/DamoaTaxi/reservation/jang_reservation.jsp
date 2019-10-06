@@ -16,22 +16,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
-	<!-- <link href="css/bootstrap.min.css" rel="stylesheet" /> -->
 	<link href="css/material-bootstrap-wizard.css" rel="stylesheet" />
 	
 	<link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
 	<link rel="stylesheet" href="../css/animate.css">
 	<link rel="stylesheet" href="../css/owl.carousel.min.css">
 	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
-	<!-- <link rel="stylesheet" href="../css/magnific-popup.css">변화x -->
 	
 	<link rel="stylesheet" href="../css/aos.css">
 	<link rel="stylesheet" href="../css/ionicons.min.css">
 	<link rel="stylesheet" href="../css/bootstrap-datepicker.css">
-	<!-- <link rel="stylesheet" href="../css/jquery.timepicker.css">변화x -->
-	<!-- <link rel="stylesheet" href="../css/flaticon.css">변화 x -->
 	<link rel="stylesheet" href="../css/icomoon.css">
-	<link rel="stylesheet" href="../css/style.css?ver=3">
+	<link rel="stylesheet" href="css/style.css?ver=1">
 </head>
 
 <body>
@@ -129,9 +125,8 @@
 	        <div class="col mb-lg-5">
 	            <!--      Wizard container        -->
 	            <div class="wizard-container">
-	                <div class="card wizard-card" data-color="red" id="wizard">
-	                    <form action="../reservationInsert" method="post">
-	                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
+	                <div class="card wizard-card" data-color="orange" id="wizard">
+	                    <form action="../reservationInsert" method="post" id="reservForm">
 	                    	<div class="wizard-header">
 	                        	<h3 class="wizard-title">
 	                        		장애인 택시 예약
@@ -248,8 +243,8 @@
 	                                <div class="row">
 	                                    <div class="col-sm-10 offset-1">
 	                                        <div class="col-sm-4 float-left">
-	                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="This is good if you travel alone.">
-	                                                <input type="radio" name="job" value="Design">
+	                                            <div class="choice" data-toggle="wizard-radio">
+	                                            	<input class="d-none" type="radio" id="car1" name="car" value="starex">
 	                                                <div class="icon">
 	                                                    <i class="material-icons">local_taxi</i>
 	                                                </div>
@@ -257,8 +252,8 @@
 	                                            </div>
 	                                        </div>
 	                                        <div class="col-sm-4 float-left">
-	                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this room if you're traveling with your family.">
-	                                                <input type="radio" name="job" value="Code">
+	                                            <div class="choice" data-toggle="wizard-radio">
+	                                            	<input class="d-none" type="radio" id="car2" name="car" value="sonata">
 	                                                <div class="icon">
 	                                                    <i class="material-icons">drive_eta</i>
 	                                                </div>
@@ -266,8 +261,8 @@
 	                                            </div>
 	                                        </div>
 											<div class="col-sm-4 float-left">
-	                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you are coming with your team.">
-	                                                <input type="radio" name="job" value="Code">
+	                                            <div class="choice" data-toggle="wizard-radio">
+	                                            	<input class="d-none" type="radio" id="car3" name="car" value="carnival">
 	                                                <div class="icon">
 	                                                    <i class="material-icons">airport_shuttle</i>
 	                                                </div>
@@ -299,22 +294,12 @@
 	                        </div>
                         	<div class="wizard-footer">
                             	<div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                    <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                    <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='다음' />
+                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' id='finish' value='예약하기' />
                                 </div>
-                                <!-- <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
-									<div class="footer-checkbox">
-										<div class="col-sm-12">
-										  <div class="checkbox">
-											  <label>
-												  <input type="checkbox" name="optionsCheckboxes">
-											  </label>
-											  Subscribe to our newsletter
-										  </div>
-									  </div>
-									</div>
-                                </div> -->
+                                <div class="pull-left">
+                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='이전' />
+                                </div>
                                 <div class="clearfix"></div>
                         	</div>
 	                    </form>
@@ -388,12 +373,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.bootstrap.js" type="text/javascript"></script>
 
 	<!--  Plugin for the Wizard -->
-	<script src="js/material-bootstrap-wizard.js"></script>
+	<script src="js/material-bootstrap-wizard.js?ver=1"></script>
 
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="js/jquery.validate.min.js"></script>
 	
-	<!-- <script src="../js/jquery-migrate-3.0.1.min.js"></script> -->
 	<script src="../js/popper.min.js"></script>
 	<script src="../js/jquery.easing.1.3.js"></script>
 	<script src="../js/jquery.waypoints.min.js"></script>

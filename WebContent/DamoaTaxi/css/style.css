@@ -8661,3 +8661,9 @@ textarea.form-control {
     .Fsize{
       font-size: 25px;
     }
+
+    
+    @media (min-width: 768px)
+	.col-sm-offset-1 {
+	    margin-left: 24.33333333%;
+	}

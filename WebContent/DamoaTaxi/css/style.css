@@ -2861,7 +2861,8 @@ input[type="button"].btn-block {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  /* display: flex; */
+  display: table;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-box-align: stretch;
@@ -7583,7 +7584,7 @@ h1, h2, h3, h4, h5,
 
 .form-control {
   height: 52px !important;
-  background: #fff !important;
+  /* background: #fff !important; */
   color: #000 !important;
   font-size: 18px;
   border-radius: 0px;
@@ -8661,3 +8662,21 @@ textarea.form-control {
     .Fsize{
       font-size: 25px;
     }
+
+    
+    @media (min-width: 768px)
+	.col-sm-offset-1 {
+	    margin-left: 24.33333333%;
+	}
+	
+	.input-group-addon{
+	    font-size: 14px;
+	    font-weight: 400;
+	    line-height: 1;
+	    color: #555;
+	    text-align: center;
+	    border-radius: 4px;
+    	white-space: nowrap;
+    	vertical-align: middle;
+    	display: table-cell;
+	}

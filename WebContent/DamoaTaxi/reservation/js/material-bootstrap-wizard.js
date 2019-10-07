@@ -31,7 +31,6 @@ $(document).ready(function(){
 		  rules: {
 			name: {
 		      required: true,
-		      minlength: 3
 		    },
 		    date: {
 		      required: true

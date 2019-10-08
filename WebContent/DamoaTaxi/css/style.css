@@ -7692,9 +7692,9 @@ textarea.form-control {
 
 .ftco-footer {
   font-size: 16px;
-  background: #fff;
+  background: rgba(149,135,134,0.1);;
   border-top: 1px solid #eeeeee;
-  padding: 8em 0; }
+  padding: 2em 0; }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -8680,3 +8680,8 @@ textarea.form-control {
     	vertical-align: middle;
     	display: table-cell;
 	}
+.asd{
+	float:right;
+	margin-right:15px;
+	font-weight:bold;
+}

@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css?ver=1">
+ 	<link rel="stylesheet" href="css/time.css">
+ 	<link rel="stylesheet" href="css/lineup.css">
   </head>
 	
   <body>
@@ -153,35 +155,34 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center" data-aos="fade-up">
-            <h2>관광 코스</h2>
+            <h2>다모아 택시는 특수목적을 가진 택시입니다.</h2>
           </div>
         </div>
-
         <div class="row">
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <div class="media block-6 d-block text-center">
-              <div class="icon mb-4"><span class="flaticon-gavel"></span></div>
+              <div class="icon mb-4"><span><img src="images/q.PNG"></span></div>
               <div class="media-body">
-                <h3 class="heading">A 코스 : 랜드마크 투어</h3>
-                <p>숭례문에서 사진촬영 -> 문화역 서울 284에서 역 외관 관찰 및 박물관 전시 관람 -> 덕수궁 고궁관람 및 한복체험 -> 광화문광장 사진촬영   -> 경복궁 고궁관람 및 한복체험 -> 서울광장 문화 행사</p>
+                <h3 class="heading">베스트 드라이버</h3>
+                <p>저희는 안전하고 경력을 가진 기사님들을 <br>선출하였고 고객님들의 성향을 고려하여 <br>고객님들에게 맞는 기사님을 직접 선택하여 <br>이용하실 수도 있습니다.</p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="media block-6 d-block text-center">
-              <div class="icon mb-4"><span class="flaticon-balance"></span></div>
+              <div class="icon mb-4"><span><img src="images/qq.PNG"></span></div>
               <div class="media-body">
-                <h3 class="heading">B 코스 : 먹거리 투어</h3>
-                <p>광장시장에서 마약김밥 시식 -> 남산에서 남산돈까스 시식 -> 종로5가에서 곱창 시식 -> 신당동에서 신당동떡볶이 시식 -> 을지로 노가리 시식</p>
+                <h3 class="heading">다양한 목적</h3>
+                <p>저희 다모아 택시는 일반고객, 장애고객, <br>관광고객등 다양한 목적을 가지고 있으신 <br>이용객들이 안전하고 편리하게 사용하시길<br>바라는 마음으로 제작되었습니다.</p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="media block-6 d-block text-center">
-              <div class="icon mb-4"><span class="flaticon-lawyer"></span></div>
+              <div class="icon mb-4"><span><img src="images/qqq.PNG"></span></div>
               <div class="media-body">
-                <h3 class="heading">C 코스 : 문화 투어</h3>
-                <p>경복궁 옆 국립현대 미술관 -> 서울 시립미술관 -> 국립 현대미술관 -> 우정아트 센터</p>
+                <h3 class="heading">만족도 평가</h3>
+                <p>저희 다모아 택시는 다른 플랫폼과 <br>다르게 이용객과 기사님들의 후기및 <br>평점제를 사용하여 등급을 나누어 보다 <br>쾌적한 환경을 제공합니다.</p>
               </div>
             </div>
           </div>
@@ -227,6 +228,67 @@
    	  <%}%>
     </div>
   </div>
+
+	<section class="ftco-section-2">
+	<div class="container-fluid">                 
+	<div class="text col-md-12">
+	<div class="text-inner align-self-start" data-aos="fade-up">
+		<body>
+		<center>
+		<div class="body1">
+		<h1>서비스 이용 안내</h1>
+    		<div class="container1">
+        		<div class="card">
+            	<div class="face face1">
+                	<div class="content">
+                    	<div class="icon">                                        
+                         <img src="./images/employee.png" style="width:70%" higth="20px">                    
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>회사소개</h3>
+                    <p>저희 Domoa Taxi는 장애인 이용객을 위한 픽업 및 맞춤 서비스를 운영하고 있습니다. 
+                    고객의 필요에 따른 다양한 차종, 요금제, 관광 안내, 시간 대절,
+                    청각 장애인들을 위한 언어 서비스로 최대의 만족을 얻을수 있습니다.</p>
+               </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">                        
+                         <img src="./images/customer-service.png" style="width:70%">                    
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>안내</h3>
+                    <p>장애인 이용객의 경우: 맟춤 서비스를 제공하고 있습니다.
+                    고객의 필요 따른 다양한 차종이 구비되어 있으며 청각장애인의 경우를 위한 언어 서비스도 준비되어 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                         <img src="./images/timetable.png" style="width:70%">           
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>운영시간</h3>
+                    <p>24시간 사용가능 합니다</p>
+                    </center>
+					</div>
+				</div>
+			</div>
+    </section>
 
   <div class="ftco-section bg-light">
     <div class="container">

@@ -6,7 +6,6 @@
 <title>다모아택시</title>
 </head>
 <body>
-index페이지 입니다.
 </body>
 <script type="text/javascript">
 window.onload = function() {

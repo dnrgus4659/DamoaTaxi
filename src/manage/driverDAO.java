@@ -27,7 +27,7 @@ public class driverDAO {
     }
     
     public int insertDriver(String name, String age, String sex, String career, String category, 
-    		String phone_num, String File, String RealFile) {
+    	String phone_num, String File, String RealFile) {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql="insert into driver(name,age,sex,career,category,phone_num,File,RealFile) values (?,?,?,?,?,?,?,?)";

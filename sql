@@ -289,6 +289,21 @@ drop table driver;
 select * from driver;
 insert into driver(name,age,sex,career,category,phone_num) values ('권욱현',20,'남',8,'I','010-5508-3494');
 
+create table reservation(
+	num int not null primary key auto_increment,
+	name varchar(40) not null,
+	date varchar(30) not null,
+	getIn varchar(40) not null,
+	getOut varchar(40),
+	time varchar(20) not null,
+	phone varchar(40) not null,
+	person int not null,
+	driver varchar(40) not null,
+	requestContent varchar(2000) not null,
+	category char(4) not null,
+	car varchar(20) not null
+);
 
-
+desc reservation;
+drop table reservation; 
 

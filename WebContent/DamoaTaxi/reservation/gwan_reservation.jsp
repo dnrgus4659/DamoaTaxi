@@ -93,10 +93,13 @@
     
 	<% 		
 		String id=(String)session.getAttribute("id");
+		String category = (String)session.getAttribute("category");
 		if(id==null || id.equals("")){
 	%>
 			<script>
 				document.getElementById("logout").style.display='none';
+				alert('로그인 후 이용하실 수 있습니다.');
+				location.href="../dmlogin_form.jsp";
 			</script>
 	<%		
 		}else{
@@ -189,7 +192,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">하차장소</label>
-		                                          	<input name="TgetOut" id="TgetOut" type="text" class="form-control">
+		                                          	<input name="getOut" id="TgetOut" type="text" class="form-control">
 		                                        </div>
 											</div>
 		                                </div>
@@ -307,6 +310,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                         	</div>
+                        	<input type="hidden" name="id" value="<%=id %>"/>
+                        	<input type="hidden" name="category" value="<%=category %>"/>
 	                    </form>
 	                </div>
 	            </div> <!-- wizard container -->

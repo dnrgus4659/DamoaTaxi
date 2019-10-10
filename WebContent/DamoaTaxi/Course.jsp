@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/course.css">
   </head>
   <body>
 
@@ -120,26 +121,66 @@
     </section>
     <!-- END section -->
 
-    <section class="ftco-section-2">
-      <div class="container-fluid">
-        <div class="section-2-blocks-wrapper row no-gutters">
-          <div class="img col-sm-12 col-md-6" style="background-image: url('images/image_4.jpg');" data-aos="fade-right">
-          </div>
-          <div class="text col-md-6">
-            <div class="text-inner align-self-start" data-aos="fade-up">
-              <h3>A 코스</h3>
-              <p>숭례문에서 사진촬영 -> 문화역 서울 284에서 역 외관 관찰 및 박물관 전시 관람 -> 덕수궁 고궁관람 및 한복체험 -> 광화문광장 사진촬영   -> 경복궁 고궁관람 및 한복체험 -> 서울광장 문화 행사</p>
-
-              <h3>B 코스</h3>
-              <p>광장시장에서 마약김밥 시식 -> 남산에서 남산돈까스 시식 -> 종로5가에서 곱창 시식 -> 신당동에서 신당동떡볶이 시식 -> 을지로 노가리 시식</p>
-
-              <h3>C 코스</h3>
-              <p>경복궁 옆 국립현대 미술관 -> 서울 시립미술관 -> 국립 현대미술관 -> 우정아트 센터</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="slider-container">
+  		<div class="slider-control left inactive"></div>
+  		<div class="slider-control right"></div>
+  			<ul class="slider-pagi"></ul>
+  			<div class="slider">
+    			<div class="slide slide-0 active">
+      			<div class="slide__bg"></div>
+      			<div class="slide__content">
+        			<svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+          				<path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+        			</svg>
+        			<div class="slide__text">
+          				<h2 class="slide__text-heading">A Course<br>랜드 마크 투어</h2>
+          				<p class="slide__text-desc">숭례문에서 사진촬영<br>
+          				 문화역 서울 284에서 박물관 전시관람<br>
+								덕수궁 고궁관람 및 한복 체험<br> 
+								광화문 광장 사진 촬영<br>
+								경복궁 고궁관람 및 한복체험<br>
+								서울광장 문화행사</p>
+						<a class="slide__text-link">Project link</a>
+        			</div>
+      			</div>
+    		</div>
+    		<div class="slide slide-1 ">
+      			<div class="slide__bg"></div>
+      			<div class="slide__content">
+        			<svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+          				<path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+        			</svg>
+        		<div class="slide__text">
+          			<h1 class="slide__text-heading">B Course<br>먹거리투어</h1>
+          			<p class="slide__text-desc">
+          			 광장시장에서마약김밥시식<br>
+          			  남산에서 돈까스 시식<br>
+          			  종로 5가에서 곱창시식<br>
+          			  신당동에서 신당동 떡볶이 시식<br>
+          			  을지로 노가리 시식</p>
+          		<a class="slide__text-link">Project link</a>
+        		</div>
+     	 		</div>
+    		</div>
+    		<div class="slide slide-2">
+      			<div class="slide__bg"></div>
+      			<div class="slide__content">
+        			<svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+        	  			<path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+        			</svg>
+        	<div class="slide__text">
+          		<h2 class="slide__text-heading">C Course<br>문화투어</h2>
+          			<p class="slide__text-desc">
+          			경복궁 옆 국립 현대 미술관<br>
+          			서울 시립미술관<br>
+					국립현대 미술관<br>
+					우정아트센터</p>
+          			<a class="slide__text-link">Project link</a>
+        	</div>
+      		</div>
+    		</div>
+  </div>
+</div>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -217,6 +258,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/Course.js"></script>
+  
 
   </body>
 </html>

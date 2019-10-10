@@ -272,7 +272,22 @@ CREATE TABLE Total_board
 
 ALTER TABLE Total_board COMMENT '통합게시판';
 
+create table driver(
+	num int not null primary key auto_increment,
+	name varchar(20) not null,
+	age int not null,
+	sex varchar(8) not null,
+	career int,
+	category char(5),
+	phone_num varchar(20) not null,
+	rating float default 0.0,
+	File varchar(100),
+	RealFile varchar(100)
+);
 
+drop table driver;
+select * from driver;
+insert into driver(name,age,sex,career,category,phone_num) values ('권욱현',20,'남',8,'I','010-5508-3494');
 
 
 

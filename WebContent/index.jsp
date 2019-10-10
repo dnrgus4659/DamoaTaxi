@@ -6,5 +6,10 @@
 <title>다모아택시</title>
 </head>
 <body>
-	<button type="button" onclick="location.href='./DamoaTaxi/dm_Main.jsp'">메인페이지 이동</button>
 </body>
+<script type="text/javascript">
+window.onload = function() {
+	location.replace('./DamoaTaxi/dm_Main.jsp');
+};
+</script>
+</html>

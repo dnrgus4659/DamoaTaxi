@@ -29,18 +29,30 @@ $(document).ready(function(){
     // Code for the Validator
     var $validator = $('.wizard-card form').validate({
 		  rules: {
-		    firstname: {
+			name: {
 		      required: true,
-		      minlength: 3
 		    },
-		    lastname: {
-		      required: true,
-		      minlength: 3
+		    date: {
+		      required: true
 		    },
-		    email: {
-		      required: true,
-		      minlength: 3,
-		    }
+		    getIn: {
+		      required: true
+		    },
+		    getOut: {
+			  required: true
+		    },
+		    time: {
+			  required: true
+			},
+			person: {
+			  required: true
+			},
+			phone: {
+				required: true
+			},
+			car: {
+			  required: true
+			}
         },
 
         errorPlacement: function(error, element) {
@@ -151,7 +163,33 @@ $(document).ready(function(){
     });
 
     $('.set-full-height').css('height', 'auto');
-
+    
+    $('#finish').click(function(){
+    	var attr = $('.active').find('[type="radio"]').val();
+    	var form = $('#reservForm');
+    	var carVal = $('<input type="hidden" name="car" value="' + attr + '" />');
+    	if(attr == null){
+    		alert("차량을 선택해주세요");
+    		return false;
+    	}
+    	if($("#getIn").val() != "A코스" || $("#getIn").val() != "B코스" || $("#getIn").val() != "C코스"){
+    		if($('#TgetOut').val() == ""){
+    			alert("코스 미 선택시에는 하차장소 입력해주세요");
+        		return false;
+    		}
+    	}
+    	carVal.appendTo(form);
+    	form.submit();
+    });
+    $(function(){
+    	$("#getIn").focusout(function() {
+			if($("#getIn").val() == "A코스" || $("#getIn").val() == "B코스" || $("#getIn").val() == "C코스") {
+				$('#TgetOut').attr('disabled','true');
+			}else {
+				$('#TgetOut').removeAttr('disabled');
+			}
+		}) 
+	});
 });
 
 

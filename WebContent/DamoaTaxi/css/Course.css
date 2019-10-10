@@ -1,6 +1,6 @@
 @font-face {
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/polar.otf");
-  font-family: 'Polar';
+  src: url(""https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet"");
+  font-family: 'NanumGothic';
 }
 *, *:before, *:after {
   box-sizing: border-box;
@@ -11,7 +11,7 @@
 html, body {
   font-size: 62.5%;
   height: 100%;
-  overflow-x:hidden;
+  
 }
 
 body {
@@ -179,7 +179,7 @@ svg {
 }
 .slide:nth-child(3) .slide__bg {
   left: -100%;
-  background-image: url("../images/ArtMuseum.jpg");
+  background-image: url("../images/misulgan.jpg");
  
 }
 .slide:nth-child(3) .slide__overlay-path {
@@ -267,6 +267,7 @@ svg {
   font-family: "Polar", Helvetica, Arial, sans-serif;
   font-size: 5rem;
   margin-bottom: 2rem;
+  color:black;
 }
 @media (max-width: 991px) {
   .slide__text-heading {

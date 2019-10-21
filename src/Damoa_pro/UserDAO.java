@@ -196,5 +196,32 @@ public class UserDAO {
 		}
 		return x;
 	}
+	
+	public int getPoint(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = 0;
 		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select impairment_point as point from impairment_member where impairment_ID=?");
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				x=rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return x;
+	}
 }

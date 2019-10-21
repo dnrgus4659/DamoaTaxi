@@ -31,6 +31,7 @@ public class driverDAO {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql="insert into driver(name,age,sex,career,category,phone_num,File,RealFile) values (?,?,?,?,?,?,?,?)";
+		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -108,7 +109,7 @@ public class driverDAO {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from driver where category = 'I'";
+		String sql = "select * from driver where category = 'Idriver'";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
@@ -124,7 +125,6 @@ public class driverDAO {
 				driver.setCareer(rs.getInt("career"));
 				driver.setCategory(rs.getString("category"));
 				driver.setPhone_num(rs.getString("phone_num"));
-				driver.setRating(rs.getFloat("rating"));
 				driver.setFile(rs.getString("File"));
 				driver.setRealFile(rs.getString("RealFile"));
 				driver.setStatus(rs.getString("status"));
@@ -148,7 +148,7 @@ public class driverDAO {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from driver where category = 'T'";
+		String sql = "select * from driver where category = 'Tdriver'";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
@@ -164,7 +164,6 @@ public class driverDAO {
 				driver.setCareer(rs.getInt("career"));
 				driver.setCategory(rs.getString("category"));
 				driver.setPhone_num(rs.getString("phone_num"));
-				driver.setRating(rs.getFloat("rating"));
 				driver.setFile(rs.getString("File"));
 				driver.setRealFile(rs.getString("RealFile"));
 				driver.setStatus(rs.getString("status"));

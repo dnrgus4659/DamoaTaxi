@@ -9,6 +9,7 @@ public class buyDTO {
 	private String driver;
 	private String getIn;
 	private String getOut;
+	private String requestContent;
 	private int price;
 	private String buy_date;
 	private String account;
@@ -30,6 +31,9 @@ public class buyDTO {
 	}
 	public String getGetOut() {
 		return getOut;
+	}
+	public String getRequestContent() {
+		return requestContent;
 	}
 	public int getPrice() {
 		return price;
@@ -60,6 +64,9 @@ public class buyDTO {
 	}
 	public void setGetOut(String getOut) {
 		this.getOut = getOut;
+	}
+	public void setRequestContent(String requestContent) {
+		this.requestContent = requestContent;
 	}
 	public void setPrice(int price) {
 		this.price = price;

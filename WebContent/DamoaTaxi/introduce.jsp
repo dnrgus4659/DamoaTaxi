@@ -146,7 +146,6 @@
                 <span class="name"><%=Idriver.getName() %></span>
                 <span class="position"><%=Idriver.getCareer() %>년차</span>
                 <span class="position">예약 현황 : <%=Idriver.getStatus() %></span>
-                <span class="position">기사 평점 : <%=Idriver.getRating() %></span>
               </div>
               <img alt="이미지가 없습니다." src="../upload/<%=Idriver.getFile() %>" class="img-fluid" style="width: 300px; height: 300px;">
             </div>
@@ -174,7 +173,6 @@
                 <span class="name"><%=Tdriver.getName() %></span>
                 <span class="position"><%=Tdriver.getCareer() %>년차</span>
                 <span class="position">예약 현황 : <%=Tdriver.getStatus() %></span>
-                <span class="position">기사 평점 : <%=Tdriver.getRating() %></span>
               </div>
               <img alt="이미지가 없습니다." src="../upload/<%=Tdriver.getFile() %>" class="img-fluid" style="width: 300px; height: 300px;">
             </div>

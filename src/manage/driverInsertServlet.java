@@ -28,7 +28,7 @@ public class driverInsertServlet extends HttpServlet {
 			multi = new MultipartRequest(request, savePath, fileMaxSize, "UTF-8", new DefaultFileRenamePolicy());
 		}catch(Exception e) {
 			request.getSession().setAttribute("messageType", "오류 메세지");
-			request.getSession().setAttribute("messageContent", "파일 크기는 10MB를 넘을 수 없습니다.");
+			request.getSession().setAttribute("messageContent", "경로 오류 거나 파일 크기는 10MB를 넘을 수 없습니다.");
 			response.sendRedirect("./DamoaTaxi/manage/manageMain.jsp?content=manageDriver");
 			return;
 		}

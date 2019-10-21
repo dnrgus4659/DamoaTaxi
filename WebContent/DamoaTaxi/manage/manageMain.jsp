@@ -1,20 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
 <%!
 	String content = null;
 %>
 
 <%
+	String id=(String)session.getAttribute("id");
+	String category=(String)session.getAttribute("category");
 	content = request.getParameter("content");
-	if(content == null){
+	if(id.equals("admin") && content == null){
 		content = "manageDriver.jsp";
+	}else if(content == null){
+		content = "manageReservation.jsp";
 	}else{
 		content += ".jsp";
 	}
+	if(id==null || id.equals("") || category==null || category.equals("")){
 %>
-<!DOCTYPE html>
-<html>
-<head>
-
+	<script>
+		location.href='../dm_Main.jsp';
+	</script>
+<%
+	}
+%>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- <meta name="description" content="">

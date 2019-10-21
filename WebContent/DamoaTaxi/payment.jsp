@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="reservation.cartDTO" %>
 <%@ page import="reservation.cartDAO" %>
+<%@ page import="Damoa_pro.UserDAO" %>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -179,13 +180,12 @@
           </table>
           <form action="../buyInsert" method="post" name="buyForm">
           	<input type="hidden" name="id" value="<%=id %>">
-          	<input type="hidden" name="price" value="<%=total_price %>">
             <table class="table table-borderless" cellspacing="0" style="text-align: left;">
               <tr>
               	<td>결제방법</td>
               </tr>
               <tr>
-              	<td>
+             	<td>
 					<select id="paymentMethod" name="paymentMethod" class="form-control">
 						<option disabled="" selected=""></option>
 	                    <option value="현장결제"> 현장결제 </option>
@@ -206,8 +206,19 @@
               <tr class="is신용카드">
               	<td><input type="text" id="신용카드" class="form-control"></td>
               </tr>
+              <%
+              	int point = 0;
+              	UserDAO userDAO = UserDAO.getInstance();
+              	point = userDAO.getPoint(id);
+              %>
               <tr>
-              	<td>총 결제금액 : <%=total_price %></td>
+              	<td><input type="checkbox" id="point" name="point"> 포인트 사용(보유 : <%=point %>)</td>
+              </tr>
+              <tr>
+              	<td><input type="text" id="usePoint" name="usePoint" class="form-control" placeholder="사용하실 포인트를 적어주세요"></td>
+              </tr>
+              <tr>
+              	<td>총 결제금액 : <%=total_price %> (적립 예정 포인트 : <%= (int) (total_price*0.01) %>dp)</td>
               </tr>
           	</table>
           	<div style="float: right;">
@@ -338,6 +349,7 @@
   <script type="text/javascript">
   	$(document).ready(function() {
   		$('[class^=is]').hide();
+  		$("#usePoint").hide();
   	  	
   	  	$("#paymentMethod").change(function(){ 
   	  		$('[class^=is]').removeAttr('name');
@@ -350,6 +362,10 @@
 				$("#"+value).attr('name','account');
 			}
   		});
+  	  	
+	  	$("#point").change(function(){
+	  		$("#usePoint").toggle();
+	    });
   	});
   </script>
   </body>

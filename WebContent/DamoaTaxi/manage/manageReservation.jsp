@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="reservation.buyDTO" %>
+<%@ page import="reservation.buyDAO" %>
+<%@ page import="java.util.List"%>
+<%
+	String id=(String)session.getAttribute("id");
+	String category=(String)session.getAttribute("category");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +34,70 @@
     <div id="page-content-wrapper">
       <div class="container-fluid">
         <h1 class="mt-4">예약 관리페이지</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+        <%
+	    	List<buyDTO> buyLists = null;
+	        buyDTO buyList = null;
+	        int buylistcount = 0;
+	        buyDAO buy = buyDAO.getInstance();
+	        String driverName = buy.getDriverName(id);
+	        buylistcount = buy.getDriverListCount(driverName);
+	        
+	        if(buylistcount == 0){
+        %>
+        <table class="table table-hover" cellspacing="0" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>예약 현황이 없습니다!!</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <%}else{ 
+        	buyLists = buy.getDriverList(driverName);
+        %>
+        <table class="table table-hover" cellspacing="0" style="text-align: center; white-space: nowrap;">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>예약자명</th>
+                    <th>기사</th>
+                    <th>승차</th>
+                    <th>하차</th>
+                    <th>가격</th>
+                    <th>결제일자</th>
+                    <th>요청사항</th>
+                    <th>상황</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+            <%
+				for(int i=0;i<buyLists.size();i++){
+					buyList = (buyDTO)buyLists.get(i);
+			%>
+            	<tr style="vertical-align: middle;">
+                    <td><%=buyList.getNum() %></td>
+                    <td><%=buyList.getName() %></td>
+                    <td><%=buyList.getDriver() %></td>
+                    <td><%=buyList.getGetIn() %></td>
+                    <td><%=buyList.getGetOut() %></td>
+                    <td><%=buyList.getPrice() %></td>
+                    <td><%=buyList.getBuy_date() %></td>
+                    <td><%=buyList.getRequestContent() %></td>
+                    <td><%=buyList.getStatus() %></td>
+                    <td style="padding : 5px 0px 0px 0px;">
+                    	<input type='button' name='certain' id='certain' onclick="document.location.href='../../reservationCertain?num=<%=buyList.getNum() %>&price=<%=buyList.getPrice() %>&id=<%=buyList.getId() %>'" value='예약확정' class='btn btn-finish btn-fill btn-warning btn-wd' />
+                    	<input type='button' name='start' id='start' onclick="document.location.href='../../reservationStart?num=<%=buyList.getNum() %>'" value='예약출발' class='btn btn-finish btn-fill btn-warning btn-wd' />
+                    	<input type='button' name='end' id='end' onclick="document.location.href='../../reservationEnd?num=<%=buyList.getNum() %>'" value='예약종료' class='btn btn-finish btn-fill btn-warning btn-wd' />
+                    </td>
+    			</tr>
+            <%
+				}
+            %>
+            </tbody>
+        </table>	
+        <%} %>
       </div>
     </div>
     <!-- /#page-content-wrapper -->

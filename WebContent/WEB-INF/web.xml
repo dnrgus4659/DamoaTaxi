@@ -111,4 +111,28 @@
     <servlet-name>buyInsertServlet</servlet-name>
     <url-pattern>/buyInsert</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>reservationCertainServlet</servlet-name>
+    <servlet-class>reservation.reservationCertainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reservationCertainServlet</servlet-name>
+    <url-pattern>/reservationCertain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>reservationEndServlet</servlet-name>
+    <servlet-class>reservation.reservationEndServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reservationEndServlet</servlet-name>
+    <url-pattern>/reservationEnd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>reservationStartServlet</servlet-name>
+    <servlet-class>reservation.reservationStartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reservationStartServlet</servlet-name>
+    <url-pattern>/reservationStart</url-pattern>
+  </servlet-mapping>
 </web-app>

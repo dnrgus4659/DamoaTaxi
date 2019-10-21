@@ -135,6 +135,8 @@ CREATE TABLE impairment_member
     `impairment_category`        VARCHAR(5)      NOT NULL    COMMENT 'I'
 );
 
+
+update impairment_member set impairment_point = 100000 where impairment_ID='dnrgus123'
 ALTER TABLE impairment_member COMMENT '장애인택시 고객으로 회원가입후 저장되는 테이블';
 select travel_member.travel_ID as id, travel_member.travel_Password as pw from travel_member where travel_member.travel_ID="dnrgus4659" union select impairment_member.impairment_ID as id, impairment_member.impairment_Password as pw from impairment_member where impairment_member.impairment_ID="dnrgus4659";
 select * from travel_member;
@@ -278,9 +280,8 @@ create table driver(
 	age int not null,
 	sex varchar(8) not null,
 	career int,
-	category char(5),
+	category char(15),
 	phone_num varchar(20) not null,
-	rating float default 0.0,
 	File varchar(100),
 	RealFile varchar(100),
 	status char(10) default "가능"
@@ -288,26 +289,6 @@ create table driver(
 
 drop table driver;
 select * from driver;
-
-create table reservation(
-	num int not null primary key auto_increment,
-	name varchar(40) not null,
-	date varchar(30) not null,
-	getIn varchar(40) not null,
-	getOut varchar(40),
-	time varchar(20) not null,
-	phone varchar(40) not null,
-	person int not null,
-	driver varchar(20) not null,
-	requestContent varchar(2000),
-	car varchar(20) not null,
-	category char(4) not null,
-	id varchar(25) not null
-);
-
-select * from reservation;
-desc reservation;
-drop table reservation; 
 
 create table cart(
 	num int not null primary key auto_increment,
@@ -325,6 +306,7 @@ create table cart(
 	id varchar(25) not null,
 	price int not null
 );
+
 select * from cart;
 desc cart;
 drop table cart; 
@@ -336,10 +318,11 @@ create table buy(
 	driver varchar(20) not null,
 	getIn varchar(40) not null,
 	getOut varchar(40),
+	requestContent varchar(2000),
 	price int not null,
 	buy_date varchar(40) not null,
 	account varchar(40) not null default "현장 결제",
-	status varchar(30) not null default "기사님 확인중"
+	status varchar(30) not null default "결제 완료"
 );
 select * from buy;
 desc buy;

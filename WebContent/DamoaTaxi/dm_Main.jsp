@@ -105,13 +105,14 @@
     
 	<% 		
 		String id=(String)session.getAttribute("id");
+		String category=(String)session.getAttribute("category");
 		if(id==null || id.equals("")){
 	%>
 			<script>
 				document.getElementById("logout").style.display='none';
 			</script>
 	<%		
-		}else if(id.equals("admin")){
+		}else if(id.equals("admin") || category.equals("Idriver") || category.equals("Tdriver")){
 	%>
 		<script>
 			location.href='./manage/manageMain.jsp';

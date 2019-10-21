@@ -8,7 +8,6 @@ public class driverDTO {
 	int career;
 	String category;
 	String phone_num;
-	float rating;
 	String File;
 	String RealFile;
 	String status;
@@ -32,9 +31,6 @@ public class driverDTO {
 	}
 	public String getPhone_num() {
 		return phone_num;
-	}
-	public float getRating() {
-		return rating;
 	}
 	public String getFile() {
 		return File;
@@ -65,9 +61,6 @@ public class driverDTO {
 	}
 	public void setPhone_num(String phone_num) {
 		this.phone_num = phone_num;
-	}
-	public void setRating(float rating) {
-		this.rating = rating;
 	}
 	public void setFile(String file) {
 		File = file;

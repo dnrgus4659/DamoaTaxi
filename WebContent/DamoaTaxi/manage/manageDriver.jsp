@@ -87,14 +87,14 @@
 								<td>
 									<select class="custom-select" name="category">
 										<option value="" disabled selected>기사 종류 선택</option>
-										<option value="I">장애인 택시 기사</option>
-										<option value="T">관광 택시 기사</option>
+										<option value="Idriver">장애인 택시 기사</option>
+										<option value="Tdriver">관광 택시 기사</option>
 									</select>
 								</td>
 							</tr>
 							<tr>
 								<td style="vertical-align: middle; width:104px;">휴대폰번호</td>
-								<td><input type="text" class="form-control" name="phone_num" placeholder="000-0000-0000"></td>
+								<td><input type="text" class="form-control" name="phone_num" placeholder="-없이 입력"></td>
 							</tr>
 							<tr>
 				  				<td style="vertical-align: middle; width:104px;">프로필사진</td>
@@ -170,7 +170,6 @@
                                             <th>성별</th>
                                             <th>경력</th>
                                             <th>전화번호</th>
-                                            <th>평점</th>
                                             <th>프로필사진</th>
                                             <th>예약 여부</th>
                                         </tr>
@@ -188,7 +187,6 @@
                                             <td><%=Idriver.getSex() %></td>
                                             <td><%=Idriver.getCareer() %>년차</td>
                                             <td><%=Idriver.getPhone_num() %></td>
-                                            <td><%=Idriver.getRating() %></td>
                                             <td><%=Idriver.getFile() %></td>
                                             <td><%=Idriver.getStatus() %></td>
                                         </tr>
@@ -208,7 +206,6 @@
                                             <th>성별</th>
                                             <th>경력</th>
                                             <th>전화번호</th>
-                                            <th>평점</th>
                                             <th>프로필사진</th>
                                             <th>예약 여부</th>
                                         </tr>
@@ -226,7 +223,6 @@
 	                                            <td><%=Tdriver.getSex() %></td>
 	                                            <td><%=Tdriver.getCareer() %>년차</td>
 	                                            <td><%=Tdriver.getPhone_num() %></td>
-	                                            <td><%=Tdriver.getRating() %></td>
 	                                            <td><%=Tdriver.getFile() %></td>
 	                                            <td><%=Tdriver.getStatus() %></td>
 	                                        </tr>

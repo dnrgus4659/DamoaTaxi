@@ -30,7 +30,7 @@ public class buyInsertServlet extends HttpServlet {
 		try {
 			cartDAO cartProcess = cartDAO.getInstance();
 			List<cartDTO> cartLists = cartProcess.getCart(id);
-			buyDAO.buyInsert(cartLists, price, account, id);
+			buyDAO.buyInsert(cartLists, account, id);
 			
 			request.getSession().setAttribute("messageType", "성공 메세지");
 			request.getSession().setAttribute("messageContent", "예약을 담았습니다.");

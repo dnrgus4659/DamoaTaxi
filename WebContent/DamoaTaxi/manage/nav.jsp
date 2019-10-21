@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-menu-right" href="#" id="navbarDropdown">
+              <a class="nav-link dropdown-menu-right" href="sessionLogout.jsp" id="navbarDropdown">
                 	로그아웃
               </a>
             </li>

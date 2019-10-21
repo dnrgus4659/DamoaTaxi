@@ -1,7 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="manage.driverDAO" %>
+<%@ page import="manage.driverDTO" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+	driverDAO dbPro = driverDAO.getInstance();
+
+    ArrayList<driverDTO> driverIList = new driverDAO().getIList();
+    ArrayList<driverDTO> driverTList = new driverDAO().getTList();
+%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title>theOrder - Free Bootstrap 4 Template by Colorlib</title>
+    <title>다모아택시</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -26,19 +36,18 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
-        <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo.png"></a>
+        <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
-          <ul class="navbar-nav ml-auto" style="height: 60px;">
+          <ul class="navbar-nav ml-auto" >
             <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="Company.jsp">회사소개</a>
                 <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
@@ -47,26 +56,26 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="jang_reservation.jsp">장애인 택시 예약</a>
-                <a class="dropdown-item" href="gwan_reservation.jsp">관광 택시 예약</a>
+                <a class="dropdown-item" href="./reservation/jang_reservation.jsp">장애인 택시 예약</a>
+                <a class="dropdown-item" href="./reservation/gwan_reservation.jsp">관광 택시 예약</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
                 <a class="dropdown-item" href="QnA.jsp">Q&A</a>
@@ -74,7 +83,7 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
               	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
@@ -86,7 +95,24 @@
         </div>
       </div>
     </nav>
-    <!-- END nav -->
+    
+	<% 		
+		String id=(String)session.getAttribute("id");
+		if(id==null || id.equals("")){
+	%>
+			<script>
+				document.getElementById("logout").style.display='none';
+			</script>
+	<%
+		}else{
+	%>
+		<script>
+			document.getElementById("login").style.display='none';
+		</script>
+	<%
+		}	
+	%>
+	<!-- END nav -->
 
     <section class="ftco-cover overlay custom_height" style="background-image: url(images/bg_1.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -110,39 +136,22 @@
           </div>
         </div>
         <div class="row">
+        <%
+			for(int i = 0; i<driverIList.size(); i++){
+				driverDTO Idriver = driverIList.get(i);
+		%>
           <div class="col-sm-6 col-md-4 mb-4" data-aos="fade-up">
             <div class="block-10">
               <div class="person-info mb-3">
-                <span class="name">권욱현</span>
-                <span class="position">경력20년차 같은 2년차</span>
-                <span class="position">예약 현황 : 가능</span>
-                <span class="position">기사 평점 : 5.4점</span>
+                <span class="name"><%=Idriver.getName() %></span>
+                <span class="position"><%=Idriver.getCareer() %>년차</span>
+                <span class="position">예약 현황 : <%=Idriver.getStatus() %></span>
+                <span class="position">기사 평점 : <%=Idriver.getRating() %></span>
               </div>
-              <img src="images/person_1.jpg" alt="" class="img-fluid">
+              <img alt="이미지가 없습니다." src="../upload/<%=Idriver.getFile() %>" class="img-fluid">
             </div>
           </div>
-          <div class="col-sm-6 col-md-4 mb-4" data-aos="fade-up">
-            <div class="block-10">
-              <div class="person-info mb-3">
-                <span class="name">이준</span>
-                <span class="position">무면허</span>
-                <span class="position">예약 현황 : 불가</span>
-                <span class="position">기사 평점 : 3.2점</span>
-              </div>
-              <img src="images/person_3.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 mb-4" data-aos="fade-up">
-            <div class="block-10">
-              <div class="person-info mb-3">
-                <span class="name">장찬모</span>
-                <span class="position">30년차</span>
-                <span class="position">예약 현황 : 가능</span>
-                <span class="position">기사 평점 : 7.4점</span>
-              </div>
-              <img src="images/person_2.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
+        <%} %>
         </div>
       </div>
     </div>
@@ -155,39 +164,22 @@
           </div>
         </div>
         <div class="row">
+          <%
+			for(int i = 0; i<driverTList.size(); i++){
+				driverDTO Tdriver = driverTList.get(i);
+		%>
           <div class="col-sm-6 col-md-4 mb-4" data-aos="fade-up">
             <div class="block-10">
               <div class="person-info mb-3">
-                <span class="name">한선미</span>
-                <span class="position">1종 대형</span>
-                <span class="position">예약 현황 : 가능</span>
-                <span class="position">기사 평점 : 9.4점</span>
+                <span class="name"><%=Tdriver.getName() %></span>
+                <span class="position"><%=Tdriver.getCareer() %>년차</span>
+                <span class="position">예약 현황 : <%=Tdriver.getStatus() %></span>
+                <span class="position">기사 평점 : <%=Tdriver.getRating() %></span>
               </div>
-              <img src="images/person_1.jpg" alt="" class="img-fluid">
+              <img alt="이미지가 없습니다." src="../upload/<%=Tdriver.getFile() %>" class="img-fluid">
             </div>
           </div>
-          <div class="col-sm-6 col-md-4 mb-4" data-aos="fade-up">
-            <div class="block-10">
-              <div class="person-info mb-3">
-                <span class="name">이준</span>
-                <span class="position">무면라이더</span>
-                <span class="position">예약 현황 : 가능</span>
-                <span class="position">기사 평점 : 1.4점</span>
-              </div>
-              <img src="images/person_3.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 mb-4" data-aos="fade-up">
-            <div class="block-10">
-              <div class="person-info mb-3">
-                <span class="name">장찬모</span>
-                <span class="position">서브코더</span>
-                <span class="position">예약 현황 : 가능</span>
-                <span class="position">기사 평점 : 6.4점</span>
-              </div>
-              <img src="images/person_2.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
+        <%} %>
         </div>
       </div>
     </div>

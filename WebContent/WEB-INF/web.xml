@@ -79,4 +79,36 @@
     <servlet-name>driverDeleteServlet</servlet-name>
     <url-pattern>/driverDelete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>reservationInsertServlet</servlet-name>
+    <servlet-class>reservation.reservationInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reservationInsertServlet</servlet-name>
+    <url-pattern>/reservationInsert</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>cartInsertServlet</servlet-name>
+    <servlet-class>reservation.cartInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cartInsertServlet</servlet-name>
+    <url-pattern>/cartInsert</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>cartDeleteServlet</servlet-name>
+    <servlet-class>reservation.cartDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cartDeleteServlet</servlet-name>
+    <url-pattern>/cartDelete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>buyInsertServlet</servlet-name>
+    <servlet-class>reservation.buyInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>buyInsertServlet</servlet-name>
+    <url-pattern>/buyInsert</url-pattern>
+  </servlet-mapping>
 </web-app>

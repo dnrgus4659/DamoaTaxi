@@ -282,7 +282,8 @@ create table driver(
 	phone_num varchar(20) not null,
 	rating float default 0.0,
 	File varchar(100),
-	RealFile varchar(100)
+	RealFile varchar(100),
+	status char(10) default "가능"
 );
 
 drop table driver;
@@ -298,12 +299,49 @@ create table reservation(
 	time varchar(20) not null,
 	phone varchar(40) not null,
 	person int not null,
-	driver varchar(40) not null,
-	requestContent varchar(2000) not null,
+	driver varchar(20) not null,
+	requestContent varchar(2000),
+	car varchar(20) not null,
 	category char(4) not null,
-	car varchar(20) not null
+	id varchar(25) not null
 );
 
+select * from reservation;
 desc reservation;
 drop table reservation; 
 
+create table cart(
+	num int not null primary key auto_increment,
+	name varchar(40) not null,
+	date varchar(30) not null,
+	getIn varchar(40) not null,
+	getOut varchar(40),
+	time varchar(20) not null,
+	phone varchar(40) not null,
+	person int not null,
+	driver varchar(20) not null,
+	requestContent varchar(2000),
+	car varchar(20) not null,
+	category char(4) not null,
+	id varchar(25) not null,
+	price int not null
+);
+select * from cart;
+desc cart;
+drop table cart; 
+
+create table buy(
+	num int not null primary key auto_increment,
+	id varchar(20) not null,
+	name varchar(40) not null,
+	driver varchar(20) not null,
+	getIn varchar(40) not null,
+	getOut varchar(40),
+	price int not null,
+	buy_date varchar(40) not null,
+	account varchar(40) not null default "현장 결제",
+	status varchar(30) not null default "기사님 확인중"
+);
+select * from buy;
+desc buy;
+drop table buy;

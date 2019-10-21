@@ -1,19 +1,20 @@
 package reservation;
 
-public class reservationDTO {
-	int num; 
-	String name;
-	String date;
-	String getIn;
-	String getOut;
-	String time;
-	String phone;
-	int person;
-	String driver;
-	String requestContent;
-	String category;
-	String car;
-	String id;
+public class cartDTO {
+	private int num; 
+	private String name;
+	private String date;
+	private String getIn;
+	private String getOut;
+	private String time;
+	private String phone;
+	private int person;
+	private String driver;
+	private String requestContent;
+	private String category;
+	private String car;
+	private String id;
+	private int price;
 	public int getNum() {
 		return num;
 	}
@@ -52,6 +53,9 @@ public class reservationDTO {
 	}
 	public String getId() {
 		return id;
+	}
+	public int getPrice() {
+		return price;
 	}
 	public void setNum(int num) {
 		this.num = num;
@@ -92,6 +96,7 @@ public class reservationDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
-	
-}	
+	public void setPrice(int price) {
+		this.price = price;
+	}
+}

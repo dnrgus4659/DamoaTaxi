@@ -25,10 +25,12 @@ public class reservationDAO {
     }
     
     public int reservationInsert(String name, String date, String getIn, String getOut, String time, String phone, 
-    		int person, String driver, String requestContent, String category, String car) {
+    		String person, String driver, String requestContent, String category, String car, String id) {
        	Connection conn = null;
    		PreparedStatement pstmt = null;
-   		String sql="insert into reservation(name, date, getIn, getOut, time, phone, person, driver, requestContent, category, car) values (?,?,?,?,?,?,?,?,?,?,?)";
+   		String sql="insert into reservation"
+   				+ "(name, date, getIn, getOut, time, phone, person, driver, requestContent, category, car, id)"
+   				+ " values (?,?,?,?,?,?,?,?,?,?,?,?)";
    		try {
    			conn = getConnection();
    			pstmt = conn.prepareStatement(sql);
@@ -37,13 +39,13 @@ public class reservationDAO {
    			pstmt.setString(3, getIn);
    			pstmt.setString(4, getOut);
    			pstmt.setString(5, time);
-   			pstmt.setString(6, category);
-   			pstmt.setString(7, phone);
-   			pstmt.setInt(8, person);
-   			pstmt.setString(9, driver);
-   			pstmt.setString(10, requestContent);
-   			pstmt.setString(11, category);
-   			pstmt.setString(12, car);
+   			pstmt.setString(6, phone);   			
+   			pstmt.setInt(7, Integer.parseInt(person));
+   			pstmt.setString(8, driver);
+   			pstmt.setString(9, requestContent);
+   			pstmt.setString(10, category);
+   			pstmt.setString(11, car);
+   			pstmt.setString(12, id);
    			return pstmt.executeUpdate();
    		}catch(Exception e) {
    			e.printStackTrace();

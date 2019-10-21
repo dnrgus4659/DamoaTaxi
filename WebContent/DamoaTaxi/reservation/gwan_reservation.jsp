@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="manage.driverDAO" %>
+<%@ page import="manage.driverDTO" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+	driverDAO dbPro = driverDAO.getInstance();
+
+    ArrayList<driverDTO> driverTList = new driverDAO().getTList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,21 +41,21 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
-        <a class="navbar-brand" href="dm_Main.jsp"><img src="../images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
+        <a class="navbar-brand" href="../dm_Main.jsp"><img src="../images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto" >
-            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
+            <li class="nav-item active"><a href="../dm_Main.jsp" class="nav-link">홈</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="Company.jsp">회사소개</a>
-                <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
-                <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
-                <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
+              	<a class="dropdown-item" href="../Company.jsp">회사소개</a>
+                <a class="dropdown-item" href="../Service.jsp">서비스 소개</a>
+                <a class="dropdown-item" href="../Course.jsp">관광코스 소개</a>
+                <a class="dropdown-item" href="../Service_Guide.jsp">서비스 이용방법</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -60,30 +68,30 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
+              	<a class="dropdown-item" href="../introduce.jsp">기사 소개</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
+              	<a class="dropdown-item" href="../review_boardView.jsp">게시판</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
-                <a class="dropdown-item" href="QnA.jsp">Q&A</a>
-                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
+              	<a class="dropdown-item" href="../notice_boardView.jsp">공지사항</a>
+                <a class="dropdown-item" href="../QnA.jsp">Q&A</a>
+                <a class="dropdown-item" href="../FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
-              	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
-                <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
+              	<a class="dropdown-item" href="../dmlogin_form.jsp" id="login">로그인/회원가입</a>
+              	<a class="dropdown-item" href="../sessionLogout.jsp" id="logout">로그아웃</a>
+                <a class="dropdown-item" href="../product-single.jsp">예약현황</a>
+                <a class="dropdown-item" href="../dm_privacy.jsp">개인정보</a>
               </div>
             </li>
           </ul>
@@ -129,7 +137,7 @@
 	            <!--      Wizard container        -->
 	            <div class="wizard-container">
 	                <div class="card wizard-card" data-color="orange" id="wizard">
-	                    <form action="../reservationInsert" method="post" id="reservForm">
+	                    <form action="../../reservationInsert" method="post" id="reservForm">
 	                    	<div class="wizard-header">
 	                        	<h3 class="wizard-title">
 	                        		관광 택시 예약
@@ -240,7 +248,19 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">기사지정</label>
-		                                          	<input name="driver" type="text" class="form-control">
+		                                          	<select name="driver" class="form-control">
+														<option disabled selected></option>
+														<%
+															for(int i = 0; i<driverTList.size(); i++){
+																driverDTO Tdriver = driverTList.get(i);
+																if(Tdriver.getStatus().equals("가능")){
+														%>
+	                                                				<option value="<%=Tdriver.getName() %>"><%=Tdriver.getName() %> 기사님(<%=Tdriver.getStatus() %>)</option>
+	                                                			<%}else{ %>
+	                                                				<option disabled value="<%=Tdriver.getName() %>"><%=Tdriver.getName() %> 기사님(<%=Tdriver.getStatus() %>)</option>
+	                                                			<%} %>
+	                                                	<%	} %>
+		                                        	</select>
 		                                        </div>
 											</div>
 	                                	</div>
@@ -302,7 +322,10 @@
 	                        </div>
                         	<div class="wizard-footer">
                             	<div class="pull-right">
+		                        	<input type="hidden" name="id" value="<%=id %>"/>
+		                        	<input type="hidden" name="category" value="T"/>
                                     <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='다음' />
+                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='addreserv' id='addreserv' onclick='addreserv()' value='추가예약(담기)' />
                                     <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' id='finish' value='예약하기' />
                                 </div>
                                 <div class="pull-left">
@@ -310,15 +333,12 @@
                                 </div>
                                 <div class="clearfix"></div>
                         	</div>
-                        	<input type="hidden" name="id" value="<%=id %>"/>
-                        	<input type="hidden" name="category" value="<%=category %>"/>
 	                    </form>
 	                </div>
 	            </div> <!-- wizard container -->
 	        </div>
     	</div> <!-- row -->
 	</div> <!--  big container -->
-	
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
       <div class="row mb-5">

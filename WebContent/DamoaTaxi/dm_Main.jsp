@@ -94,7 +94,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
               	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
+                <a class="dropdown-item" href="reservation_status.jsp">예약현황</a>
                 <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
               </div>
             </li>
@@ -111,13 +111,19 @@
 				document.getElementById("logout").style.display='none';
 			</script>
 	<%		
+		}else if(id.equals("admin")){
+	%>
+		<script>
+			location.href='./manage/manageMain.jsp';
+		</script>
+	<%
 		}else{
 	%>
-			<script>
-				document.getElementById("login").style.display='none';
-			</script>
+		<script>
+			document.getElementById("login").style.display='none';
+		</script>
 	<%
-		}
+		}	
 	%>
 	<!-- END nav -->
     <section class="ftco-cover overlay" style="background-image: url(images/Main_1.jpg);" id="section-home" data-aos="fade"  data-stellar-background-ratio="0.5">

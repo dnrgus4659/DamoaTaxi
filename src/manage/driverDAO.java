@@ -127,6 +127,7 @@ public class driverDAO {
 				driver.setRating(rs.getFloat("rating"));
 				driver.setFile(rs.getString("File"));
 				driver.setRealFile(rs.getString("RealFile"));
+				driver.setStatus(rs.getString("status"));
 				driverIList.add(driver);
 			}
 		}catch(Exception e) {
@@ -166,6 +167,7 @@ public class driverDAO {
 				driver.setRating(rs.getFloat("rating"));
 				driver.setFile(rs.getString("File"));
 				driver.setRealFile(rs.getString("RealFile"));
+				driver.setStatus(rs.getString("status"));
 				driverTList.add(driver);
 			}
 		}catch(Exception e) {

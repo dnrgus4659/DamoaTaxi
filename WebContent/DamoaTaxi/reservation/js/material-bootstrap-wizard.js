@@ -1,23 +1,68 @@
-/*!
-
- =========================================================
- * Material Bootstrap Wizard - v1.0.2
- =========================================================
- 
- * Product Page: https://www.creative-tim.com/product/material-bootstrap-wizard
- * Copyright 2017 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/material-bootstrap-wizard/blob/master/LICENSE.md)
- 
- =========================================================
- 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- */
-
-// Material Bootstrap Wizard Functions
-
 var searchVisible = 0;
 var transparent = true;
 var mobile_device = false;
+
+function addreservation(){
+	var name=$('#name').val();
+	var date=$('#date').val();
+	var getIn=$('#getIn').val();
+	var getOut=$('#getOut').val();
+	var time=$('#time').val();
+	var phone=$('#phone').val();
+	var person=$('#person').val();
+	var driver=$('#driver').val();
+	var requestContent=$('#requestContent').val();
+	var category=$('#category').val();
+	var car=$('.active').find('[type="radio"]').val();
+	var id=$('#id').val();
+	var price = "";
+	
+	if($('#name').val()==""||$('#name').val()==null 
+			 ||$('#date').val()==""||$('#date').val()==null
+			 ||$('#getIn').val()==""||$('#getIn').val()==null
+			 ||$('#getOut').val()==""||$('#getOut').val()==null
+			 ||$('#time').val()==""||$('#time').val()==null
+			 ||$('#phone').val()==""||$('#phone').val()==null
+			 ||$('#person').val()==""||$('#person').val()==null
+			 ||$('#driver').val()==""||$('#driver').val()==null
+			 ||$('#category').val()==""||$('#category').val()==null
+			 ||$('#car').val()==""||$('#car').val()==null){
+		alert("필수 항목들을 채워주세요");
+		return false;
+	}
+	
+	if(car=="starex"){
+		price = 5000;
+	}else if(car=="sonata"){
+		price = 10000;
+	}else{
+		price = 15000;
+	}
+	
+	$.ajax({
+		type:'POST',
+		url: '../../cartInsertServlet',
+		data: {
+			name : name, date : date, 
+			getIn : getIn, 	getOut : getOut, 
+			time : time, phone : phone, 
+			person : person, driver : driver, requestContent : requestContent,
+			category : category, car : car, id : id, price : price
+		},
+		success: function(result){
+			if(result == 1 && category == "I"){
+				alert('예약을 담았습니다.');
+				location.href='jang_reservation.jsp';
+			}else if(result == 1 && category == "T"){
+				alert('예약을 담았습니다.');
+				location.href='gwan_reservation.jsp';
+			}else{
+				alert('예약을 담기 실패했습니다.');
+			}
+		}
+	});
+}
+
 
 $(document).ready(function(){
 
@@ -191,6 +236,7 @@ $(document).ready(function(){
 		}) 
 	});
 });
+
 
 
 

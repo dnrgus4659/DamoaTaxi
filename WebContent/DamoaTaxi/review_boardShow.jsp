@@ -150,7 +150,7 @@
           <div class="col-md-8">
             <h2 class="mb-3"><%=board.getBoardTitle() %></h2>
             <hr>
-			<pre style="white-space: pre-wrap;" align="left"><%=board.getBoardContent() %></pre>
+			<pre style="white-space: pre-wrap;word-break: break-all;" align="left"><%=board.getBoardContent() %></pre>
             
             <div class="tag-widget post-tag-container mb-5 mt-5" align="right">
               <div class="tagcloud">

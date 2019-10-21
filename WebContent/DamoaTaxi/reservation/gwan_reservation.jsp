@@ -90,7 +90,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="../dmlogin_form.jsp" id="login">로그인/회원가입</a>
               	<a class="dropdown-item" href="../sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="../product-single.jsp">예약현황</a>
+                <a class="dropdown-item" href="../reservation_status.jsp">예약현황</a>
                 <a class="dropdown-item" href="../dm_privacy.jsp">개인정보</a>
               </div>
             </li>
@@ -325,8 +325,8 @@
 		                        	<input type="hidden" name="id" value="<%=id %>"/>
 		                        	<input type="hidden" name="category" value="T"/>
                                     <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='다음' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='addreserv' id='addreserv' onclick='addreserv()' value='추가예약(담기)' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' id='finish' value='예약하기' />
+                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='addreserv' id='addreserv' onclick='addreservation()' value='추가예약(담기)' />
+                                    <!-- <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' id='finish' value='예약하기' /> -->
                                 </div>
                                 <div class="pull-left">
                                     <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='이전' />

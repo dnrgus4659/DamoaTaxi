@@ -91,7 +91,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
               	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
+                <a class="dropdown-item" href="reservation_status.jsp">예약현황</a>
                 <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
               </div>
             </li>

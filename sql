@@ -288,7 +288,6 @@ create table driver(
 
 drop table driver;
 select * from driver;
-insert into driver(name,age,sex,career,category,phone_num) values ('권욱현',20,'남',8,'I','010-5508-3494');
 
 create table reservation(
 	num int not null primary key auto_increment,

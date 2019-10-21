@@ -17,7 +17,7 @@ function addreservation(){
 	var id=$('#id').val();
 	var price = "";
 	
-	if($('#name').val()==""||$('#name').val()==null 
+	/*if($('#name').val()==""||$('#name').val()==null 
 			 ||$('#date').val()==""||$('#date').val()==null
 			 ||$('#getIn').val()==""||$('#getIn').val()==null
 			 ||$('#getOut').val()==""||$('#getOut').val()==null
@@ -29,7 +29,7 @@ function addreservation(){
 			 ||$('#car').val()==""||$('#car').val()==null){
 		alert("필수 항목들을 채워주세요");
 		return false;
-	}
+	}*/
 	
 	if(car=="starex"){
 		price = 5000;
@@ -57,7 +57,8 @@ function addreservation(){
 				alert('예약을 담았습니다.');
 				location.href='gwan_reservation.jsp';
 			}else{
-				alert('예약을 담기 실패했습니다.');
+				alert('예약을 담았습니다.');
+				location.href='../reservation_status.jsp';
 			}
 		}
 	});

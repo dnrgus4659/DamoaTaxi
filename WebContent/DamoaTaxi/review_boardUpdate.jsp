@@ -169,7 +169,7 @@
 			  			<tr>
 			  				<td style="width:150px;" align="center"><h5>후기 사진</h5><h5>업로드</h5></td>
 			  				<td colspan="2">					  
-						        <div class="input-group js-input-file">
+						        <div class="input-group js-input-file" style="display: flex;">
                                     <input class="input-file" type="file" name="file" id="file">
                                     <label class="label--file" for="file">파일 선택</label>
                                     <span class="input-file__info"><%= board.getBoardFile()%></span>

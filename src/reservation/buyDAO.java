@@ -13,7 +13,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import test.CartDataBean;
 
 public class buyDAO {
 	private static buyDAO instance = new buyDAO();

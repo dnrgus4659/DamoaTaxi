@@ -299,12 +299,10 @@
 						<h4 class="modal-title">아이디 변경하기</h4>
 					</div>	
 					<div class="modal-body">
-						<div class="input-group mt-2">
+						<div class="input-group" style="display: flex;">
 							<input type="hidden" id="category" value="<%=category %>">
-						    <input type="text" class="form-control width100" id="New_id" name="New_id" placeholder="바꿀아이디">
-						    <span class="input-group-btn">
-						        <button type="button" class="btn btn-info mt-2 ml-2" onclick="ID_check()">중복확인</button>
-						    </span>
+						    <input type="text" class="form-control" id="New_id" name="New_id" placeholder="바꿀아이디">
+						    <button type="button" class="btn btn-info ml-2" onclick="ID_check()">중복확인</button>
 						</div>
 					</div>
 					<div class="modal-footer">

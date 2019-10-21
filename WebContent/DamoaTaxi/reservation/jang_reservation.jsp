@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="manage.driverDAO" %>
+<%@ page import="manage.driverDTO" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+	driverDAO dbPro = driverDAO.getInstance();
+
+    ArrayList<driverDTO> driverIList = new driverDAO().getIList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,21 +41,21 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
-        <a class="navbar-brand" href="dm_Main.jsp"><img src="../images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
+        <a class="navbar-brand" href="../dm_Main.jsp"><img src="../images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto" >
-            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
+            <li class="nav-item active"><a href="../dm_Main.jsp" class="nav-link">홈</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="Company.jsp">회사소개</a>
-                <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
-                <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
-                <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
+              	<a class="dropdown-item" href="../Company.jsp">회사소개</a>
+                <a class="dropdown-item" href="../Service.jsp">서비스 소개</a>
+                <a class="dropdown-item" href="../Course.jsp">관광코스 소개</a>
+                <a class="dropdown-item" href="../Service_Guide.jsp">서비스 이용방법</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -60,30 +68,30 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
+              	<a class="dropdown-item" href="../introduce.jsp">기사 소개</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
+              	<a class="dropdown-item" href="../review_boardView.jsp">게시판</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
-                <a class="dropdown-item" href="QnA.jsp">Q&A</a>
-                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
+              	<a class="dropdown-item" href="../notice_boardView.jsp">공지사항</a>
+                <a class="dropdown-item" href="../QnA.jsp">Q&A</a>
+                <a class="dropdown-item" href="../FAQ.jsp">FAQ</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
-              	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
-                <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
+              	<a class="dropdown-item" href="../dmlogin_form.jsp" id="login">로그인/회원가입</a>
+              	<a class="dropdown-item" href="../sessionLogout.jsp" id="logout">로그아웃</a>
+                <a class="dropdown-item" href="../product-single.jsp">예약현황</a>
+                <a class="dropdown-item" href="../dm_privacy.jsp">개인정보</a>
               </div>
             </li>
           </ul>
@@ -93,10 +101,13 @@
     
 	<% 		
 		String id=(String)session.getAttribute("id");
+		String category = (String)session.getAttribute("category");
 		if(id==null || id.equals("")){
 	%>
 			<script>
 				document.getElementById("logout").style.display='none';
+				alert('로그인 후 이용하실 수 있습니다.');
+				location.href="../dmlogin_form.jsp";
 			</script>
 	<%		
 		}else{
@@ -126,7 +137,7 @@
 	            <!--      Wizard container        -->
 	            <div class="wizard-container">
 	                <div class="card wizard-card" data-color="orange" id="wizard">
-	                    <form action="../reservationInsert" method="post" id="reservForm">
+	                    <form action="../../reservationInsertServlet" method="post" id="reservForm">
 	                    	<div class="wizard-header">
 	                        	<h3 class="wizard-title">
 	                        		장애인 택시 예약
@@ -153,7 +164,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">예약자명</label>
-		                                          	<input name="name" type="text" class="form-control">
+		                                          	<input id="name" name="name" type="text" class="form-control">
 		                                        </div>
 											</div>
 											<div class="input-group">
@@ -163,7 +174,7 @@
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">이용날짜</label>
 		                                          	<div class="controls">
-											            <input class="datepicker form-control" name="date" type="text"/>
+											            <input class="datepicker form-control" id="date" name="date" type="text"/>
 													</div>
 		                                        </div>
 											</div>
@@ -175,7 +186,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">승차장소</label>
-		                                          	<input name="getIn" type="text" class="form-control">
+		                                          	<input id="getIn" name="getIn" type="text" class="form-control">
 		                                        </div>
 											</div>
 											<div class="input-group">
@@ -184,7 +195,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">하차장소</label>
-		                                          	<input name="getOut" type="text" class="form-control">
+		                                          	<input id="getOut" name="getOut" type="text" class="form-control">
 		                                        </div>
 											</div>
 		                                </div>
@@ -195,7 +206,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">이용시간(ex.15:00)</label>
-		                                          	<input name="time" type="text" class="form-control">
+		                                          	<input id="time" name="time" type="text" class="form-control">
 		                                        </div>
 											</div>
 											<div class="input-group">
@@ -204,7 +215,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">휴대폰번호('-'없이 입력)</label>
-		                                          	<input name="phone" type="text" class="form-control">
+		                                          	<input id="phone" name="phone" type="text" class="form-control">
 		                                        </div>
 											</div>
 	                                	</div>
@@ -215,7 +226,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">탑승인원</label>
-		                                          	<select name="person" class="form-control">
+		                                          	<select id="person" name="person" class="form-control">
 														<option disabled="" selected=""></option>
 	                                                	<option value="1"> 1 </option>
 	                                                	<option value="2"> 2 </option>
@@ -232,7 +243,19 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">기사지정</label>
-		                                          	<input name="driver" type="text" class="form-control">
+		                                          	<select id="driver" name="driver" class="form-control">
+														<option disabled selected></option>
+														<%
+															for(int i = 0; i<driverIList.size(); i++){
+																driverDTO Idriver = driverIList.get(i);
+																if(Idriver.getStatus().equals("가능")){
+														%>
+	                                                				<option value="<%=Idriver.getName() %>"><%=Idriver.getName() %> 기사님(<%=Idriver.getStatus() %>)</option>
+	                                                			<%}else{ %>
+	                                                				<option disabled value="<%=Idriver.getName() %>"><%=Idriver.getName() %> 기사님(<%=Idriver.getStatus() %>)</option>
+	                                                			<%} %>
+	                                                	<%	} %>
+		                                        	</select>
 		                                        </div>
 											</div>
 	                                	</div>
@@ -244,7 +267,7 @@
 	                                    <div class="col-sm-10 offset-1">
 	                                        <div class="col-sm-4 float-left">
 	                                            <div class="choice" data-toggle="wizard-radio">
-	                                            	<input class="d-none" type="radio" id="car1" name="car" value="starex">
+	                                            	<input class="d-none" type="radio" id="car" name="car" value="starex">
 	                                                <div class="icon">
 	                                                    <i class="material-icons">local_taxi</i>
 	                                                </div>
@@ -253,7 +276,7 @@
 	                                        </div>
 	                                        <div class="col-sm-4 float-left">
 	                                            <div class="choice" data-toggle="wizard-radio">
-	                                            	<input class="d-none" type="radio" id="car2" name="car" value="sonata">
+	                                            	<input class="d-none" type="radio" id="car" name="car" value="sonata">
 	                                                <div class="icon">
 	                                                    <i class="material-icons">drive_eta</i>
 	                                                </div>
@@ -262,7 +285,7 @@
 	                                        </div>
 											<div class="col-sm-4 float-left">
 	                                            <div class="choice" data-toggle="wizard-radio">
-	                                            	<input class="d-none" type="radio" id="car3" name="car" value="carnival">
+	                                            	<input class="d-none" type="radio" id="car" name="car" value="carnival">
 	                                                <div class="icon">
 	                                                    <i class="material-icons">airport_shuttle</i>
 	                                                </div>
@@ -280,7 +303,7 @@
 	                                    <div class="col-sm-6 offset-1">
                                     		<div class="form-group">
 	                                            <label>휠체어유무등 요청사항을 작성해주세요</label>
-	                                            <textarea class="form-control" name="requestContent" placeholder="" rows="6" style="border-bottom: 1px solid #d2d2d2;"></textarea>
+	                                            <textarea class="form-control" id="requestContent" name="requestContent" placeholder="" rows="6" style="border-bottom: 1px solid #d2d2d2;"></textarea>
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-sm-4">
@@ -294,7 +317,10 @@
 	                        </div>
                         	<div class="wizard-footer">
                             	<div class="pull-right">
+		                        	<input type="hidden" id="id" name="id" value="<%=id %>"/>
+		                        	<input type="hidden" id="category" name="category" value="I"/>
                                     <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='다음' />
+                                    <button type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='addreserv' id='addreserv' onclick="addreservation()">추가예약(담기)</button>
                                     <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' id='finish' value='예약하기' />
                                 </div>
                                 <div class="pull-left">
@@ -308,7 +334,6 @@
 	        </div>
     	</div> <!-- row -->
 	</div> <!--  big container -->
-	
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
       <div class="row mb-5">
@@ -373,7 +398,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.bootstrap.js" type="text/javascript"></script>
 
 	<!--  Plugin for the Wizard -->
-	<script src="js/material-bootstrap-wizard.js?ver=1"></script>
+	<script src="js/material-bootstrap-wizard.js?ver=2"></script>
 
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="js/jquery.validate.min.js"></script>

@@ -70,15 +70,27 @@
 							</tr>
 							<tr>
 								<td style="vertical-align: middle; width:104px;">성별</td>
-								<td><input type="text" class="form-control" name="sex" placeholder="성별"></td>
+								<td>
+									<select class="custom-select" name="sex">
+										<option value="" disabled selected>성별 선택</option>
+										<option value="남">남자</option>
+										<option value="여">여자</option>
+									</select>
+								</td>
 							</tr>
 							<tr>
 								<td style="vertical-align: middle; width:104px;">경력</td>
-								<td><input type="text" class="form-control" name="career" placeholder="경력"></td>
+								<td><input type="text" class="form-control" name="career" placeholder="경력(년차만 입력)"></td>
 							</tr>
 							<tr>
 								<td style="vertical-align: middle; width:104px;">카테고리</td>
-								<td><input type="text" class="form-control" name="category" placeholder="카테고리"></td>
+								<td>
+									<select class="custom-select" name="category">
+										<option value="" disabled selected>기사 종류 선택</option>
+										<option value="I">장애인 택시 기사</option>
+										<option value="T">관광 택시 기사</option>
+									</select>
+								</td>
 							</tr>
 							<tr>
 								<td style="vertical-align: middle; width:104px;">휴대폰번호</td>
@@ -160,6 +172,7 @@
                                             <th>전화번호</th>
                                             <th>평점</th>
                                             <th>프로필사진</th>
+                                            <th>예약 여부</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -177,6 +190,7 @@
                                             <td><%=Idriver.getPhone_num() %></td>
                                             <td><%=Idriver.getRating() %></td>
                                             <td><%=Idriver.getFile() %></td>
+                                            <td><%=Idriver.getStatus() %></td>
                                         </tr>
                                     <%
 										}
@@ -196,6 +210,7 @@
                                             <th>전화번호</th>
                                             <th>평점</th>
                                             <th>프로필사진</th>
+                                            <th>예약 여부</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -213,6 +228,7 @@
 	                                            <td><%=Tdriver.getPhone_num() %></td>
 	                                            <td><%=Tdriver.getRating() %></td>
 	                                            <td><%=Tdriver.getFile() %></td>
+	                                            <td><%=Tdriver.getStatus() %></td>
 	                                        </tr>
 	                                    <%
 											}

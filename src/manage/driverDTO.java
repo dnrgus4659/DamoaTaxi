@@ -11,6 +11,7 @@ public class driverDTO {
 	float rating;
 	String File;
 	String RealFile;
+	String status;
 	public int getNum() {
 		return num;
 	}
@@ -41,6 +42,9 @@ public class driverDTO {
 	public String getRealFile() {
 		return RealFile;
 	}
+	public String getStatus() {
+		return status;
+	}
 	public void setNum(int num) {
 		this.num = num;
 	}
@@ -70,5 +74,8 @@ public class driverDTO {
 	}
 	public void setRealFile(String realFile) {
 		RealFile = realFile;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

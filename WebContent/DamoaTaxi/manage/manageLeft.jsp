@@ -25,8 +25,6 @@
       <div class="sidebar-heading">관리자님 환영합니다.</div>
       <div class="list-group list-group-flush">
         <a href="manageMain.jsp?content=manageDriver" class="list-group-item list-group-item-action bg-light">기사관리</a>
-        <a href="manageMain.jsp?content=manageBoard" class="list-group-item list-group-item-action bg-light">게시글관리</a>
-        <a href="manageMain.jsp?content=manageComment" class="list-group-item list-group-item-action bg-light">댓글관리</a>
         <a href="manageMain.jsp?content=manageReservation" class="list-group-item list-group-item-action bg-light">예약관리</a>
         <a href="manageMain.jsp?content=managePayment" class="list-group-item list-group-item-action bg-light">결제현황</a>
       </div>

@@ -27,7 +27,7 @@ public class driverDAO {
     }
     
     public int insertDriver(String name, String age, String sex, String career, String category, 
-    		String phone_num, String File, String RealFile) {
+    	String phone_num, String File, String RealFile) {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql="insert into driver(name,age,sex,career,category,phone_num,File,RealFile) values (?,?,?,?,?,?,?,?)";
@@ -127,6 +127,7 @@ public class driverDAO {
 				driver.setRating(rs.getFloat("rating"));
 				driver.setFile(rs.getString("File"));
 				driver.setRealFile(rs.getString("RealFile"));
+				driver.setStatus(rs.getString("status"));
 				driverIList.add(driver);
 			}
 		}catch(Exception e) {
@@ -166,6 +167,7 @@ public class driverDAO {
 				driver.setRating(rs.getFloat("rating"));
 				driver.setFile(rs.getString("File"));
 				driver.setRealFile(rs.getString("RealFile"));
+				driver.setStatus(rs.getString("status"));
 				driverTList.add(driver);
 			}
 		}catch(Exception e) {

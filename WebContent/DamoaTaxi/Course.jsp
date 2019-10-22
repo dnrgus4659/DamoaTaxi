@@ -5,8 +5,7 @@
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+ 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
 
@@ -24,8 +23,10 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/Course.css">
+    <link rel="stylesheet" href="css/style.css?ver=1">
+ 	<link rel="stylesheet" href="css/time.css">
+ 	<link rel="stylesheet" href="css/lineup.css">
+ 	<link rel="stylesheet" href="css/Course.css">
   </head>
   <body>
 
@@ -140,7 +141,7 @@
 								광화문 광장 사진 촬영<br>
 								경복궁 고궁관람 및 한복체험<br>
 								서울광장 문화행사</p>
-						<a class="slide__text-link">Project link</a>
+						<a class="slide__text-link" onclick="window.open('ACourse.jsp','관광택시 A코스','width=450px, height=800, scrollbars=no, resizable=no, toolbars=no, menubar=no')">바로가기</a>
         			</div>
       			</div>
     		</div>
@@ -158,7 +159,7 @@
           			  종로 5가에서 곱창시식<br>
           			  신당동에서 신당동 떡볶이 시식<br>
           			  을지로 노가리 시식</p>
-          		<a class="slide__text-link">Project link</a>
+          		<a class="slide__text-link" onclick="window.open('BCourse.jsp','관광택시 B코스','width=450px, height=800, scrollbars=no, resizable=no, toolbars=no, menubar=no')">바로가기</a>
         		</div>
      	 		</div>
     		</div>
@@ -173,10 +174,9 @@
           			<p class="slide__text-desc">
           			경복궁 옆 국립 현대 미술관<br>
           			서울 시립미술관<br>
-					국립현대 미술관<br>
 					우정아트센터</p>
-          			<a class="slide__text-link">Project link</a>
-        	</div>
+          			<a class="slide__text-link" onclick="window.open('CCourse.jsp','관광택시 C코스','width=450px, height=800, scrollbars=no, resizable=no, toolbars=no, menubar=no')">바로가기</a>        	
+          	</div>
       		</div>
     		</div>
   </div>

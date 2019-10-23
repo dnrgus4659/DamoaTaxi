@@ -172,9 +172,9 @@
         	<div class="slide__text">
           		<h2 class="slide__text-heading">C Course<br>문화투어</h2>
           			<p class="slide__text-desc">
-          			경복궁 옆 국립 현대 미술관<br>
+          			덕수궁 옆 국립 현대 미술관<br>
           			서울 시립미술관<br>
-					우정아트센터</p>
+					대림 미술관</p>
           			<a class="slide__text-link" onclick="window.open('CCourse.jsp','관광택시 C코스','width=450px, height=800, scrollbars=no, resizable=no, toolbars=no, menubar=no')">바로가기</a>        	
           	</div>
       		</div>

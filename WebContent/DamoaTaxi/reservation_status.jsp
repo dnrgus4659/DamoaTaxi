@@ -137,7 +137,7 @@
                                 <td><%=cartList.getPhone() %></td>
                                 <td><%=cartList.getPerson() %></td>
                                 <td><%=cartList.getDriver() %></td>
-                                <td><%=cartList.getRequestContent() %></td>
+                                <td style="width: 300px; word-break: break-all; white-space: pre-wrap;"><%=cartList.getRequestContent() %></td>
                                 <td><%=cartList.getCar() %></td>
                                 <td><%=cartList.getPrice() %></td>
                                 <td>

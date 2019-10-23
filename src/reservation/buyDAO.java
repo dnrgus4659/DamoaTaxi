@@ -156,6 +156,7 @@ public class buyDAO {
 		    	 list.setDriver(rs.getString("driver"));
 		    	 list.setGetIn(rs.getString("getIn")); 
 		    	 list.setGetOut(rs.getString("getOut"));
+		    	 list.setRequestContent(rs.getString("requestContent"));
 		    	 list.setPrice(rs.getInt("price"));
 		    	 list.setBuy_date(rs.getString("buy_date"));
 		    	 list.setAccount(rs.getString("account"));
@@ -280,6 +281,7 @@ public class buyDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(num));
 			pstmt.executeUpdate();
+			pstmt.close();
 			
 			pstmt = conn.prepareStatement("update impairment_member set point=? where id=?");
 			pstmt.setInt(1, point);

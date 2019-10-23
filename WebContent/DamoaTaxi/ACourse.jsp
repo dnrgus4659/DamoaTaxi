@@ -425,6 +425,7 @@ blockquote {
           <h2>서울광장 문화행사</h2>
         </div>
         <p>※서울 광장에서 진행하는 문화행사 없을 경우에는 관광택시 운행을 종료합니다 .이 점 양해 부탁드립니다.</p>
+        <p><a href="http://plaza.seoul.go.kr/seoul_month_event">일정보기</a></p>
       	&nbsp;
       </div>
     </div>  

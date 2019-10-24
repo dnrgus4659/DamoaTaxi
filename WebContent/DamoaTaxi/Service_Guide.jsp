@@ -159,7 +159,10 @@
                         ④아이디 입력란에 사용할 아이디를 입력하고 중복확인 버튼 누르기<br>
                         ⑤그 후 다른 입력란에 다 작성 후 회원가입 버튼을 누르면 회원가입 완료!<br>
                         ※단! 장애인 택시의 경우는 장애인 증명서가 필요합니다.<br>
-                        장애인 증명서를 다운받으셔서 등록해 주시기 바랍니다.<br></p>
+                        장애인 증명서를 다운받으셔서 등록해 주시기 바랍니다.<br>
+                        <a href="http://www.minwon.go.kr/main?a=AA020InfoCappViewApp&HighCtgCD=&CappBizCD=14600000273"
+                         class="btn">장애인증명서 다운로드 페이지</a>
+                        </p>
                         
                         </div>
                         
@@ -168,8 +171,6 @@
                 <div class="lw-tab-image">
                     <div class="lw-tab-image-dimmer"></div>
                     <div class="stat lw-tab-text-move">
-                        <a href="http://www.minwon.go.kr/main?a=AA020InfoCappViewApp&HighCtgCD=&CappBizCD=14600000273">
-                        장애인 증명서 다운받는 곳</a>
                     </div>
                 </div>
             </div>

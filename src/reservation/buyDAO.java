@@ -283,7 +283,7 @@ public class buyDAO {
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			pstmt = conn.prepareStatement("update impairment_member set point=? where id=?");
+			pstmt = conn.prepareStatement("update impairment_member set impairment_point = impairment_point + ? where impairment_ID=?");
 			pstmt.setInt(1, point);
 			pstmt.setString(2, id);
 			pstmt.executeUpdate();

@@ -148,21 +148,22 @@
               	<td><input type="text" id="신용카드" class="form-control"></td>
               </tr>
               <%
-              	int point = 0;
+              	int currentPoint = 0;
               	UserDAO userDAO = UserDAO.getInstance();
-              	point = userDAO.getPoint(id);
+              	currentPoint = userDAO.getPoint(id);
               %>
               <tr>
-              	<td><input type="checkbox" id="point" name="point"> 포인트 사용(보유 : <%=point %>)</td>
+              	<td><input type="checkbox" id="point" name="point"> 포인트 사용(보유 : <span id="currentPoint"><%= currentPoint %></span>dp)</td>
               </tr>
               <tr>
               	<td><input type="text" id="usePoint" name="usePoint" class="form-control" placeholder="사용하실 포인트를 적어주세요"></td>
               </tr>
               <tr>
-              	<td>총 결제금액 : <%=total_price %> (적립 예정 포인트 : <%= (int) (total_price*0.01) %>dp)</td>
+              	<td>총 결제금액 : <span id="price"><%=total_price %></span> (적립 예정 포인트 : <%= (int) (total_price*0.01) %>dp)</td>
               </tr>
           	</table>
           	<div style="float: right;">
+          		<input type="hidden" id="total_price" value="<%=total_price %>">
 		    	<input type="submit" class="btn btn-finish btn-fill btn-warning btn-wd" value="결제하기">
 		    </div>
           </form>
@@ -287,27 +288,6 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/reviewboard.js?ver=1"></script>
-  <script type="text/javascript">
-  	$(document).ready(function() {
-  		$('[class^=is]').hide();
-  		$("#usePoint").hide();
-  	  	
-  	  	$("#paymentMethod").change(function(){ 
-  	  		$('[class^=is]').removeAttr('name');
-  		    var value = $("#paymentMethod").val();
-  		    var theDiv = $(".is" + value);
-  		  	$('[class^=is]').hide();
-  		  	
-			if(value){
-				theDiv.show();
-				$("#"+value).attr('name','account');
-			}
-  		});
-  	  	
-	  	$("#point").change(function(){
-	  		$("#usePoint").toggle();
-	    });
-  	});
-  </script>
+  <script src="js/payment.js"></script>
   </body>
 </html>

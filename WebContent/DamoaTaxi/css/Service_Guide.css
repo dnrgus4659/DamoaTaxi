@@ -145,7 +145,7 @@ h3 {
 
 @media all and (min-width: 56.25em) {
   .theme-blue .lw-tab-image {
-    background-image: url("https://picsum.photos/1200/799?image=839");
+    background-image: url("../images/signup.JPG");
   }
 }
 
@@ -160,7 +160,7 @@ h3 {
 
 @media all and (min-width: 56.25em) {
   .theme-purple .lw-tab-image {
-    background-image: url("https://picsum.photos/1200/799?image=867");
+    background-image: url("../images/Reservation.JPG");
   }
 }
 
@@ -175,7 +175,7 @@ h3 {
 
 @media all and (min-width: 56.25em) {
   .theme-green .lw-tab-image {
-    background-image: url("https://picsum.photos/1200/799?image=1018");
+    background-image: url("../images/Reservation%20Status.JPG");
   }
 }
 
@@ -190,7 +190,7 @@ h3 {
 
 @media all and (min-width: 56.25em) {
   .theme-yellow .lw-tab-image {
-    background-image: url("https://picsum.photos/1200/799?image=857");
+    background-image: url("../images/payment.JPG");
   }
 }
 

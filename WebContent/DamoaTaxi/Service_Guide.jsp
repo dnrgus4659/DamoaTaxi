@@ -123,20 +123,20 @@
 	<div class="wrapper">
     <div class="lw-tabs">
         <div class="lw-tab-fixed">
-            <h2>Plan Your Adventure</h2>
+            <h2>이용방법 가이드</h2>
             <div id="lw-tab-nav" data-tab-nav="" class="lw-tab-nav">
                 <ul>
                     <li class="is-active">
-                        <a href="#lw-tab-1" data-tab="#lw-tab-1"><span>Experience</span></a>
+                        <a href="#lw-tab-1" data-tab="#lw-tab-1"><span>Step1</span></a>
                     </li>
                     <li>
-                        <a href="#lw-tab-2" data-tab="#lw-tab-2"><span>Inspire</span></a>
+                        <a href="#lw-tab-2" data-tab="#lw-tab-2"><span>Step2</span></a>
                     </li>
                     <li>
-                        <a href="#lw-tab-3" data-tab="#lw-tab-3"><span>Explore</span></a>
+                        <a href="#lw-tab-3" data-tab="#lw-tab-3"><span>Step3</span></a>
                     </li>
                     <li>
-                        <a href="#lw-tab-4" data-tab="#lw-tab-4"><span>Connect</span></a>
+                        <a href="#lw-tab-4" data-tab="#lw-tab-4"><span>Step4</span></a>
                     </li>
                 </ul>
             </div> <!-- /tab-nav -->
@@ -144,78 +144,129 @@
 
         <div id="lw-tab-panels" data-tab-panels="" class="lw-tab-panels">
 
-            <a href="#lw-tab-1" data-accordion-header="" class="lw-accordion-header theme-blue is-active">Experience</a>
+            <a href="#lw-tab-1" data-accordion-header="" class="lw-accordion-header theme-blue is-active">로그인/회원가입</a>
 
             <div id="lw-tab-1" data-tab-panel="" class="lw-tab-panel theme-blue">
 
                 <div class="lw-tab-content">
                     <div class="lw-tab-text-move">
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <div class="lap-and-up-only"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam necessitatibus, voluptas blanditiis mollitia exercitationem tempora molestiae ut amet maiores quae, sed rerum quas, sequi soluta nostrum aliquam ea voluptatibus cumque.</p></div>
+                        <h3>로그인/회원가입</h3>
+                        <div class="lap-and-up-only">
+                        <p>
+                        ①마이메뉴->로그인/회원가입<br>
+                        ②로그인 입력 폼 아래에 회원가입/바로가기 버튼 누르기<br>
+                        ③회원가입은 두가지로 분류됨(장애인택시,관광택시)<br>
+                        ④아이디 입력란에 사용할 아이디를 입력하고 중복확인 버튼 누르기<br>
+                        ⑤그 후 다른 입력란에 다 작성 후 회원가입 버튼을 누르면 회원가입 완료!<br>
+                        ※단! 장애인 택시의 경우는 장애인 증명서가 필요합니다.<br>
+                        장애인 증명서를 다운받으셔서 등록해 주시기 바랍니다.<br></p>
+                        
+                        </div>
                         
                     </div>
                 </div>
                 <div class="lw-tab-image">
                     <div class="lw-tab-image-dimmer"></div>
                     <div class="stat lw-tab-text-move">
-                        <p><b>200+</b> Miles of Trails</p>
+                        <a href="http://www.minwon.go.kr/main?a=AA020InfoCappViewApp&HighCtgCD=&CappBizCD=14600000273">
+                        장애인 증명서 다운받는 곳</a>
                     </div>
                 </div>
             </div>
 
-            <a href="#lw-tab-2" data-accordion-header="" class="lw-accordion-header theme-purple">Inspire</a>
+            <a href="#lw-tab-2" data-accordion-header="" class="lw-accordion-header theme-purple">예약</a>
 
             <div id="lw-tab-2" data-tab-panel="" class="lw-tab-panel theme-purple">
 
                 <div class="lw-tab-content">
                     <div class="lw-tab-text-move">
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <div class="lap-and-up-only"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam necessitatibus, voluptas blanditiis mollitia exercitationem tempora molestiae ut amet maiores quae, sed rerum quas, sequi soluta nostrum aliquam ea voluptatibus cumque.</p></div>
+                        <h3>예약</h3>
+                        <div class="lap-and-up-only">
+                        <p>
+                        (장애인 택시 예약하는 방법)<br>
+                        ①예약->장애인예약 클릭<br>
+                        ②예약자명,이용시간,휴대폰번호,승차장소,하차장소를 입력하세요.<br>
+                        ③예약날짜,탑승인원,기사지정은 선택해주세요.<br>
+                        ④③번의 기사지정 같은 경우는 다른 이용객이 있을 경우 예약이 불가능합니다.<br>
+                        그 점을 유의해주시기바랍니다.<br>
+                        </p>
+                        <p>
+                        (관광 택시 예약하는 방법)<br>
+                        ①예약->장애인예약 클릭<br>
+                        ②예약자명,이용시간,휴대폰번호을 입력하세요.<br>
+                        ③예약날짜,탑승인원,기사지정,승,하장소를 선택해주세요.<br>
+                        ④③번의 기사지정 같은 경우는 다른 이용객이 있을 경우 예약이 불가능합니다.<br>
+                        그 점을 유의해주시기바랍니다.<br>
+                        ⑤관광코스는 고객님께서 원하시지 않으면 변경할 수 있습니다.<br>
+                        ※미리 세부사항에 알려주세요!!
+                        </p>
+                        </div>
                         
                     </div>
                 </div>
                 <div class="lw-tab-image">
                     <div class="lw-tab-image-dimmer"></div>
                     <div class="stat lw-tab-text-move">
-                        <p><b>7000+</b> Things of Note</p>
+            
                     </div>
                  </div>
             </div>
 
-            <a href="#lw-tab-3" data-accordion-header="" class="lw-accordion-header theme-green">Explore</a>
+            <a href="#lw-tab-3" data-accordion-header="" class="lw-accordion-header theme-green">예약현황</a>
 
             <div id="lw-tab-3" data-tab-panel="" class="lw-tab-panel theme-green">
 
                 <div class="lw-tab-content">
                     <div class="lw-tab-text-move">
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <div class="lap-and-up-only"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam necessitatibus, voluptas blanditiis mollitia exercitationem tempora molestiae ut amet maiores quae, sed rerum quas, sequi soluta nostrum aliquam ea voluptatibus cumque.</p></div>
+                        <h3>예약현황</h3>
+                        <div class="lap-and-up-only">
+                        <p>
+                        ①로그인->마이메뉴->예약현황 순으로 하셔야합니다.<br>
+                        ②예약현황에는 장바구니와 예약현황으로 분류되어 있습니다.<br>
+                        ③예약현황은 장바구니에서 결제를 해야 예약이 됩니다.<br>
+                        </p>
+                        </div>
                         
                     </div>
                 </div>
                 <div class="lw-tab-image">
                     <div class="lw-tab-image-dimmer"></div>
                     <div class="stat lw-tab-text-move">
-                        <p><b>100+</b> Things of Note</p>
+                     
                     </div>
                 </div>
             </div>
 
-            <a href="#lw-tab-4" data-accordion-header="" class="lw-accordion-header theme-yellow">Connect</a>
+            <a href="#lw-tab-4" data-accordion-header="" class="lw-accordion-header theme-yellow">결제</a>
 
             <div id="lw-tab-4" data-tab-panel="" class="lw-tab-panel theme-yellow">
 
                 <div class="lw-tab-content">
                     <div class="lw-tab-text-move">
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <div class="lap-and-up-only"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam necessitatibus, voluptas blanditiis mollitia exercitationem tempora molestiae ut amet maiores quae, sed rerum quas, sequi soluta nostrum aliquam ea voluptatibus cumque.</p></div>
-                       
+                        <h3>결제</h3>
+                        <div class="lap-and-up-only">
+                        <p>
+                        ①로그인->마이메뉴->예약현황->장바구니 아래쪽 결제하기버튼 누르기<br>
+                        ②결제방법은 현장결제,계좌이체,신용카드<br>
+                        ③계좌이체는 033-663-5895로 보내주시면 됩니다.<br>
+                        ④신용카드결제는 총 5가지에 지정된 카드로만 결제가 가능합니다.<br>
+                        (우리,신한,국민(카카오뱅크포함),하나,BC)<br>
+                        ⑤기존에 저희 다모아 택시를 이용하신 고객분들께만 제공되는 서비스입니다<br>
+                        </p>
+                        <p>
+                      	★포인트 적립사항<br>
+                     	장애인택시, 관광택시 둘다 택시이용시 적립10% 적용<br>
+                     	 ex)결제액 5000원 금액시 500dp적립<br>
+                  		※카드포인트에 대한 내역은 저희 다모아 택시에서는 해당상황이 없다는 점을 알아주시기 바랍니다.<br>
+                        </p>
+                        </div>
+ 
                     </div>
                 </div>
                 <div class="lw-tab-image">
                     <div class="lw-tab-image-dimmer"></div>
                     <div class="stat lw-tab-text-move">
-                        <p><b>1000</b> Things of Note</p>
+                        
                     </div>
                 </div>
            </div>

@@ -112,8 +112,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-75">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">서비스 소개</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">목적에 맞는 서비스를 제공합니다.</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">서비스 이용방법</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">이용방법 가이드를 참조하세요</a></h2>
           </div>
         </div>
       </div>

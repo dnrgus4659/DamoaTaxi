@@ -24,6 +24,11 @@ public class buyInsertServlet extends HttpServlet {
 		String id= request.getParameter("id");
 		String price= request.getParameter("price");
 		String account= request.getParameter("account");
+		String paymentMethod= request.getParameter("paymentMethod");
+		
+		if(account==null || account.equals("")) {
+			account = paymentMethod;
+		}
 		
 		buyDAO buyDAO = new buyDAO();
 		

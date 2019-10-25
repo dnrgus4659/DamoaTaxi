@@ -66,7 +66,7 @@
                     <th>하차</th>
                     <th>가격</th>
                     <th>결제일자</th>
-                    <th>요청사항</th>
+                    <th style="width: 400px; word-break: break-all; white-space: pre-wrap;">요청사항</th>
                     <th>상황</th>
                     <th>비고</th>
                 </tr>
@@ -84,7 +84,7 @@
                     <td><%=buyList.getGetOut() %></td>
                     <td><%=buyList.getPrice() %></td>
                     <td><%=buyList.getBuy_date() %></td>
-                    <td><%=buyList.getRequestContent() %></td>
+                    <td style="width: 400px; word-break: break-all; white-space: pre-wrap;"><%=buyList.getRequestContent() %></td>
                     <td><%=buyList.getStatus() %></td>
                     <td style="padding : 5px 0px 0px 0px;">
                     	<input type='button' name='certain' id='certain' onclick="document.location.href='../../reservationCertain?num=<%=buyList.getNum() %>&price=<%=buyList.getPrice() %>&id=<%=buyList.getId() %>'" value='예약확정' class='btn btn-finish btn-fill btn-warning btn-wd' />

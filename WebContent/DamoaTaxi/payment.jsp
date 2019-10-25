@@ -34,66 +34,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
-      <div class="container">
-        <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="oi oi-menu"></span> Menu
-        </button>
-
-        <div class="collapse navbar-collapse" id="ftco-nav">
-          <ul class="navbar-nav ml-auto" style="height: 60px;">
-            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="Company.jsp">회사소개</a>
-                <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
-                <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
-                <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="jang_reservation.jsp">장애인 택시 예약</a>
-                <a class="dropdown-item" href="gwan_reservation.jsp">관광 택시 예약</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
-                <a class="dropdown-item" href="QnA.jsp">Q&A</a>
-                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown">
-              	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
-              	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
-                <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <jsp:include page="nav.jsp" flush="false"></jsp:include>
     
 	<% 		
 		String id=(String)session.getAttribute("id");
@@ -168,7 +109,7 @@
 	                    <td><%=cartList.getPhone() %></td>
 	                    <td><%=cartList.getPerson() %></td>
 	                    <td><%=cartList.getDriver() %></td>
-	                    <td><%=cartList.getRequestContent() %></td>
+	                    <td style="width: 300px; word-break: break-all; white-space: pre-wrap;"><%=cartList.getRequestContent() %></td>
 	                    <td><%=cartList.getCar() %></td>
 	                    <td><%=cartList.getPrice() %></td>
 	                </tr>
@@ -207,21 +148,22 @@
               	<td><input type="text" id="신용카드" class="form-control"></td>
               </tr>
               <%
-              	int point = 0;
+              	int currentPoint = 0;
               	UserDAO userDAO = UserDAO.getInstance();
-              	point = userDAO.getPoint(id);
+              	currentPoint = userDAO.getPoint(id);
               %>
               <tr>
-              	<td><input type="checkbox" id="point" name="point"> 포인트 사용(보유 : <%=point %>)</td>
+              	<td><input type="checkbox" id="point" name="point"> 포인트 사용(보유 : <span id="currentPoint"><%= currentPoint %></span>dp)</td>
               </tr>
               <tr>
               	<td><input type="text" id="usePoint" name="usePoint" class="form-control" placeholder="사용하실 포인트를 적어주세요"></td>
               </tr>
               <tr>
-              	<td>총 결제금액 : <%=total_price %> (적립 예정 포인트 : <%= (int) (total_price*0.01) %>dp)</td>
+              	<td>총 결제금액 : <span id="price"><%=total_price %></span> (적립 예정 포인트 : <%= (int) (total_price*0.01) %>dp)</td>
               </tr>
           	</table>
           	<div style="float: right;">
+          		<input type="hidden" id="total_price" value="<%=total_price %>">
 		    	<input type="submit" class="btn btn-finish btn-fill btn-warning btn-wd" value="결제하기">
 		    </div>
           </form>
@@ -346,27 +288,6 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/reviewboard.js?ver=1"></script>
-  <script type="text/javascript">
-  	$(document).ready(function() {
-  		$('[class^=is]').hide();
-  		$("#usePoint").hide();
-  	  	
-  	  	$("#paymentMethod").change(function(){ 
-  	  		$('[class^=is]').removeAttr('name');
-  		    var value = $("#paymentMethod").val();
-  		    var theDiv = $(".is" + value);
-  		  	$('[class^=is]').hide();
-  		  	
-			if(value){
-				theDiv.show();
-				$("#"+value).attr('name','account');
-			}
-  		});
-  	  	
-	  	$("#point").change(function(){
-	  		$("#usePoint").toggle();
-	    });
-  	});
-  </script>
+  <script src="js/payment.js"></script>
   </body>
 </html>

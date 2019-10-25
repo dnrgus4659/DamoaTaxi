@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Service.css">
   </head>
   <body>
 
@@ -60,21 +61,41 @@
     </section>
     <!-- END section -->
 
-    <section class="ftco-section-2">
-      <div class="container-fluid">
-        <div class="section-2-blocks-wrapper row no-gutters">
-          <div class="img col-sm-12 col-md-6" style="background-image: url('images/image_4.jpg');" data-aos="fade-right">
-          </div>
-          <div class="text col-md-6">
-            <div class="text-inner align-self-start" data-aos="fade-up">
+    <section>
+  
+  <article>
+    <div class="box"><img src="./images/StarRex.jpg" alt="" /></div>
+  <div class="box">
+    <div class="feed">        
+    <h4>안녕하세요 저희 다모아 택시를 이용해주시는 고객님들!<br>
+              장애인택시에 대해서 설명 드리겠습니다</h4><br>
+      <p>■첫번째:장애인고객님들을 위해서 응급치료가 빠르게 가능하도록  차량에 구비해놓았습니다.<br><br>
+      ※단! 응급치료가 가능하지 않은 차량도 있으니 예약하실때 차종선택을 하실때 주의 하시기 바랍니다.<br><br>
+      ■두번째:다모아 택시의 이용방법은 메뉴바 소개->이용방법에 있으니 그것을 잘 봐주시기 바랍니다.<br><br>
+      ■세번째:저희 다모아 택시는 고객여러분의 안전한 이동경험을 위해 안전운행 메뉴얼를 이용자 대응매뉴얼이 포함되며,매 운행 시 이용자에게 드라이버에 대한 평가를 받아 드립니다<br> 
+    </p>
+    <p>저희 다모아 택시는 최선을 다해 고객여러분을 모시겠습니다.</p>
+    </div>
+  </div>
 
-              <h3>관광 택시</h3>
-              <p>관광 택시는 서울을 방문하는 관광객들의 편의를 위해 여러가지 서비스를 제공합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+</article>
+
+<article>
+  <div class="box"><img src="./images/Genesis.jpg" alt="" /></div>
+  <div class="box">
+    <div class="feed">        
+    <h4>안녕하세요 저희 다모아 택시를 이용해주시는 고객님들!<br>
+              관광택시에 대해서 설명 드리겠습니다</h4><br>
+      <p>■첫번째:관광코스에 대해 자세한 사항은 메뉴=>소개=>관광코스=>링크를 누르시면 자세한 사항을 보실 수 있습니다.<br><br>
+      ■두번째:관광코스 요금결제는 동일합니다. <br><br>
+       ※단! 관광코스에서 보시지 않을 코스는 예약 직전에 말씀해주시기 바랍니다. 이점은 저희 다모아에서 책임지지 않습니다!!!<br><br>
+    </p>
+    <p>저희 다모아 택시는 최선을 다해 고객여러분을 모시겠습니다.</p>
+    </div>
+  </div>
+
+</article>
+</section>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

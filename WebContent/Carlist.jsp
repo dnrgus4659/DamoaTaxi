@@ -26,9 +26,7 @@
     <link rel="stylesheet" href="css/style.css?ver=1">
  	<link rel="stylesheet" href="css/time.css">
  	<link rel="stylesheet" href="css/lineup.css">
- 	<link rel="stylesheet" href="css/Course.css">
-	<link rel="stylesheet" href="css/Carlist.css">
-
+ 	<link rel="stylesheet" href="css/carlist.css">
   </head>
   <body>
 
@@ -123,140 +121,57 @@
       </div>
     </section>
     <!-- END section -->
-		
-	<div class="cards">
-
-
-
-	
-
- 
-
-
-
-  <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?water" alt="water" />
-    <div class="card-title">
-      <a href="#" class="toggle-info btn">
-        <span class="left"></span>
-        <span class="right"></span>
-      </a>
-      <h2>
-          Card title
-          <small>Image from unsplash.com</small>
-      </h2>
-    </div>
-    <div class="card-flap flap1">
-      <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-      </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
+	<div class="labels">
+      <label class="Slide" for="Slide1" id="Slide1">
+        <div class="content">
+          <h1>장애인택시1</h1>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?river" alt="river" />
-    <div class="card-title">
-      <a href="#" class="toggle-info btn">
-        <span class="left"></span>
-        <span class="right"></span>
-      </a>
-      <h2>
-          Card title
-          <small>Image from unsplash.com</small>
-      </h2>
-    </div>
-    <div class="card-flap flap1">
-      <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-      </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
+        <img src="./images/StarRex.jpg"/>
+      </label>
+      <label class="Slide" for="Slide2" id="Slide2">
+        <div class="content">
+          <h1><strong>장애인 택시2</strong></h1>
+          <div class="block">
+           <img src="http://codecase.work/codepen/keyboard-icon.png"/>
+           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?kite" alt="kite" />
-    <div class="card-title">
-      <a href="#" class="toggle-info btn">
-        <span class="left"></span>
-        <span class="right"></span>
-      </a>
-      <h2>
-          Card title
-          <small>Image from unsplash.com</small>
-      </h2>
-    </div>
-    <div class="card-flap flap1">
-      <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-      </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
+      </label>
+      <label class="Slide" for="Slide3" id="Slide3">
+        <div class="content">
+          <h1>장애인택시3</h1>
+          <div class="block">
+             <img src="http://codecase.work/codepen/keyboard-icon.png"/>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?underwater" alt="underwater" />
-    <div class="card-title">
-      <a href="#" class="toggle-info btn">
-        <span class="left"></span>
-        <span class="right"></span>
-      </a>
-      <h2>
-          Card title
-          <small>Image from unsplash.com</small>
-      </h2>
-    </div>
-    <div class="card-flap flap1">
-      <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-      </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
+      </label>
+      <label class="Slide" for="Slide4" id="Slide4">
+        <div class="content">
+          <h1>관광택시1</h1>
+          <div class="block">
+          <img src="http://codecase.work/codepen/keyboard-icon.png"/>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />
-    <div class="card-title">
-      <a href="#" class="toggle-info btn">
-        <span class="left"></span>
-        <span class="right"></span>
-      </a>
-      <h2>
-          Card title
-          <small>Image from unsplash.com</small>
-      </h2>
-    </div>
-    <div class="card-flap flap1">
-      <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-      </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
         </div>
-      </div>
+      </label>
+      <label class="Slide" for="Slide5" id="Slide5">
+        <div class="content">
+          <h1>관광택시2</h1>
+          <div class="block">
+          <img src="http://codecase.work/codepen/keyboard-icon.png"/>
+          </div>
+        </div>
+      </label>
+      <label for="Slide6" id="Slide6">
+        <div class="content">
+          <h1>관광택시3</h1>
+          <div class="block">
+          <img src="http://codecase.work/codepen/keyboard-icon.png"/>
+          </div>
+        </div>
+      </label>
     </div>
-  </div>
-
+  </form>
 </div>
-
-
+       
 
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -291,7 +206,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="js/Course.js"></script>
   <script src="js/carlist.js"></script>
-  
 
   </body>
 </html>

@@ -180,7 +180,7 @@ a:hover, a:active, a:focus {
 }
 
 .timeline-item .timeline-img-header3 {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url("./images/Ujeong.jpg") center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url("./images/dalim.jpg") center center no-repeat;
   background-size: cover;
 }
 

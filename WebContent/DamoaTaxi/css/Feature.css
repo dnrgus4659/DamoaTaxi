@@ -12,7 +12,7 @@ body {
   font-family: "Lato", Tahoma, sans-serif;
   font-size: 20px;
   line-height: 1.4;
-  padding: 20px;
+  
 }
 
 .tabs {
@@ -46,13 +46,12 @@ body {
   position: absolute;
   transform: translateX(-50%) scaleX(0);
   transition: transform 0.3s;
-  width: 100%;
+  
 }
 .tabs__header--title.active::after {
   transform: translateX(-50%) scaleX(1);
 }
 .tabs__underline {
-  width: 33%;
   background: #E91E63;
   height: 4px;
   position: absolute;

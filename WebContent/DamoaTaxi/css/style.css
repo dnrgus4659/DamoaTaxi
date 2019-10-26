@@ -7340,10 +7340,10 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #fb5660; }
+  color: #5536b3; }
   a:hover {
     text-decoration: none;
-    color: #fb5660; }
+    color: #0044cc; }
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {

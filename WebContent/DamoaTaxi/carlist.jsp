@@ -126,138 +126,136 @@
 		
 	<div class="cards">
 
-
-
-	
-
- 
-
-
-
-  <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?water" alt="water" />
+<div class="card">
+    <img class="card__image" src="./images/StarRex.jpg" alt="water" />
     <div class="card-title">
       <a href="#" class="toggle-info btn">
         <span class="left"></span>
         <span class="right"></span>
       </a>
       <h2>
-          Card title
-          <small>Image from unsplash.com</small>
+          장애인 택시1
+          <small>스타렉스</small>
       </h2>
     </div>
     <div class="card-flap flap1">
       <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-      </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
-        </div>
+      호흡기 장애인을 위해 관련장비가 구비되어있습니다.<br> 
+      휠체어를 탑승한 상태에서 택시 이용이 가능합니다.(모든 휠체어 이용가능)<br> 
+      시각장애인의 경우, 안내견 동반 탑승이 가능하고, 시각장애인용 음성 지원 기능은 준비되어있습니다.<br> 
       </div>
     </div>
   </div>
 
   <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?river" alt="river" />
+    <img class="card__image" src="./images/sonata.jpg" alt="water" />
     <div class="card-title">
       <a href="#" class="toggle-info btn">
         <span class="left"></span>
         <span class="right"></span>
       </a>
       <h2>
-          Card title
-          <small>Image from unsplash.com</small>
+          장애인택시2
+          <small>소나타</small>
       </h2>
     </div>
     <div class="card-flap flap1">
       <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-      </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
-        </div>
+      호흡기 장애인을 위한 관련장비가 없습니다.<br> 
+       휠체어를 탑승한 상태에서 택시 이용이 불가능합니다.<br> 
+       시각장애인의 경우, 안내견 동반 탑승이 가능하고, 시각장애인용 음성 지원 기능은 준비되어 있습니다.<br> 
       </div>
     </div>
   </div>
 
   <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?kite" alt="kite" />
+    <img class="card__image" src="./images/carnival.jpg" alt="river" />
     <div class="card-title">
       <a href="#" class="toggle-info btn">
         <span class="left"></span>
         <span class="right"></span>
       </a>
       <h2>
-          Card title
-          <small>Image from unsplash.com</small>
+          장애인 택시3
+          <small>카니발</small>
       </h2>
     </div>
     <div class="card-flap flap1">
       <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+       호흡기 장애인을 위한 관련장비가 구비되어있지않습니다.<br> 
+      휠체어를 탑승한 상태에서 택시 이용이 불가능합니다<br> 
+      대신 표준 사이즈의 수동 휠체어를 이용할 시, 기사분이 승차를 도와줍니다<br> 
+      시각장애인의 경우, 안내견 동반 탑승이 가능하고, 시각장애인용 음성 지원 기능은 준비되어있습니다<br> 
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img class="card__image" src="./images/StarRex2.jpg" alt="kite" />
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          관광택시1
+          <small>스타렉스</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        안락한 좌석에 리무진을 이용하실 수 있습니다. <br>
+        장시간 비행때문에 지친 고객님들을 위해서<br>
+        최적의 형상과 소재로 마감한 윙타입 헤드레스트를 제공합니다<br> 
       </div>
       <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
-        </div>
       </div>
     </div>
   </div>
   
   <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?underwater" alt="underwater" />
+    <img class="card__image" src="./images/sonata.jpg" alt="underwater" />
     <div class="card-title">
       <a href="#" class="toggle-info btn">
         <span class="left"></span>
         <span class="right"></span>
       </a>
       <h2>
-          Card title
-          <small>Image from unsplash.com</small>
+          관광택시2
+          <small>소나타</small>
       </h2>
     </div>
     <div class="card-flap flap1">
       <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+        나파가죽시트를 적용하여 안락함을 적용합니다<br> 
       </div>
       <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
-        </div>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />
+    <img class="card__image" src="./images/carnival.jpg" alt="desert" />
     <div class="card-title">
       <a href="#" class="toggle-info btn">
         <span class="left"></span>
         <span class="right"></span>
       </a>
       <h2>
-          Card title
-          <small>Image from unsplash.com</small>
+          관광택시3
+          <small>카니발</small>
       </h2>
     </div>
     <div class="card-flap flap1">
       <div class="card-description">
-        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+         휴대폰 무선충전시스템을 제공하여 휴대폰에 배터리가 없을 시 제공하고 있습니다. <br>    
       </div>
       <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">Read more</a>
-        </div>
       </div>
     </div>
   </div>
 
 </div>
-
-
-
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container"> 
@@ -290,7 +288,7 @@
   <script src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="js/Course.js"></script>
-  <script src="js/carlist.js"></script>
+  <script src="js/Carlist.js"></script>
   
 
   </body>

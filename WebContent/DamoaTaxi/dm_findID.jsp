@@ -28,7 +28,7 @@
 		<div class="container-login100">
 			<div class="wrap-login102">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
+					<img src="images/IDfind.png" alt="IMG">
 				</div>
 				<div class="login100-form validate-form" >
 					<form class="login100-form validate-form" method="post" action="dm_find_id.jsp">

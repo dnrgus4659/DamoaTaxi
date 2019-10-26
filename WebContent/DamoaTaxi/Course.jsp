@@ -125,16 +125,16 @@
 </div>
 
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-    <div class="container"> 
-    <div class="asd">이용약관 &nbsp &nbsp 개인정보 처리방침
-    </div>
-    <div>다모아 택시 | 대표:권욱현<br></div>
-    <div>서울특별시 강서구 발산점<br></div>
-    <div>고객문의:DamoaTaxi1234@naver.com<br></div>
-    <div>연락문의:010-0000-0000 | 02-000-0000<br></div>
-        </div>               
-  </footer>
+    <footer class="ftco-footer ftco-bg-dark ftco-section"> 
+    <div class="container">  
+     <div class="asd">이용약관 &nbsp &nbsp 개인정보 처리방침 
+     </div> 
+     <div>다모아 택시 | 대표:권욱현<br></div> 
+     <div>서울특별시 강서구 발산점<br></div> 
+     <div>고객문의:DamoaTaxi1234@naver.com<br></div> 
+     <div>연락문의:010-0000-0000 | 02-000-0000<br></div> 
+         </div>                
+   </footer> 
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>

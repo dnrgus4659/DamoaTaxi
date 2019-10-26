@@ -9,7 +9,7 @@
 }
 
 html, body {
-  font-size: 62.5%;
+  /*font-size: 62.5%;*/
   height: 100%;
   
 }
@@ -265,18 +265,18 @@ svg {
 }
 .slide__text-heading {
   font-family: "Polar", Helvetica, Arial, sans-serif;
-  font-size: 5rem;
+  font-size: 50px;
   margin-bottom: 2rem;
   color:black;
 }
 @media (max-width: 991px) {
   .slide__text-heading {
-    font-size: 30px;
+    font-size: 45px;
   }
 }
 .slide__text-desc {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 @media (max-width: 991px) {
@@ -292,13 +292,13 @@ svg {
   padding: 0.5rem;
   cursor: pointer;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 2.3rem;
+  font-size: 2rem;
   -webkit-perspective: 1000px;
           perspective: 1000px;
 }
 @media (max-width: 991px) {
   .slide__text-link {
-    display: none;
+    
   }
 }
 .slide__text-link:before {

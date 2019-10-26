@@ -29,7 +29,66 @@
   </head>
   <body>
 
-  <jsp:include page="nav.jsp" flush="false"></jsp:include>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
+      <div class="container">
+        <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto" style="height: 60px;">
+            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="Company.jsp">회사소개</a>
+                <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
+                <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
+                <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+                <a class="dropdown-item" href="jang_reservation.jsp">장애인 택시 예약</a>
+                <a class="dropdown-item" href="gwan_reservation.jsp">관광 택시 예약</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
+                <a class="dropdown-item" href="QnA.jsp">Q&A</a>
+                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
+              	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
+                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
+                <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
 	<% 		
 		String id = (String) session.getAttribute("id");
 		if(id==null || id.equals("")){
@@ -60,15 +119,13 @@
       </div>
     </section>
     <!-- END section -->
-
-    <section>
-  
-  <article>
-    <div class="box"><img src="./images/StarRex.jpg" alt="" /></div>
-  <div class="box">
-    <div class="feed">        
-    <h4>안녕하세요 저희 다모아 택시를 이용해주시는 고객님들!<br>
-              장애인택시에 대해서 설명 드리겠습니다</h4><br>
+ <div class="blog-card alt">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
+    </div>
+    <div class="description">
+      <h1>안녕하세요 저희 다모아 택시를 이용해주시는 고객님들!<br><br>
+              장애인택시에 대해서 설명 드리겠습니다</h1><br>
       <p>■첫번째:장애인고객님들을 위해서 응급치료가 빠르게 가능하도록  차량에 구비해놓았습니다.<br><br>
       ※단! 응급치료가 가능하지 않은 차량도 있으니 예약하실때 차종선택을 하실때 주의 하시기 바랍니다.<br><br>
       ■두번째:다모아 택시의 이용방법은 메뉴바 소개->이용방법에 있으니 그것을 잘 봐주시기 바랍니다.<br><br>
@@ -78,14 +135,13 @@
     </div>
   </div>
 
-</article>
-
-<article>
-  <div class="box"><img src="./images/Genesis.jpg" alt="" /></div>
-  <div class="box">
-    <div class="feed">        
-    <h4>안녕하세요 저희 다모아 택시를 이용해주시는 고객님들!<br>
-              관광택시에 대해서 설명 드리겠습니다</h4><br>
+	  <div class="blog-card">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+    </div>
+    <div class="description">
+      <h1>안녕하세요 저희 다모아 택시를 이용해주시는 고객님들!<br><br>
+              관광택시에 대해서 설명 드리겠습니다</h1><br>
       <p>■첫번째:관광코스에 대해 자세한 사항은 메뉴=>소개=>관광코스=>링크를 누르시면 자세한 사항을 보실 수 있습니다.<br><br>
       ■두번째:관광코스 요금결제는 동일합니다. <br><br>
        ※단! 관광코스에서 보시지 않을 코스는 예약 직전에 말씀해주시기 바랍니다. 이점은 저희 다모아에서 책임지지 않습니다!!!<br><br>
@@ -93,9 +149,8 @@
     <p>저희 다모아 택시는 최선을 다해 고객여러분을 모시겠습니다.</p>
     </div>
   </div>
-
-</article>
-</section>
+ 
+  
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

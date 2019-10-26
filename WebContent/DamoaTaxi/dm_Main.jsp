@@ -40,10 +40,70 @@
     <link rel="stylesheet" href="css/style.css?ver=1">
  	<link rel="stylesheet" href="css/time.css">
  	<link rel="stylesheet" href="css/lineup.css">
+ 	<link rel="stylesheet" href="css/Feature.css">
   </head>
 	
   <body>
-    <jsp:include page="nav.jsp" flush="false"></jsp:include>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
+      <div class="container">
+        <a class="navbar-brand" href="dm_Main.jsp"><img src="images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto" >
+            <li class="nav-item active"><a href="dm_Main.jsp" class="nav-link">홈</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="Company.jsp">회사소개</a>
+                <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
+                <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
+                <a class="dropdown-item" href="carlist.jsp">차량소개</a>
+                <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+                <a class="dropdown-item" href="./reservation/jang_reservation.jsp">장애인 택시 예약</a>
+                <a class="dropdown-item" href="./reservation/gwan_reservation.jsp">관광 택시 예약</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">기사</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="introduce.jsp">기사 소개</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후기</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="review_boardView.jsp">게시판</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고객센터</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="notice_boardView.jsp">공지사항</a>
+                <a class="dropdown-item" href="QnA.jsp">Q&A</a>
+                <a class="dropdown-item" href="FAQ.jsp">FAQ</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이메뉴</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+              	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
+              	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
+                <a class="dropdown-item" href="reservation_status.jsp">예약현황</a>
+                <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     
 	<% 		
 		String id=(String)session.getAttribute("id");
@@ -178,66 +238,29 @@
     </div>
   </div>
 
-	<section class="ftco-section-2">
-	<div class="container-fluid">                 
-	<div class="text col-md-12">
-	<div class="text-inner align-self-start" data-aos="fade-up">
-		<body>
-		<center>
-		<div class="body1">
-		<h1>서비스 이용 안내</h1>
-    		<div class="container1">
-        		<div class="card">
-            	<div class="face face1">
-                	<div class="content">
-                    	<div class="icon">                                        
-                         <img src="./images/employee.png" style="width:70%" higth="20px">                    
-                    </div>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <h3>회사소개</h3>
-                    <p>저희 Domoa Taxi는 장애인 이용객을 위한 픽업 및 맞춤 서비스를 운영하고 있습니다. 
+	<section class="tabs">
+  <ul class="tabs__header">
+    <li class="tabs__header--title js-tabs-title active" data-tab="#tab-1">회사소개</li>
+    <li class="tabs__header--title js-tabs-title" data-tab="#tab-2">안내</li>
+    <li class="tabs__header--title js-tabs-title" data-tab="#tab-3">운영시간</li>
+  </ul>
+  <div class="tabs__underline js-tabs-underline"></div>
+  <article class="tabs__content js-tabs-content active" id="tab-1">
+    <h1 class="tabs__content--title">회사소개</h1>
+    <p class="tabs__content--text">저희 Domoa Taxi는 장애인 이용객을 위한 픽업 및 맞춤 서비스를 운영하고 있습니다. 
                     고객의 필요에 따른 다양한 차종, 요금제, 관광 안내, 시간 대절,
                     청각 장애인들을 위한 언어 서비스로 최대의 만족을 얻을수 있습니다.</p>
-               </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <div class="icon">                        
-                         <img src="./images/customer-service.png" style="width:70%">                    
-                    </div>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <h3>안내</h3>
-                    <p>장애인 이용객의 경우: 맟춤 서비스를 제공하고 있습니다.
-                    고객의 필요 따른 다양한 차종이 구비되어 있으며 청각장애인의 경우를 위한 언어 서비스도 준비되어 있습니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <div class="icon">
-                         <img src="./images/timetable.png" style="width:70%">           
-                    </div>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <h3>운영시간</h3>
-                    <p>24시간 사용가능 합니다</p>
-                    </center>
-					</div>
-				</div>
-			</div>
-    </section>
+  </article>
+  <article class="tabs__content js-tabs-content" id="tab-2">
+    <h1 class="tabs__content--title">안내</h1>
+    <p class="tabs__content--text">장애인 이용객의 경우: 맟춤 서비스를 제공하고 있습니다.
+                    고객의 필요 따른 다양한 차종이 구비되어 있으며 청각장애인의 경우를 위한 언어 서비스도 준비되어 있습니다.</p>
+  </article>
+  <article class="tabs__content js-tabs-content" id="tab-3">
+    <h1 class="tabs__content--title">운영시간</h1>
+    <p class="tabs__content--text">24시간 사용가능 합니다</p>
+  </article>
+</section>
 
   <div class="ftco-section bg-light">
     <div class="container">
@@ -338,6 +361,6 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/main.js"></script>
-
+  <script src="js/Feature.js"></script>
   </body>
 </html>

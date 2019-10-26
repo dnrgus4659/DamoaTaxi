@@ -9,7 +9,6 @@
 }
 
 html, body {
-  font-size: 62.5%;
   height: 100%;
   
 }
@@ -265,7 +264,7 @@ svg {
 }
 .slide__text-heading {
   font-family: "Polar", Helvetica, Arial, sans-serif;
-  font-size: 5rem;
+  font-size: 40px;
   margin-bottom: 2rem;
   color:black;
 }

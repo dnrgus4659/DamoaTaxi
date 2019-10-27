@@ -48,6 +48,7 @@
               	<a class="dropdown-item" href="Company.jsp">회사소개</a>
                 <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
                 <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
+                <a class="dropdown-item" href="Carlist.jsp">차량 소개</a>
                 <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
               </div>
             </li>
@@ -116,8 +117,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-75">
           <div class="col-md-9 text-center">
-            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">관광코스 소개</h1>
-            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">예약 시 예시로 드리는 기본 코스입니다</a></h2>
+            <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">차량 소개</h1>
+            <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up"  data-aos-delay="600">예약 시 예시로 드리는 기본 리스트입니다</a></h2>
           </div>
         </div>
       </div>

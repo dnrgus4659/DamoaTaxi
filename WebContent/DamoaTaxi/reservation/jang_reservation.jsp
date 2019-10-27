@@ -39,6 +39,7 @@
 </head>
 
 <body>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
         <a class="navbar-brand" href="../dm_Main.jsp"><img src="../images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
@@ -186,7 +187,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">승차장소</label>
-		                                          	<input id="getIn" name="getIn" type="text" class="form-control">
+		                                          	<input id="getIn" name="getIn" type="text" class="form-control" onclick="DaumPostcode1()" readonly>
 		                                        </div>
 											</div>
 											<div class="input-group">
@@ -195,7 +196,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">하차장소</label>
-		                                          	<input id="getOut" name="getOut" type="text" class="form-control">
+		                                          	<input id="getOut" name="getOut" type="text" class="form-control" onclick="DaumPostcode2()" readonly>
 		                                        </div>
 											</div>
 		                                </div>
@@ -321,7 +322,6 @@
 		                        	<input type="hidden" id="category" name="category" value="I"/>
                                     <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='다음' />
                                     <button type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='addreserv' id='addreserv' onclick="addreservation()">예약담기</button>
-                                    <!-- <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' id='finish' value='예약하기' /> -->
                                 </div>
                                 <div class="pull-left">
                                     <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='이전' />

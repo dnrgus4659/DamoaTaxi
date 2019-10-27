@@ -87,7 +87,7 @@
     	
     	
     	try{
-    		String jdbcUrl="jdbc:mysql://localhost:3306/2019_2A01_DamoaTaxi";
+    		String jdbcUrl="jdbc:mysql://damoataxi.ga/2019_2A01_DamoaTaxi";
     		String dbId="jspid";
     		String dbPass="jsppass";
     		

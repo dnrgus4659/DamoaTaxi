@@ -10,12 +10,8 @@
     <title>DamoaTaxi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Author" content="http://pablogarciafernandez.com" />
     <meta name="description" content="Table Responsive" />
     <meta name="keywords" content="table, responsive" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link href="css/table-responsive.css" media="screen" type="text/css" rel="stylesheet" />
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -44,11 +40,13 @@
     
 	<% 		
 		String id=(String)session.getAttribute("id");
-		String category=(String)session.getAttribute("category");
+		String category = (String)session.getAttribute("category");
 		if(id==null || id.equals("")){
 	%>
 			<script>
 				document.getElementById("logout").style.display='none';
+				alert('로그인 후 이용하실 수 있습니다.');
+				location.href="./dmlogin_form.jsp";
 			</script>
 	<%		
 		}else{
@@ -106,7 +104,7 @@
                     <%}else{ 
                     	cartLists = cart.getCart(id);
                     %>
-                    <table class="table table-hover" cellspacing="0" style="text-align: center; white-space: nowrap;">
+                    <table class="table table-hover" cellspacing="0" style="table-layout:fixed; text-align: center;">
                         <thead>
                             <tr>
                                 <th>이름</th>
@@ -117,7 +115,7 @@
                                 <th>전화번호</th>
                                 <th>인원</th>
                                 <th>기사</th>
-                                <th style="width: 300px;">요청사항</th>
+                                <th style="width: 100px;">요청사항</th>
                                 <th>차종</th>
                                 <th>결제금액</th>
                                 <th>비고</th>
@@ -131,13 +129,13 @@
                         	<tr>
                                 <td><%=cartList.getName() %></td>
                                 <td><%=cartList.getDate() %></td>
-                                <td><%=cartList.getGetIn() %></td>
-                                <td><%=cartList.getGetOut() %></td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="<%=cartList.getGetIn() %>"><%=cartList.getGetIn() %></td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="<%=cartList.getGetOut() %>"><%=cartList.getGetOut() %></td>
                                 <td><%=cartList.getTime() %></td>
                                 <td><%=cartList.getPhone() %></td>
                                 <td><%=cartList.getPerson() %></td>
                                 <td><%=cartList.getDriver() %></td>
-                                <td style="width: 300px; word-break: break-all; white-space: pre-wrap;"><%=cartList.getRequestContent() %></td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="<%=cartList.getRequestContent() %>"><%=cartList.getRequestContent() %></td>
                                 <td><%=cartList.getCar() %></td>
                                 <td><%=cartList.getPrice() %></td>
                                 <td>
@@ -178,7 +176,7 @@
                     <%}else{ 
                     	buyLists = buy.getList(id);
                     %>
-                    <table class="table table-hover" cellspacing="0" style="text-align: center; white-space: nowrap;">
+                    <table class="table table-hover" cellspacing="0" style="table-layout:fixed; text-align: center;">
                         <thead>
                             <tr>
                                 <th>번호</th>
@@ -201,8 +199,8 @@
                                 <td><%=buyList.getNum() %></td>
                                 <td><%=buyList.getName() %></td>
                                 <td><%=buyList.getDriver() %></td>
-                                <td><%=buyList.getGetIn() %></td>
-                                <td><%=buyList.getGetOut() %></td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="<%=buyList.getGetIn() %>"><%=buyList.getGetIn() %></td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="<%=buyList.getGetOut() %>"><%=buyList.getGetOut() %></td>
                                 <td><%=buyList.getPrice() %></td>
                                 <td><%=buyList.getBuy_date() %></td>
                                 <td><%=buyList.getAccount() %></td>

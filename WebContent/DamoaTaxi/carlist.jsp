@@ -55,8 +55,8 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="jang_reservation.jsp">장애인 택시 예약</a>
-                <a class="dropdown-item" href="gwan_reservation.jsp">관광 택시 예약</a>
+                 <a class="dropdown-item" href="./reservation/jang_reservation.jsp">장애인 택시 예약</a>
+                <a class="dropdown-item" href="./reservation/gwan_reservation.jsp">관광 택시 예약</a>
               </div>
             </li>
             <li class="nav-item dropdown">

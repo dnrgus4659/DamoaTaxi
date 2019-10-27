@@ -45,15 +45,14 @@
               	<a class="dropdown-item" href="Company.jsp">회사소개</a>
                 <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
                 <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
-                <a class="dropdown-item" href="carlist.jsp">차량 소개</a>
                 <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">예약</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="./reservation/jang_reservation.jsp">장애인 택시 예약</a>
-                <a class="dropdown-item" href="./reservation/gwan_reservation.jsp">관광 택시 예약</a>
+                <a class="dropdown-item" href="jang_reservation.jsp">장애인 택시 예약</a>
+                <a class="dropdown-item" href="gwan_reservation.jsp">관광 택시 예약</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -81,7 +80,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown">
               	<a class="dropdown-item" href="dmlogin_form.jsp" id="login">로그인/회원가입</a>
               	<a class="dropdown-item" href="sessionLogout.jsp" id="logout">로그아웃</a>
-                <a class="dropdown-item" href="reservation_status.jsp">예약현황</a>
+                <a class="dropdown-item" href="product-single.jsp">예약현황</a>
                 <a class="dropdown-item" href="dm_privacy.jsp">개인정보</a>
               </div>
             </li>

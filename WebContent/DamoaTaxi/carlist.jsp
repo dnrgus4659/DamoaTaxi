@@ -48,7 +48,7 @@
               	<a class="dropdown-item" href="Company.jsp">회사소개</a>
                 <a class="dropdown-item" href="Service.jsp">서비스 소개</a>
                 <a class="dropdown-item" href="Course.jsp">관광코스 소개</a>
-                <a class="dropdown-item" href="Carlist.jsp">차량 소개</a>
+                <a class="dropdown-item" href="carlist.jsp">차량 소개</a>
                 <a class="dropdown-item" href="Service_Guide.jsp">서비스 이용방법</a>
               </div>
             </li>

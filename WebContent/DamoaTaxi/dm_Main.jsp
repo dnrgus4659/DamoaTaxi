@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="Damoa_pro.review_BoardDAO" %>
 <%@ page import="Damoa_pro.review_BoardDTO" %>
+<%@ page import="manage.driverDAO" %>
+<%@ page import="manage.driverDTO" %>
 <%@ page import="java.util.ArrayList" %>
 <%
 	int count = 0;
 	review_BoardDAO dbPro = review_BoardDAO.getInstance();
 	count = dbPro.getArticleCount();
 	ArrayList<review_BoardDTO> boardList =null;
+	driverDAO dbPro1 = driverDAO.getInstance();
+
+    ArrayList<driverDTO> driverIList = new driverDAO().getIList();
+    ArrayList<driverDTO> driverTList = new driverDAO().getTList();
 	if(count >= 4){
 		boardList = new review_BoardDAO().getList(1, 5);
 	}
@@ -270,33 +276,20 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-4" data-aos="fade-up">
-          <div class="block-10">
-            <div class="person-info mb-3">
-              <span class="name">권욱현</span>
-              <span class="position">운전경력 20년 같은 2년차</span>
+        <%
+			for(int i = 0; i<3; i++){
+				driverDTO Idriver = driverIList.get(i);
+		%>
+          <div class="col-sm-6 col-md-4 mb-4" data-aos="fade-up">
+            <div class="block-10">
+              <div class="person-info mb-3">
+                <span class="name"><%=Idriver.getName() %></span>
+                <span class="position"><%=Idriver.getCareer() %>년차</span>
+              </div>
+              <img alt="이미지가 없습니다." src="../upload/<%=Idriver.getFile() %>" class="img-fluid" style="width: 300px; height: 300px;">
             </div>
-            <img src="images/person_1.jpg" alt="" class="img-fluid">
           </div>
-        </div>
-        <div class="col-sm-6 col-md-4" data-aos="fade-up">
-          <div class="block-10">
-            <div class="person-info mb-3">
-              <span class="name">이준</span>
-              <span class="position">무면허</span>
-            </div>
-            <img src="images/person_3.jpg" alt="" class="img-fluid">
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4" data-aos="fade-up">
-          <div class="block-10">
-            <div class="person-info mb-3">
-              <span class="name">장찬모</span>
-              <span class="position">30년차</span>
-            </div>
-            <img src="images/person_2.jpg" alt="" class="img-fluid">
-          </div>
-        </div>
+        <%} %>
       </div>
     </div>
   </div>

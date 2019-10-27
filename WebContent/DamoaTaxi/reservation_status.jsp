@@ -40,11 +40,13 @@
     
 	<% 		
 		String id=(String)session.getAttribute("id");
-		String category=(String)session.getAttribute("category");
+		String category = (String)session.getAttribute("category");
 		if(id==null || id.equals("")){
 	%>
 			<script>
 				document.getElementById("logout").style.display='none';
+				alert('로그인 후 이용하실 수 있습니다.');
+				location.href="./dmlogin_form.jsp";
 			</script>
 	<%		
 		}else{
@@ -174,7 +176,7 @@
                     <%}else{ 
                     	buyLists = buy.getList(id);
                     %>
-                    <table class="table table-hover" cellspacing="0" style="text-align: center; white-space: nowrap;">
+                    <table class="table table-hover" cellspacing="0" style="table-layout:fixed; text-align: center;">
                         <thead>
                             <tr>
                                 <th>번호</th>

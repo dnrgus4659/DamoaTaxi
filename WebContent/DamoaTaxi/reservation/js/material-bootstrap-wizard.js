@@ -113,22 +113,6 @@ function addreservation(){
 	var id=$('#id').val();
 	var price = "";
 	
-	alert(getIn);
-	
-	/*if($('#name').val()==""||$('#name').val()==null 
-			 ||$('#date').val()==""||$('#date').val()==null
-			 ||$('#getIn').val()==""||$('#getIn').val()==null
-			 ||$('#getOut').val()==""||$('#getOut').val()==null
-			 ||$('#time').val()==""||$('#time').val()==null
-			 ||$('#phone').val()==""||$('#phone').val()==null
-			 ||$('#person').val()==""||$('#person').val()==null
-			 ||$('#driver').val()==""||$('#driver').val()==null
-			 ||$('#category').val()==""||$('#category').val()==null
-			 ||$('#car').val()==""||$('#car').val()==null){
-		alert("필수 항목들을 채워주세요");
-		return false;
-	}*/
-	
 	if(car=="starex"){
 		price = 5000;
 	}else if(car=="sonata"){

@@ -14,7 +14,7 @@ public class UserDAO {
 	public static UserDAO getInstance() {
 		return instance;
 	}
-	private Connection getConnection() throws Exception{
+	private static Connection getConnection() throws Exception{
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
 		DataSource ds = (DataSource)envCtx.lookup("jdbc/2019_2A01_DamoaTaxi");
@@ -223,5 +223,32 @@ public class UserDAO {
 				try{conn.close();}catch(SQLException ex){}
 		}
 		return x;
+	}
+	
+	public static String getUserEmail(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String SQL = "select impairment_email from impairment_member where impairment_ID = ? union select travel_email from travel_member where travel_ID = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, id);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				return rs.getString(1); // 이메일 주소 반환
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs!=null)
+				try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)
+				try{pstmt.close();}catch(SQLException ex){}
+			if(conn!=null)
+				try{conn.close();}catch(SQLException ex){}
+		}
+		return null; // 데이터베이스 오류
 	}
 }

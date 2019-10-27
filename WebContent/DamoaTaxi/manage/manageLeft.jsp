@@ -45,10 +45,12 @@
       	%>
         <a href="manageMain.jsp?content=manageDriver" class="list-group-item list-group-item-action bg-light">기사관리</a>
         <%	
-        	}
+        	}else{
         %>
         <a href="manageMain.jsp?content=manageReservation" class="list-group-item list-group-item-action bg-light">예약관리</a>
-        <a href="manageMain.jsp?content=managePayment" class="list-group-item list-group-item-action bg-light">결제현황</a>
+        <%
+        	}
+        %>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

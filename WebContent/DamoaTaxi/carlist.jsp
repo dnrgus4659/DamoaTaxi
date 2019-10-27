@@ -27,7 +27,7 @@
  	<link rel="stylesheet" href="css/time.css">
  	<link rel="stylesheet" href="css/lineup.css">
  	<link rel="stylesheet" href="css/Course.css">
-	<link rel="stylesheet" href="css/Carlist.css">
+	<link rel="stylesheet" href="css/carlist.css">
 
   </head>
   <body>

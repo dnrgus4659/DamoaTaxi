@@ -41,7 +41,7 @@
 <body>
 	<nav class="navbar font-weight-bold navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" data-aos="fade-down" data-aos-delay="500">
       <div class="container">
-        <a class="navbar-brand" href="../dm_Main.jsp"><img src="images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
+        <a class="navbar-brand" href="../dm_Main.jsp"><img src="../images/main_logo_big.png" style="width: 149px; height: 70px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -165,7 +165,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">예약자명</label>
-		                                          	<input name="name" type="text" class="form-control">
+		                                          	<input id="name" name="name" type="text" class="form-control">
 		                                        </div>
 											</div>
 											<div class="input-group">
@@ -175,7 +175,7 @@
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">이용날짜</label>
 		                                          	<div class="controls">
-											            <input class="datepicker form-control" name="date" type="text"/>
+											            <input class="datepicker form-control" id="date" name="date" type="text"/>
 													</div>
 		                                        </div>
 											</div>
@@ -201,7 +201,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">하차장소</label>
-		                                          	<input name="getOut" id="TgetOut" type="text" class="form-control">
+		                                          	<input name="getOut" id="getOut" type="text" class="form-control" value="getOut">
 		                                        </div>
 											</div>
 		                                </div>
@@ -212,7 +212,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">이용시간(ex.15:00)</label>
-		                                          	<input name="time" type="text" class="form-control">
+		                                          	<input id="time" name="time" type="text" class="form-control">
 		                                        </div>
 											</div>
 											<div class="input-group">
@@ -221,7 +221,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">휴대폰번호('-'없이 입력)</label>
-		                                          	<input name="phone" type="text" class="form-control">
+		                                          	<input id="phone" name="phone" type="text" class="form-control">
 		                                        </div>
 											</div>
 	                                	</div>
@@ -232,7 +232,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">탑승인원</label>
-		                                          	<select name="person" class="form-control">
+		                                          	<select id="person" name="person" class="form-control">
 														<option disabled="" selected=""></option>
 	                                                	<option value="1"> 1 </option>
 	                                                	<option value="2"> 2 </option>
@@ -249,7 +249,7 @@
 												</span>
 												<div class="form-group label-floating">
 		                                          	<label class="control-label">기사지정</label>
-		                                          	<select name="driver" class="form-control">
+		                                          	<select id="driver" name="driver" class="form-control">
 														<option disabled selected></option>
 														<%
 															for(int i = 0; i<driverTList.size(); i++){
@@ -309,7 +309,7 @@
 	                                    <div class="col-sm-6 offset-1">
                                     		<div class="form-group">
 	                                            <label>개인 코스 등 요청사항을 작성해주세요</label>
-	                                            <textarea class="form-control" name="requestContent" placeholder="" rows="6" style="border-bottom: 1px solid #d2d2d2;"></textarea>
+	                                            <textarea class="form-control" id="requestContent" name="requestContent" placeholder="" rows="6" style="border-bottom: 1px solid #d2d2d2;"></textarea>
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-sm-4">
@@ -323,11 +323,10 @@
 	                        </div>
                         	<div class="wizard-footer">
                             	<div class="pull-right">
-		                        	<input type="hidden" name="id" value="<%=id %>"/>
-		                        	<input type="hidden" name="category" value="T"/>
+		                        	<input type="hidden" id="id" name="id" value="<%=id %>"/>
+		                        	<input type="hidden" id="category" name="category" value="T"/>
                                     <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='다음' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='addreserv' id='addreserv' onclick='addreservation()' value='추가예약(담기)' />
-                                    <!-- <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' id='finish' value='예약하기' /> -->
+                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='addreserv' id='addreserv' onclick='addreservation()' value='예약담기' />
                                 </div>
                                 <div class="pull-left">
                                     <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='이전' />

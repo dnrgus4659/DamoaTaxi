@@ -124,7 +124,8 @@ delete from impairment_member where impairment_ID="asd";
 CREATE TABLE impairment_member
 (
     `impairment_ID`              VARCHAR(25)     NOT NULL    COMMENT '최소 4자리 이상', 
-    `impairment_Password`        VARCHAR(25)     NOT NULL    COMMENT '특수문자, 숫자, 영어 섞음',  
+    `impairment_Password`        VARCHAR(25)     NOT NULL    COMMENT '특수문자, 숫자, 영어 섞음',
+    `impairment_Password_check`        VARCHAR(25)     NOT NULL    COMMENT '특수문자, 숫자, 영어 섞음',
     `impairment_name`            VARCHAR(25)     NOT NULL    COMMENT '이름', 
     `impairment_phone_number`    VARCHAR(13)     NOT NULL    COMMENT '000-0000-0000 방식', 
     `impairment_email`           VARCHAR(32)     NOT NULL    COMMENT 'xxxxxxxxxxxxxxxxxxxx@xxxxxxx.xxx 방식', 
@@ -147,7 +148,8 @@ delete from travel_member where travel_ID='sdf';
 CREATE TABLE travel_member
 (
     `travel_ID`              VARCHAR(25)     NOT NULL    COMMENT '최소 4자리 이상', 
-    `travel_Password`        VARCHAR(25)     NOT NULL    COMMENT '특수문자, 숫자, 영어 섞음',  
+    `travel_Password`        VARCHAR(25)     NOT NULL    COMMENT '특수문자, 숫자, 영어 섞음',
+    `travel_Password_check`        VARCHAR(25)     NOT NULL    COMMENT '특수문자, 숫자, 영어 섞음',
     `travel_name`            VARCHAR(25)     NOT NULL    COMMENT '이름', 
     `travel_phone_number`    VARCHAR(13)     NOT NULL    COMMENT '000-0000-0000 방식', 
     `travel_email`           VARCHAR(32)     NOT NULL    COMMENT 'xxxxxxxxxxxxxxxxxxxx@xxxxxxx.xxx 방식', 

@@ -37,7 +37,7 @@ public class cartInsertServlet extends HttpServlet {
 			cartDAO.cartInsert(name, date, getIn, getOut, time, phone, person, driver, requestContent, category, car, id, price);
 			request.getSession().setAttribute("messageType", "성공 메세지");
 			request.getSession().setAttribute("messageContent", "예약을 담았습니다.");
-			response.sendRedirect("../DamoaTaxi/dm_Main.jsp");
+			response.sendRedirect("../DamoaTaxi/reservation_status.jsp");
 			return;
 		} catch (Exception e) {
 			e.printStackTrace();

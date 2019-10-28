@@ -139,7 +139,7 @@
                                 <td><%=cartList.getCar() %></td>
                                 <td><%=cartList.getPrice() %></td>
                                 <td>
-	                                <a href="../../cartDelete?num=<%=cartList.getNum()%>" class="tag-cloud-link" 
+	                                <a href="../cartDelete?num=<%=cartList.getNum()%>" class="tag-cloud-link" 
 						  				onclick="return confirm('정말로 삭제하시겠습니까?')">삭제
 						  			</a>
 						        </td>
